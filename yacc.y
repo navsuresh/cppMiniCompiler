@@ -1,7 +1,6 @@
 %{
 #include <stdio.h>
 #include <stdlib.h>
-extern FILE *fp;
 %}
 
 %token INT FLOAT CHAR DOUBLE VOID

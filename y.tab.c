@@ -66,9 +66,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-extern FILE *fp;
 
-#line 72 "y.tab.c" /* yacc.c:339  */
+#line 71 "y.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -166,7 +165,7 @@ int yyparse (void);
 
 /* Copy the second part of user declarations.  */
 
-#line 170 "y.tab.c" /* yacc.c:358  */
+#line 169 "y.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -466,14 +465,14 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    20,    20,    21,    25,    26,    27,    28,    29,    30,
-      31,    35,    36,    37,    38,    39,    40,    41,    42,    43,
-      44,    45,    46,    47,    48,    49,    50,    51,    52,    53,
-      54,    55,    59,    60,    64,    68,    70,    71,    73,    74,
-      76,    78,    80,    81,    83,    84,    85,    86,    87,    88,
-      92,    93,    94,    95,    96,   100,   101,   105,   106,   107,
-     108,   112,   117,   121,   125,   126,   127,   128,   129,   130,
-     131,   132,   133
+       0,    19,    19,    20,    24,    25,    26,    27,    28,    29,
+      30,    34,    35,    36,    37,    38,    39,    40,    41,    42,
+      43,    44,    45,    46,    47,    48,    49,    50,    51,    52,
+      53,    54,    58,    59,    63,    67,    69,    70,    72,    73,
+      75,    77,    79,    80,    82,    83,    84,    85,    86,    87,
+      91,    92,    93,    94,    95,    99,   100,   104,   105,   106,
+     107,   111,   116,   120,   124,   125,   126,   127,   128,   129,
+     130,   131,   132
 };
 #endif
 
@@ -1371,7 +1370,7 @@ yyreduce:
   switch (yyn)
     {
       
-#line 1375 "y.tab.c" /* yacc.c:1646  */
+#line 1374 "y.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1599,7 +1598,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 135 "yacc.y" /* yacc.c:1906  */
+#line 134 "yacc.y" /* yacc.c:1906  */
 
 #include"lex.yy.c"
 #include<ctype.h>
