@@ -23,8 +23,12 @@ init
 declaration
 	: type assignment_st ';'
 	| assignment_st ';'
+	| type array_st';'
 	;
  
+array_st
+	: ID '[' NUM ']'
+	;
 
 func_declaration
 	: type ID '(' arg_list_optional ')' compound_st
@@ -41,12 +45,8 @@ statement_structure
 
 statement
 	: declaration
-	| for_st
 	;
 
-for_st 
-	:
-	;
 arg_list_optional
 	: arg_list_actual 
 	| 
