@@ -4,6 +4,9 @@
 extern FILE *fp;
 %}
 
+
+
+
 %token INT FLOAT CHAR DOUBLE VOID
 %token FOR WHILE 
 %token IF ELSE PRINTF 
@@ -14,14 +17,11 @@ extern FILE *fp;
 
 %right '='
 %left AND OR
-%left '<' '>' LE GE EQ NE LT GT
+%left '<' '>' LE GE EQU NE LT GT 
 %%
 
 
-Initial : #include <iostream> Initial | #include ”TEXT” Initial | 
-Initial Initial | Init | 
-           #define TEXT TEXT 
-Library ->  stdio.h | iostream | string.h
+Initial : LIBRARY Initial | Initial Initial | Init  
 TEXT -> text
 Init ->	Function | Declaration | Init Function | Init Declaration
 
