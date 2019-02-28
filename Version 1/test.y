@@ -3,14 +3,16 @@
 void yyerror(const char *error_msg);
 int yylex();
 extern FILE* yyin;
+extern FILE *yyout;
 %}
 
 %token INT FLOAT CHAR DOUBLE VOID
 %token NUM ID
+%token FOR
 
 %right '='
 %left AND OR
-%left '<' '>' LE GE EQ NE LT GT
+%left  LE GE EQ NE LT GT DP DM
 %start init
 
 %%
@@ -45,7 +47,12 @@ statement_structure
 
 statement
 	: declaration
+	| for_stmt
 	;
+
+for_stmt: FOR '(' assignment_st ';' expression ';' assignment_st ')' statement 
+ 	FOR '(' assignment_st ';' expression ';' assignment_st ')' compound_st 
+ 	;
 
 arg_list_optional
 	: arg_list_actual 
@@ -65,7 +72,17 @@ assignment_st
 	: ID '=' ID
 	| ID '=' NUM
 	| ID
+	| assignment_st_t
 	;
+	
+
+assignment_st_t : assignment_st_f		
+;
+			
+
+
+
+assignment_st_f :  '(' assignment_st ')' | 
 
 type
 	: INT 
@@ -73,6 +90,14 @@ type
 	| CHAR 
 	| DOUBLE 
 	| VOID
+	;
+expression:  expression LE expression 
+	| expression GE expression
+	| expression NE expression
+	| expression EQ expression
+	| expression GT expression
+	| expression LT expression
+	|ID | NUM
 	;
 %%
 
@@ -83,11 +108,13 @@ void yyerror(const char *error_msg) {
 int main(int argc, char *argv[]) {
 
 	yyin = fopen(argv[1], "r");
+	yyout=fopen("a.txt","w");
 	if (!yyparse()) {
 		printf("successful\n");
 	} else {
 		printf("unsuccessful\n");
 	}
 	fclose(yyin);
+	fclose(yyout);
 	return 0;
 }

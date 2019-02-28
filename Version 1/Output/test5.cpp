@@ -1,14 +1,15 @@
 here
+newline
 int
 Space
 ID
 open
 close
-newline
 open_curly
 newline
 for
 open
+Space
 ID
 ID
 LT

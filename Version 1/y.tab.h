@@ -52,14 +52,17 @@ extern int yydebug;
     VOID = 262,
     NUM = 263,
     ID = 264,
-    AND = 265,
-    OR = 266,
-    LE = 267,
-    GE = 268,
-    EQ = 269,
-    NE = 270,
-    LT = 271,
-    GT = 272
+    FOR = 265,
+    AND = 266,
+    OR = 267,
+    LE = 268,
+    GE = 269,
+    EQ = 270,
+    NE = 271,
+    LT = 272,
+    GT = 273,
+    DP = 274,
+    DM = 275
   };
 #endif
 /* Tokens.  */
@@ -70,14 +73,17 @@ extern int yydebug;
 #define VOID 262
 #define NUM 263
 #define ID 264
-#define AND 265
-#define OR 266
-#define LE 267
-#define GE 268
-#define EQ 269
-#define NE 270
-#define LT 271
-#define GT 272
+#define FOR 265
+#define AND 266
+#define OR 267
+#define LE 268
+#define GE 269
+#define EQ 270
+#define NE 271
+#define LT 272
+#define GT 273
+#define DP 274
+#define DM 275
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED

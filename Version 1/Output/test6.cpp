@@ -1,11 +1,13 @@
 here
+newline
+int
 Space
 ID
 open
-Space
 close
 open_curly
 newline
+tab
 int
 Space
 ID
