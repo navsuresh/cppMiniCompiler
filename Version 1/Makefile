@@ -24,4 +24,8 @@ lex.yy.c: $(SRCS_L)
 
 clean:
 	@echo "Cleaning up..."
-	rm exec lex.yy.c y.tab.*
+	mkdir temp
+	mv Makefile *.l *.y *.sh temp
+	find . -maxdepth 1 -type f -exec rm -fv {} \;
+	mv temp/* .
+	rmdir temp
