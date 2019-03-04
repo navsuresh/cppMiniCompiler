@@ -1,4 +1,9 @@
 %{
+    extern "C"
+    {
+        int yylex(void);
+    }
+
 #include <stdio.h>
 #include "y.tab.h"
 void yyerror(const char* error_msg);

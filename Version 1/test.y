@@ -1,9 +1,23 @@
 %{
 #include <stdio.h>
+#include <iostream>
+#include <string.h>
+using namespace std;
 void yyerror(const char *error_msg);
-int yylex();
-extern FILE* yyin;
-extern FILE *yyout;
+
+int counter = 0;
+extern FILE *yyin;
+
+extern "C"
+{       
+        int yyparse(void);
+        int yylex(void);  
+        int yywrap()
+        {
+                return 1;
+        }
+
+}
 %}
 
 %token INT FLOAT CHAR DOUBLE VOID
@@ -101,20 +115,24 @@ expression:  expression LE expression
 	;
 %%
 
+
+
+
 void yyerror(const char *error_msg) {
 	printf("error_msg: %s\n", error_msg);
 }
 
 int main(int argc, char *argv[]) {
 
+	cout<<"HELLO WORLD\n";
 	yyin = fopen(argv[1], "r");
-	yyout=fopen("a.txt","w");
 	if (!yyparse()) {
 		printf("successful\n");
 	} else {
 		printf("unsuccessful\n");
 	}
 	fclose(yyin);
-	fclose(yyout);
 	return 0;
 }
+
+
