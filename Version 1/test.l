@@ -1,3 +1,5 @@
+%option yylineno
+
 %{
     extern "C"
     {
@@ -31,21 +33,24 @@ id [a-zA-Z_]([a-zA-Z_]|[0-9])*
 
 "#include"[ ]*"<".*">"\n {printf("here\n");}
 "#include"[ ]*"\"".*"\"" {printf("hello please\n");}
-"int" {printf("int\n");
+
+"int" {yylval.str = strdup(yytext);printf("int\n");
 		return (INT);}
-"float" {return (FLOAT);}
-"char" {return (CHAR);}
+
+"float" {yylval.str = strdup(yytext);return (FLOAT);}
+"char" {yylval.str = strdup(yytext);return (CHAR);}
+
 "++" {return DP;}
 "+" {return '+';}
 "-" {return '-';}
 "/" {return '/';}
 "*" {return '*';}
 "--" {return DM;}
-"double" {return (DOUBLE);}
-"void" {return (VOID);}
+"double" {yylval.str = strdup(yytext);return (DOUBLE);}
+"void" {yylval.str = strdup(yytext);return (VOID);}
 
 
-{digit}* {return (NUM);}
+{digit}* {printf("DIGIT\n");yylval.str = strdup(yytext);return (NUM);}
 "=" {return ('=');}
 ";" {return (';');}
 "," {return (',');}
@@ -53,6 +58,7 @@ id [a-zA-Z_]([a-zA-Z_]|[0-9])*
 "}" {printf("close_curly\n");return ('}');}
 "for" {printf("for\n");return FOR;}
 [a-zA-Z_]([a-zA-Z_]|[0-9])* {
+		yylval.str = strdup(yytext);
 		printf("ID\n");
         return (ID);
         }

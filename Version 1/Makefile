@@ -4,19 +4,22 @@
 
 .PHONY = all clean
 
-CC = gcc                        # compiler to use
+CC = g++                        # compiler to use
 LINKERFLAG = -ll -ly
-objects = y.tab.c lex.yy.c
 
 SRCS_L := $(wildcard *.l)
 SRCS_Y := $(wildcard *.y)
+SRCS_CPP := $(wildcard *.cpp)
+
+
+objects = y.tab.c lex.yy.c $(SRCS_CPP)
 
 exec: $(objects)
-	${CC} -o exec $(objects) $(LINKERFLAG)
+	${CC} -o exec $(objects) 
 
 y.tab.c: $(SRCS_Y)
 	@echo "Checking.."
-	yacc -d $<
+	bison -d $< -o y.tab.c
 
 lex.yy.c: $(SRCS_L)
 	@echo "Creating object.."
@@ -25,7 +28,7 @@ lex.yy.c: $(SRCS_L)
 clean:
 	@echo "Cleaning up..."
 	mkdir temp
-	mv Makefile *.l *.y *.sh temp
+	mv Makefile *.l *.y *.sh *.cpp *.hpp temp
 	find . -maxdepth 1 -type f -exec rm -fv {} \;
 	mv temp/* .
 	rmdir temp

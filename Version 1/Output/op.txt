@@ -9,8 +9,12 @@ close
 open_curly
 newline
 int
+String is int
+int
 Space
 ID
+HEllo world
+A is 5
 newline
 close_curly
 successful
@@ -18,37 +22,63 @@ Input/test1.cpp
 here
 Space
 int
-Space
-ID
-Space
-newline
+String is int
 int
 Space
 ID
+Space
+HEllo world
+A is 5
+newline
+int
+String is int
+int
+Space
+ID
+HEllo world
+A is 5
 successful
 Input/test2.cpp
 int
+String is int
+int
 Space
 ID
+HEllo world
+A is 5
 successful
 Input/test3.cpp
 int
-Space
-ID
-newline
+String is int
 int
 Space
 ID
+HEllo world
+A is 5
 newline
+int
+String is int
+int
+Space
+ID
+HEllo world
+A is 5
+newline
+int
+String is int
 int
 Space
 ID
 Space
 Space
+HEllo world
+A is 5
 newline
 successful
 Input/test4.cpp
 here
+int
+String is int
 int
 Space
 ID
@@ -72,6 +102,8 @@ Input/test5.cpp
 here
 newline
 int
+String is int
+int
 Space
 ID
 open
@@ -94,6 +126,8 @@ Input/test6.cpp
 here
 newline
 int
+String is int
+int
 Space
 ID
 open
@@ -102,8 +136,12 @@ open_curly
 newline
 tab
 int
+String is int
+int
 Space
 ID
+HEllo world
+A is 5
 newline
 close_curly
 successful
