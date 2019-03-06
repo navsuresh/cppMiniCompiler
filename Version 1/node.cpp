@@ -6,8 +6,12 @@ using namespace std;
 
 //Node
 node::node() {}
-node::node(int line_no, string identifier, string type, string value) : line_no(line_no), identifier(identifier), type(type), value(value) {}
-node::node(const node &copy_node) : line_no(copy_node.line_no), identifier(copy_node.identifier), type(copy_node.type), value(copy_node.value) {}
+
+node::node(int line_no, string identifier, string type, string value, int size) : line_no(line_no), identifier(identifier), type(type), value(value), size(size) {}
+
+node::node(int line_no, string identifier, string type, string value, string  size) : line_no(line_no), identifier(identifier), type(type), value(value), size(stoi(size)) {}
+
+node::node(const node &copy_node) : line_no(copy_node.line_no), identifier(copy_node.identifier), type(copy_node.type), value(copy_node.value), size(copy_node.size) {}
 
 int node::get_line_no() const
 {
@@ -29,6 +33,11 @@ string node::get_value() const
     return value;
 }
 
+int node::get_size() const
+{
+    return size;
+}
+
 void node::set_line_no(int line_no)
 {
     this->line_no = line_no;
@@ -43,8 +52,10 @@ void node::set_type(string type)
 }
 void node::set_value(string value)
 {
-    cout << "HEREREERER\n";
     this->value = value;
+}
+void node::set_size(int size){
+    this->size = size;
 }
 
 void node::disp_node() const
@@ -53,6 +64,7 @@ void node::disp_node() const
     cout << "identifier is " << this->identifier << "\n";
     cout << "type is " << this->type << "\n";
     cout << "value is " << this->value << "\n";
+    cout << "Size is "<< this->size<<"\n";
     cout << "\n";
 }
 
@@ -63,13 +75,13 @@ bool node::operator<(const node &second) const
 
 //Abstract Syntax Tree
 ast::ast() {}
-void ast::insert(int line_no, string identifier, string type, string value)
+void ast::insert(int line_no, string identifier, string type, string value, int size)
 {
     if (tree.find(identifier) == tree.end())
     {
         tree[identifier] = set<node>();
     }
-    tree[identifier].insert(node(line_no, identifier, type, value));
+    tree[identifier].insert(node(line_no, identifier, type, value, size));
 }
 
 void ast::insert(node _node)

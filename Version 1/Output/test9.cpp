@@ -12,12 +12,6 @@ int
 Space
 ID
 DIGIT
-BIG SCOPE
-line_no is 4
-identifier is i
-type is int
-value is 0
-
 newline
 tab
 while
@@ -44,12 +38,6 @@ tab
 int
 Space
 ID
-BIG SCOPE
-line_no is 7
-identifier is j
-type is int
-value is 
-
 newline
 tab
 close_curly
@@ -71,12 +59,6 @@ tab
 int
 Space
 ID
-BIG SCOPE
-line_no is 10
-identifier is k
-type is int
-value is 
-
 newline
 tab
 close_curly
@@ -89,12 +71,6 @@ tab
 int
 Space
 ID
-BIG SCOPE
-line_no is 13
-identifier is l
-type is int
-value is 
-
 Space
 newline
 tab
@@ -110,23 +86,27 @@ line_no is 10
 identifier is k
 type is int
 value is 
+Size is 4
 
 
 line_no is 4
 identifier is i
 type is int
 value is 0
+Size is 4
 
 
 line_no is 13
 identifier is l
 type is int
 value is 
+Size is 4
 
 
 line_no is 7
 identifier is j
 type is int
 value is 
+Size is 4
 
 

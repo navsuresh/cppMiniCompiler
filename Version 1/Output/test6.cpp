@@ -11,12 +11,6 @@ tab
 int
 Space
 ID
-BIG SCOPE
-line_no is 4
-identifier is i
-type is int
-value is 
-
 newline
 close_curly
 successful
@@ -25,5 +19,6 @@ line_no is 4
 identifier is i
 type is int
 value is 
+Size is 4
 
 

@@ -7,6 +7,7 @@
 using namespace std;
 ast test;
 ast test1;
+unordered_map <string,int> size_map;
 const char *s = "Hello, World!";   
 
 class test123{
@@ -20,6 +21,7 @@ class test123{
 	}
 
 };
+
 
 
 
@@ -55,7 +57,7 @@ extern "C"
 %left  LE GE EQ NE LT GT DP DM
 
 %type<str> type 
-%type<node> assignment_st
+%type<node> assignment_st array_st
 %start init
 
 %%
@@ -66,13 +68,25 @@ init
 	;
 
 declaration
-	: type assignment_st ';' {cout<<"BIG SCOPE\n";$2->set_type($1);$2->disp_node(); test1.insert(*$2);}
-	| assignment_st ';'
-	| type array_st';'
+	: type assignment_st ';' {
+		// cout<<"BIG SCOPE\n";
+		$2->set_size(size_map[$1]);
+		$2->set_type($1);
+		// $2->disp_node(); 
+		test1.insert(*$2);}
+	| assignment_st ';' {
+
+	}
+	| type array_st';'{
+		$2->set_size($2->get_size()*size_map[$1]);
+		$2->set_type($1);
+		// $2->disp_node(); 
+		test1.insert(*$2);
+	}
 	;
  
 array_st
-	: ID '[' NUM ']'
+	: ID '[' NUM ']' {$$ = new node(yylineno,$1,"","",$3);}
 	;
 
 func_declaration
@@ -129,9 +143,9 @@ arg_final
 	;
 
 assignment_st
-	: ID '=' ID {$$ = new node(yylineno,$1,"",$3);}
-	| ID '=' NUM {$$ = new node(yylineno,$1,"",$3);}
-	| ID {$$ = new node(yylineno,$1,"","");}
+	: ID '=' ID {$$ = new node(yylineno,$1,"",$3,0);}
+	| ID '=' NUM {$$ = new node(yylineno,$1,"",$3,0);}
+	| ID {$$ = new node(yylineno,$1,"","",0);}
 	;
 	
 
@@ -169,7 +183,10 @@ int main(int argc, char *argv[]) {
 
 
     
-
+	size_map["char"]=1;
+	size_map["int"]=4;
+	size_map["float"]=4;
+	size_map["double"]=8;
 
 
 	// cout<<"HELLO WORLD\n";
@@ -181,21 +198,21 @@ int main(int argc, char *argv[]) {
 	}
 
 
-	test.insert(1,s,"int","");
-test.insert(3,s,"float","");
-test.insert(2,s,"double","");
+	test.insert(1,s,"int","",4);
+	test.insert(3,s,"float","",4);
+	test.insert(2,s,"double","",8);
 
 
-const char *s1 = "Hello, World!1";   
-test.insert(4,s1,"int","");
-test.insert(4,s1,"float","");
-test.insert(5,s1,"double","");
+	const char *s1 = "Hello, World!1";   
+	test.insert(4,s1,"int","",4);
+	test.insert(4,s1,"float","",4);
+	test.insert(5,s1,"double","",8);
 
 
 
 // test.display();
-cout<<"TEST1 is \n";
-test1.display();
+	cout<<"TEST1 is \n";
+	test1.display();
 	fclose(yyin);
 
 

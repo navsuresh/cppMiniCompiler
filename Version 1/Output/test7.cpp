@@ -20,12 +20,6 @@ int
 Space
 ID
 DIGIT
-BIG SCOPE
-line_no is 5
-identifier is i
-type is int
-value is 0
-
 newline
 tab
 close_curly
@@ -37,5 +31,6 @@ line_no is 5
 identifier is i
 type is int
 value is 0
+Size is 4
 
 
