@@ -47,7 +47,7 @@ extern "C"
 }
 
 %token <str> ID NUM INT FLOAT CHAR DOUBLE VOID 
-%token FOR
+%token FOR WHILE IF ELSE
 
 
 %right '='
@@ -90,12 +90,29 @@ statement_structure
 
 statement
 	: declaration
+	| while_stmt
 	| for_stmt
+	| if_stmt
 	;
 
 for_stmt: FOR '(' assignment_st ';' expression ';' assignment_st ')' statement 
  	FOR '(' assignment_st ';' expression ';' assignment_st ')' compound_st 
  	;
+while_stmt: WHILE '(' expression ')' statement
+	| WHILE '(' expression ')' compound_st
+	;
+
+start_if_stmt : IF '(' expression ')' statement; 
+start_if_compound_st: IF '(' expression ')' compound_st; 
+if_stmt : start_if_stmt
+	| start_if_compound_st
+	| start_if_stmt ELSE statement
+	| start_if_stmt ELSE compound_st
+	| start_if_compound_st ELSE statement
+	| start_if_compound_st ELSE compound_st
+	;	
+
+
 
 arg_list_optional
 	: arg_list_actual 
@@ -115,17 +132,13 @@ assignment_st
 	: ID '=' ID {$$ = new node(yylineno,$1,"",$3);}
 	| ID '=' NUM {$$ = new node(yylineno,$1,"",$3);}
 	| ID {$$ = new node(yylineno,$1,"","");}
-	| assignment_st_t
 	;
 	
 
-assignment_st_t : assignment_st_f		
-;
 			
 
 
 
-assignment_st_f :  '(' assignment_st ')' | 
 
 type
 	: INT {$$=$1;}

@@ -9,76 +9,156 @@ close
 open_curly
 newline
 int
-String is int
-int
 Space
 ID
-HEllo world
-A is 5
+DIGIT
+BIG SCOPE
+line_no is 3
+identifier is a
+type is int
+value is 10
+
 newline
 close_curly
 successful
+TEST1 is 
+line_no is 3
+identifier is a
+type is int
+value is 10
+
+
 Input/test1.cpp
 here
 Space
 int
-String is int
-int
 Space
 ID
 Space
-HEllo world
-A is 5
+DIGIT
+BIG SCOPE
+line_no is 2
+identifier is a
+type is int
+value is 5
+
 newline
 int
-String is int
-int
 Space
 ID
-HEllo world
-A is 5
+BIG SCOPE
+line_no is 3
+identifier is b
+type is int
+value is 
+
+newline
+Space
+ID
+Space
+Space
+DIGIT
+BIG SCOPE
+line_no is 4
+identifier is c
+type is float
+value is 9
+
 successful
+TEST1 is 
+line_no is 4
+identifier is c
+type is float
+value is 9
+
+
+line_no is 2
+identifier is a
+type is int
+value is 5
+
+
+line_no is 3
+identifier is b
+type is int
+value is 
+
+
 Input/test2.cpp
 int
-String is int
-int
 Space
 ID
-HEllo world
-A is 5
+DIGIT
+BIG SCOPE
+line_no is 1
+identifier is a
+type is int
+value is 1
+
 successful
+TEST1 is 
+line_no is 1
+identifier is a
+type is int
+value is 1
+
+
 Input/test3.cpp
 int
-String is int
-int
 Space
 ID
-HEllo world
-A is 5
+BIG SCOPE
+line_no is 1
+identifier is a
+type is int
+value is 
+
 newline
 int
-String is int
-int
 Space
 ID
-HEllo world
-A is 5
+BIG SCOPE
+line_no is 2
+identifier is b
+type is int
+value is 
+
 newline
 int
-String is int
-int
 Space
 ID
 Space
 Space
-HEllo world
-A is 5
+DIGIT
+BIG SCOPE
+line_no is 3
+identifier is c
+type is int
+value is 5
+
 newline
 successful
+TEST1 is 
+line_no is 3
+identifier is c
+type is int
+value is 5
+
+
+line_no is 1
+identifier is a
+type is int
+value is 
+
+
+line_no is 2
+identifier is b
+type is int
+value is 
+
+
 Input/test4.cpp
 here
-int
-String is int
 int
 Space
 ID
@@ -90,20 +170,23 @@ newline
 for
 open
 ID
+DIGIT
 ID
+Value1 is i
 LT
 ID
+Value1 is n
 ID
+DIGIT
 close
 open_curly
 error_msg: syntax error
 unsuccessful
+TEST1 is 
 Input/test5.cpp
 here
 newline
 int
-String is int
-int
 Space
 ID
 open
@@ -114,19 +197,22 @@ for
 open
 Space
 ID
+DIGIT
 ID
+Value1 is i
 LT
 ID
+Value1 is n
 ID
+DIGIT
 close
 open_curly
 error_msg: syntax error
 unsuccessful
+TEST1 is 
 Input/test6.cpp
 here
 newline
-int
-String is int
 int
 Space
 ID
@@ -136,12 +222,305 @@ open_curly
 newline
 tab
 int
-String is int
-int
 Space
 ID
-HEllo world
-A is 5
+BIG SCOPE
+line_no is 4
+identifier is i
+type is int
+value is 
+
 newline
 close_curly
 successful
+TEST1 is 
+line_no is 4
+identifier is i
+type is int
+value is 
+
+
+Input/test7.cpp
+here
+newline
+int
+Space
+ID
+open
+close
+open_curly
+newline
+tab
+while
+open
+DIGIT
+Value2 is 1
+close
+open_curly
+newline
+tab
+int
+Space
+ID
+DIGIT
+BIG SCOPE
+line_no is 5
+identifier is i
+type is int
+value is 0
+
+newline
+tab
+close_curly
+newline
+close_curly
+successful
+TEST1 is 
+line_no is 5
+identifier is i
+type is int
+value is 0
+
+
+Input/test8.cpp
+here
+newline
+int
+Space
+ID
+open
+close
+newline
+open_curly
+newline
+tab
+int
+Space
+ID
+DIGIT
+BIG SCOPE
+line_no is 5
+identifier is i
+type is int
+value is 7
+
+newline
+tab
+while
+open
+ID
+Value1 is i
+GE
+DIGIT
+Value2 is 7
+close
+open_curly
+newline
+tab
+while
+open
+DIGIT
+Value2 is 1
+close
+open_curly
+newline
+tab
+int
+Space
+ID
+DIGIT
+BIG SCOPE
+line_no is 8
+identifier is j
+type is int
+value is 0
+
+newline
+tab
+int
+Space
+ID
+BIG SCOPE
+line_no is 9
+identifier is k
+type is int
+value is 
+
+newline
+tab
+int
+Space
+ID
+BIG SCOPE
+line_no is 10
+identifier is l
+type is int
+value is 
+
+newline
+tab
+close_curly
+newline
+tab
+close_curly
+newline
+close_curly
+successful
+TEST1 is 
+line_no is 9
+identifier is k
+type is int
+value is 
+
+
+line_no is 5
+identifier is i
+type is int
+value is 7
+
+
+line_no is 10
+identifier is l
+type is int
+value is 
+
+
+line_no is 8
+identifier is j
+type is int
+value is 0
+
+
+Input/test9.cpp
+here
+newline
+int
+Space
+ID
+open
+close
+open_curly
+newline
+tab
+int
+Space
+ID
+DIGIT
+BIG SCOPE
+line_no is 4
+identifier is i
+type is int
+value is 0
+
+newline
+tab
+while
+open
+ID
+Value1 is i
+GE
+DIGIT
+Value2 is 0
+close
+open_curly
+newline
+tab
+if
+open
+ID
+Value1 is i
+DIGIT
+Value2 is 0
+close
+open_curly
+newline
+tab
+int
+Space
+ID
+BIG SCOPE
+line_no is 7
+identifier is j
+type is int
+value is 
+
+newline
+tab
+close_curly
+newline
+tab
+else
+Space
+if
+open
+ID
+Value1 is i
+GT
+DIGIT
+Value2 is 0
+close
+open_curly
+newline
+tab
+int
+Space
+ID
+BIG SCOPE
+line_no is 10
+identifier is k
+type is int
+value is 
+
+newline
+tab
+close_curly
+newline
+tab
+else
+open_curly
+newline
+tab
+int
+Space
+ID
+BIG SCOPE
+line_no is 13
+identifier is l
+type is int
+value is 
+
+Space
+newline
+tab
+close_curly
+newline
+tab
+close_curly
+newline
+close_curly
+successful
+TEST1 is 
+line_no is 10
+identifier is k
+type is int
+value is 
+
+
+line_no is 4
+identifier is i
+type is int
+value is 0
+
+
+line_no is 13
+identifier is l
+type is int
+value is 
+
+
+line_no is 7
+identifier is j
+type is int
+value is 
+
+

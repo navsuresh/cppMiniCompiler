@@ -48,7 +48,8 @@ id [a-zA-Z_]([a-zA-Z_]|[0-9])*
 "--" {return DM;}
 "double" {yylval.str = strdup(yytext);return (DOUBLE);}
 "void" {yylval.str = strdup(yytext);return (VOID);}
-
+"if" {printf("if\n"); return IF;}
+"else"  { printf("else\n"); return ELSE;}
 
 {digit}* {printf("DIGIT\n");yylval.str = strdup(yytext);return (NUM);}
 "=" {return ('=');}
@@ -57,6 +58,7 @@ id [a-zA-Z_]([a-zA-Z_]|[0-9])*
 "{" {printf("open_curly\n");return ('{');}
 "}" {printf("close_curly\n");return ('}');}
 "for" {printf("for\n");return FOR;}
+"while" {printf("while\n"); return WHILE;}
 [a-zA-Z_]([a-zA-Z_]|[0-9])* {
 		yylval.str = strdup(yytext);
 		printf("ID\n");
