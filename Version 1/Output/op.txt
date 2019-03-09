@@ -12,6 +12,8 @@ int
 Space
 ID
 DIGIT
+10
+10
 newline
 int
 Space
@@ -43,16 +45,22 @@ Space
 ID
 Space
 DIGIT
+5
+5
 newline
 int
 Space
 ID
+b
+b
 newline
 Space
 ID
 Space
 Space
 DIGIT
+9
+9
 successful
 TEST1 is 
 line_no is 4
@@ -70,9 +78,9 @@ Size is 4
 
 
 line_no is 3
-identifier is b
+identifier is 
 type is int
-value is 
+value is b
 Size is 4
 
 
@@ -89,10 +97,6 @@ newline
 Space
 for
 open
-ID
-Space
-Space
-DIGIT
 Space
 ID
 Value1 is i
@@ -107,6 +111,8 @@ Space
 Space
 DIGIT
 close
+5
+5
 newline
 Space
 open_curly
@@ -116,6 +122,8 @@ ID
 Space
 Space
 DIGIT
+5
+5
 newline
 Space
 close_curly
@@ -123,11 +131,48 @@ newline
 close_curly
 successful
 TEST1 is 
+Input/test11.cpp
+here
+newline
+int
+Space
+ID
+open
+close
+newline
+open_curly
+newline
+Space
+int
+Space
+ID
+Space
+Space
+DIGIT
+Space
+5
+5
+DIGIT
+5
+5
+newline
+close_curly
+successful
+TEST1 is 
+line_no is 5
+identifier is a
+type is int
+value is 5
+Size is 4
+
+
 Input/test2.cpp
 int
 Space
 ID
 DIGIT
+1
+1
 successful
 TEST1 is 
 line_no is 1
@@ -141,10 +186,14 @@ Input/test3.cpp
 int
 Space
 ID
+a
+a
 newline
 int
 Space
 ID
+b
+b
 newline
 int
 Space
@@ -152,6 +201,8 @@ ID
 Space
 Space
 DIGIT
+5
+5
 newline
 successful
 TEST1 is 
@@ -163,16 +214,15 @@ Size is 4
 
 
 line_no is 1
-identifier is a
+identifier is 
 type is int
-value is 
+value is a
 Size is 4
 
-
 line_no is 2
-identifier is b
+identifier is 
 type is int
-value is 
+value is b
 Size is 4
 
 
@@ -190,6 +240,8 @@ for
 open
 ID
 DIGIT
+0
+0
 ID
 Value1 is i
 LT
@@ -198,18 +250,24 @@ Value1 is n
 ID
 DIGIT
 close
+5
+5
 open_curly
 newline
 tab
 int
 Space
 ID
+i
+i
 newline
 tab
 int
 Space
 ID
 DIGIT
+5
+5
 newline
 close_curly
 newline
@@ -224,9 +282,9 @@ Size is 4
 
 
 line_no is 5
-identifier is i
+identifier is 
 type is int
-value is 
+value is i
 Size is 4
 
 
@@ -245,6 +303,8 @@ open
 Space
 ID
 DIGIT
+0
+0
 ID
 Value1 is i
 LT
@@ -253,11 +313,15 @@ Value1 is n
 ID
 DIGIT
 close
+5
+5
 open_curly
 newline
 tab
 ID
 DIGIT
+9
+9
 newline
 close_curly
 newline
@@ -279,14 +343,16 @@ tab
 int
 Space
 ID
+i
+i
 newline
 close_curly
 successful
 TEST1 is 
 line_no is 4
-identifier is i
+identifier is 
 type is int
-value is 
+value is i
 Size is 4
 
 
@@ -313,6 +379,8 @@ int
 Space
 ID
 DIGIT
+0
+0
 newline
 tab
 close_curly
@@ -343,6 +411,8 @@ int
 Space
 ID
 DIGIT
+7
+7
 newline
 tab
 while
@@ -368,16 +438,22 @@ int
 Space
 ID
 DIGIT
+0
+0
 newline
 tab
 int
 Space
 ID
+k
+k
 newline
 tab
 int
 Space
 ID
+l
+l
 newline
 tab
 close_curly
@@ -389,9 +465,15 @@ close_curly
 successful
 TEST1 is 
 line_no is 9
-identifier is k
+identifier is 
 type is int
-value is 
+value is k
+Size is 4
+
+line_no is 10
+identifier is 
+type is int
+value is l
 Size is 4
 
 
@@ -399,13 +481,6 @@ line_no is 5
 identifier is i
 type is int
 value is 7
-Size is 4
-
-
-line_no is 10
-identifier is l
-type is int
-value is 
 Size is 4
 
 
@@ -431,6 +506,8 @@ int
 Space
 ID
 DIGIT
+0
+0
 newline
 tab
 while
@@ -457,6 +534,8 @@ tab
 int
 Space
 ID
+j
+j
 newline
 tab
 close_curly
@@ -478,6 +557,8 @@ tab
 int
 Space
 ID
+k
+k
 newline
 tab
 close_curly
@@ -490,6 +571,8 @@ tab
 int
 Space
 ID
+l
+l
 Space
 newline
 tab
@@ -501,10 +584,22 @@ newline
 close_curly
 successful
 TEST1 is 
-line_no is 10
-identifier is k
+line_no is 7
+identifier is 
 type is int
-value is 
+value is j
+Size is 4
+
+line_no is 10
+identifier is 
+type is int
+value is k
+Size is 4
+
+line_no is 13
+identifier is 
+type is int
+value is l
 Size is 4
 
 
@@ -512,20 +607,6 @@ line_no is 4
 identifier is i
 type is int
 value is 0
-Size is 4
-
-
-line_no is 13
-identifier is l
-type is int
-value is 
-Size is 4
-
-
-line_no is 7
-identifier is j
-type is int
-value is 
 Size is 4
 
 

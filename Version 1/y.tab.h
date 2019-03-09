@@ -53,20 +53,20 @@ extern int yydebug;
     DOUBLE = 263,
     VOID = 264,
     AMP = 265,
-    FOR = 266,
-    WHILE = 267,
-    IF = 268,
-    ELSE = 269,
-    AND = 270,
-    OR = 271,
-    LE = 272,
-    GE = 273,
-    EQ = 274,
-    NE = 275,
-    LT = 276,
-    GT = 277,
-    DP = 278,
-    DM = 279
+    DM = 266,
+    DP = 267,
+    FOR = 268,
+    WHILE = 269,
+    IF = 270,
+    ELSE = 271,
+    AND = 272,
+    OR = 273,
+    LE = 274,
+    GE = 275,
+    EQ = 276,
+    NE = 277,
+    LT = 278,
+    GT = 279
   };
 #endif
 
@@ -75,7 +75,7 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 46 "test.y" /* yacc.c:1909  */
+#line 45 "test.y" /* yacc.c:1909  */
 
 	char* str;
 	class node* node;

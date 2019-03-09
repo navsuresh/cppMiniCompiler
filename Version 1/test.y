@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string.h>
 #include "node.hpp"
+#include <vector>
 
 using namespace std;
 ast test;
@@ -21,8 +22,6 @@ class test123{
 	}
 
 };
-
-
 
 
 
@@ -48,7 +47,7 @@ extern "C"
 	class node* node;
 }
 
-%token <str> ID NUM INT FLOAT CHAR DOUBLE VOID AMP
+%token <str> ID NUM INT FLOAT CHAR DOUBLE VOID AMP DM DP '+' '-' '*' '(' ')' '[' ']'
 %token FOR WHILE IF ELSE 
 
 %right '='
@@ -56,8 +55,8 @@ extern "C"
 %left  LE GE EQ NE LT GT 
 %right	DP DM
 
-%type<str> type 
-%type<node> assignment_st array_st
+%type<str> type func_call array_st_usage
+%type<node> array_st assignment_st assignment_st_t assignment_st_f
 %start init
 
 %%
@@ -87,6 +86,14 @@ declaration
  
 array_st
 	: ID '[' NUM ']' {$$ = new node(yylineno,$1,"","",$3);}
+	;
+
+array_st_usage
+	: ID '[' NUM ']' 
+	{
+	vector<string> temp1{$1,$2,$3,$4};
+    $$ = conversion(temp1);
+	}	
 	;
 
 func_declaration
@@ -159,7 +166,7 @@ assignment_st_for
 	;
 
 assignment_st
-	:	ID '=' assignment_st	{$$ = new node(yylineno,$1,"","",0);};
+	:	ID '=' assignment_st	{$$ = new node(yylineno,$1,"",$3->get_value(),0);};
 	|	assignment_st ',' assignment_st
 	|	assignment_st '+' assignment_st_t
 	|	assignment_st '-' assignment_st_t	
@@ -173,27 +180,111 @@ assignment_st_t
 	|	assignment_st_f
 	;
 assignment_st_f
-	:	'(' assignment_st ')'
+	:	'(' assignment_st ')' 
+		{
+		vector<string> temp1{$1,$2->get_value(),$3};
+		$$ = new node(yylineno,"","",conversion(temp1),0);
+		}
 	|	'-' '(' assignment_st ')'
+		{
+		vector<string> temp1{$1,$2,$3->get_value(),$4};
+		$$ = new node(yylineno,"","",conversion(temp1),0);
+		}
 	|	DM ID
+		{
+			vector<string> temp1{$1,$2};
+			$$ = new node(yylineno,"","",conversion(temp1),0);
+		}
 	|	DP ID
+		{
+			vector<string> temp1{$1,$2};
+			$$ = new node(yylineno,"","",conversion(temp1),0);
+		}
 	|	DP NUM
+		{
+			vector<string> temp1{$1,$2};
+			$$ = new node(yylineno,"","",conversion(temp1),0);
+		}	
 	|	DM NUM
+		{
+			vector<string> temp1{$1,$2};
+			$$ = new node(yylineno,"","",conversion(temp1),0);
+		}
 	|	ID DP
+		{
+			vector<string> temp1{$1,$2};
+			$$ = new node(yylineno,"","",conversion(temp1),0);
+		}
 	|	ID DM
+		{
+			vector<string> temp1{$1,$2};
+			$$ = new node(yylineno,"","",conversion(temp1),0);
+		}
 	|	NUM DP
+		{
+			vector<string> temp1{$1,$2};
+			$$ = new node(yylineno,"","",conversion(temp1),0);
+		}
 	|	NUM DM
+		{
+			vector<string> temp1{$1,$2};
+			$$ = new node(yylineno,"","",conversion(temp1),0);
+		}
 	|	'+' NUM
+		{
+			vector<string> temp1{$1,$2};
+			$$ = new node(yylineno,"","",conversion(temp1),0);
+		}
 	|	'-' NUM	
+		{
+			vector<string> temp1{$1,$2};
+			$$ = new node(yylineno,"","",conversion(temp1),0);
+		}
 	|	'+' ID
+		{
+			vector<string> temp1{$1,$2};
+			$$ = new node(yylineno,"","",conversion(temp1),0);
+		}
 	|	'-' ID
+		{
+			vector<string> temp1{$1,$2};
+			$$ = new node(yylineno,"","",conversion(temp1),0);
+		}
 	|	'*'ID
+		{
+			vector<string> temp1{$1,$2};
+			$$ = new node(yylineno,"","",conversion(temp1),0);
+		}
 	|	AMP ID
+		{
+			vector<string> temp1{$1,$2};
+			$$ = new node(yylineno,"","",conversion(temp1),0);
+		}
 	|	ID
+		{
+			vector<string> temp1{$1};
+			$$ = new node(yylineno,"","",conversion(temp1),0);
+		}
 	|	NUM
+		{
+			vector<string> temp1{$1};
+			$$ = new node(yylineno,"","",conversion(temp1),0);
+		}
 	|	'*' assignment_st
-	|	array_st	
+		{
+			vector<string> temp1{$1,$2->get_value()};
+			$$ = new node(yylineno,"","",conversion(temp1),0);
+		}
+	|	array_st_usage	
+		{	
+			vector<string> temp1{$1};
+			$$ = new node(yylineno,"","",conversion(temp1),0);
+		}
 	|	func_call
+		{
+			vector<string> temp1{$1};
+			$$ = new node(yylineno,"","",conversion(temp1),0);
+		}
 	;
 
 

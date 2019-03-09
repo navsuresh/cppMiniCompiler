@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include <unordered_map>
+#include <vector>
 using namespace std;
 
 //Node
@@ -9,7 +10,7 @@ node::node() {}
 
 node::node(int line_no, string identifier, string type, string value, int size) : line_no(line_no), identifier(identifier), type(type), value(value), size(size) {}
 
-node::node(int line_no, string identifier, string type, string value, string  size) : line_no(line_no), identifier(identifier), type(type), value(value), size(stoi(size)) {}
+node::node(int line_no, string identifier, string type, string value, string size) : line_no(line_no), identifier(identifier), type(type), value(value), size(stoi(size)) {}
 
 node::node(const node &copy_node) : line_no(copy_node.line_no), identifier(copy_node.identifier), type(copy_node.type), value(copy_node.value), size(copy_node.size) {}
 
@@ -54,7 +55,8 @@ void node::set_value(string value)
 {
     this->value = value;
 }
-void node::set_size(int size){
+void node::set_size(int size)
+{
     this->size = size;
 }
 
@@ -64,7 +66,7 @@ void node::disp_node() const
     cout << "identifier is " << this->identifier << "\n";
     cout << "type is " << this->type << "\n";
     cout << "value is " << this->value << "\n";
-    cout << "Size is "<< this->size<<"\n";
+    cout << "Size is " << this->size << "\n";
     cout << "\n";
 }
 
@@ -104,4 +106,26 @@ void ast::display()
         }
         cout << "\n";
     }
+}
+
+char *conversion(vector<string> vec_s)
+{
+    for (auto &i : vec_s)
+    {
+        cout << i << "\n";
+    }
+
+    string temp;
+    for (auto &i : vec_s)
+    {
+        cout << i << "\n";
+        temp += i;
+    }
+
+
+    
+    char * writable = new char[temp.size() + 1];
+    std::copy(temp.begin(), temp.end(), writable);
+    writable[temp.size()] = '\0'; // don't forget the terminating 0
+    return writable;
 }

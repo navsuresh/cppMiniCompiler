@@ -1,6 +1,7 @@
 #include <string>
 #include <unordered_map>
 #include <set>
+#include <vector>
 using namespace std;
 
 class node
@@ -36,6 +37,8 @@ public:
   void disp_node() const;
   //Used for ordering in set
   bool operator<(const node &d) const;
+  
+
 };
 
 class ast : public node
@@ -52,3 +55,5 @@ public:
   //Displays based on identifier, and the corresponding sorted line numbers.
   void display();
 };
+
+char* conversion(vector<string> vec_s);
