@@ -48,13 +48,13 @@ extern "C"
 	class node* node;
 }
 
-%token <str> ID NUM INT FLOAT CHAR DOUBLE VOID 
-%token FOR WHILE IF ELSE
-
+%token <str> ID NUM INT FLOAT CHAR DOUBLE VOID AMP
+%token FOR WHILE IF ELSE 
 
 %right '='
 %left AND OR
-%left  LE GE EQ NE LT GT DP DM
+%left  LE GE EQ NE LT GT 
+%right	DP DM
 
 %type<str> type 
 %type<node> assignment_st array_st
@@ -92,6 +92,9 @@ array_st
 func_declaration
 	: type ID '(' arg_list_optional ')' compound_st
 	;
+func_call
+	:ID '(' arg_list_call ')'';'
+	;
 
 compound_st 
 	: '{' statement_structure '}'
@@ -109,8 +112,9 @@ statement
 	| if_stmt
 	;
 
-for_stmt: FOR '(' assignment_st ';' expression ';' assignment_st ')' statement 
- 	FOR '(' assignment_st ';' expression ';' assignment_st ')' compound_st 
+for_stmt: FOR '(' assignment_st_for ';' expression_for ';' assignment_st_for ')' statement 
+	|
+ 	FOR '(' assignment_st_for ';' expression_for ';' assignment_st_for ')' compound_st 
  	;
 while_stmt: WHILE '(' expression ')' statement
 	| WHILE '(' expression ')' compound_st
@@ -132,7 +136,14 @@ arg_list_optional
 	: arg_list_actual 
 	| 
 	;
-
+arg_list_call
+	:arg_list_call_actual
+	|
+	;
+arg_list_call_actual
+	:arg_list_call_actual ',' ID
+	|ID
+	;
 arg_list_actual 
 	: arg_list_actual ',' arg_final 
 	| arg_final
@@ -142,12 +153,50 @@ arg_final
 	:type ID
 	;
 
-assignment_st
-	: ID '=' ID {$$ = new node(yylineno,$1,"",$3,0);}
-	| ID '=' NUM {$$ = new node(yylineno,$1,"",$3,0);}
-	| ID {$$ = new node(yylineno,$1,"","",0);}
+assignment_st_for
+	: 
+	|	assignment_st
 	;
-	
+
+assignment_st
+	:	ID '=' assignment_st	{$$ = new node(yylineno,$1,"","",0);};
+	|	assignment_st ',' assignment_st
+	|	assignment_st '+' assignment_st_t
+	|	assignment_st '-' assignment_st_t	
+	|	assignment_st_t
+	;
+
+assignment_st_t
+	:	assignment_st_t '*' assignment_st_f
+	|	assignment_st_t '/' assignment_st_f
+	|	assignment_st_t '%' assignment_st_f
+	|	assignment_st_f
+	;
+assignment_st_f
+	:	'(' assignment_st ')'
+	|	'-' '(' assignment_st ')'
+	|	DM ID
+	|	DP ID
+	|	DP NUM
+	|	DM NUM
+	|	ID DP
+	|	ID DM
+	|	NUM DP
+	|	NUM DM
+	|	'+' NUM
+	|	'-' NUM	
+	|	'+' ID
+	|	'-' ID
+	|	'*'ID
+	|	AMP ID
+	|	ID
+	|	NUM
+	|	'*' assignment_st
+	|	array_st	
+	|	func_call
+	;
+
+
 
 			
 
@@ -161,6 +210,12 @@ type
 	| DOUBLE {$$=$1;}
 	| VOID {$$=$1;}
 	;
+
+expression_for
+	:
+	| expression
+	;
+
 expression:  expression LE expression 
 	| expression GE expression
 	| expression NE expression

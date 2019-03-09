@@ -12,20 +12,27 @@ int
 Space
 ID
 DIGIT
-BIG SCOPE
-line_no is 3
-identifier is a
-type is int
-value is 10
-
+newline
+int
+Space
+ID
+DIGIT
 newline
 close_curly
 successful
 TEST1 is 
+line_no is 4
+identifier is b
+type is int
+value is 
+Size is 20
+
+
 line_no is 3
 identifier is a
 type is int
 value is 10
+Size is 4
 
 
 Input/test1.cpp
@@ -36,93 +43,108 @@ Space
 ID
 Space
 DIGIT
-BIG SCOPE
-line_no is 2
-identifier is a
-type is int
-value is 5
-
 newline
 int
 Space
 ID
-BIG SCOPE
-line_no is 3
-identifier is b
-type is int
-value is 
-
 newline
 Space
 ID
 Space
 Space
 DIGIT
-BIG SCOPE
-line_no is 4
-identifier is c
-type is float
-value is 9
-
 successful
 TEST1 is 
 line_no is 4
 identifier is c
 type is float
 value is 9
+Size is 4
 
 
 line_no is 2
 identifier is a
 type is int
 value is 5
+Size is 4
 
 
 line_no is 3
 identifier is b
 type is int
 value is 
+Size is 4
 
 
+Input/test10.cpp
+here
+int
+Space
+ID
+open
+close
+newline
+open_curly
+newline
+Space
+for
+open
+ID
+Space
+Space
+DIGIT
+Space
+ID
+Value1 is i
+Space
+LT
+Space
+DIGIT
+Value2 is 10
+Space
+ID
+Space
+Space
+DIGIT
+close
+newline
+Space
+open_curly
+newline
+Space
+ID
+Space
+Space
+DIGIT
+newline
+Space
+close_curly
+newline
+close_curly
+successful
+TEST1 is 
 Input/test2.cpp
 int
 Space
 ID
 DIGIT
-BIG SCOPE
-line_no is 1
-identifier is a
-type is int
-value is 1
-
 successful
 TEST1 is 
 line_no is 1
 identifier is a
 type is int
 value is 1
+Size is 4
 
 
 Input/test3.cpp
 int
 Space
 ID
-BIG SCOPE
-line_no is 1
-identifier is a
-type is int
-value is 
-
 newline
 int
 Space
 ID
-BIG SCOPE
-line_no is 2
-identifier is b
-type is int
-value is 
-
 newline
 int
 Space
@@ -130,12 +152,6 @@ ID
 Space
 Space
 DIGIT
-BIG SCOPE
-line_no is 3
-identifier is c
-type is int
-value is 5
-
 newline
 successful
 TEST1 is 
@@ -143,18 +159,21 @@ line_no is 3
 identifier is c
 type is int
 value is 5
+Size is 4
 
 
 line_no is 1
 identifier is a
 type is int
 value is 
+Size is 4
 
 
 line_no is 2
 identifier is b
 type is int
 value is 
+Size is 4
 
 
 Input/test4.cpp
@@ -180,9 +199,37 @@ ID
 DIGIT
 close
 open_curly
-error_msg: syntax error
-unsuccessful
+newline
+tab
+int
+Space
+ID
+newline
+tab
+int
+Space
+ID
+DIGIT
+newline
+close_curly
+newline
+close_curly
+successful
 TEST1 is 
+line_no is 6
+identifier is j
+type is int
+value is 5
+Size is 4
+
+
+line_no is 5
+identifier is i
+type is int
+value is 
+Size is 4
+
+
 Input/test5.cpp
 here
 newline
@@ -207,8 +254,16 @@ ID
 DIGIT
 close
 open_curly
-error_msg: syntax error
-unsuccessful
+newline
+tab
+ID
+DIGIT
+newline
+close_curly
+newline
+close_curly
+newline
+successful
 TEST1 is 
 Input/test6.cpp
 here
@@ -224,12 +279,6 @@ tab
 int
 Space
 ID
-BIG SCOPE
-line_no is 4
-identifier is i
-type is int
-value is 
-
 newline
 close_curly
 successful
@@ -238,6 +287,7 @@ line_no is 4
 identifier is i
 type is int
 value is 
+Size is 4
 
 
 Input/test7.cpp
@@ -263,12 +313,6 @@ int
 Space
 ID
 DIGIT
-BIG SCOPE
-line_no is 5
-identifier is i
-type is int
-value is 0
-
 newline
 tab
 close_curly
@@ -280,6 +324,7 @@ line_no is 5
 identifier is i
 type is int
 value is 0
+Size is 4
 
 
 Input/test8.cpp
@@ -298,12 +343,6 @@ int
 Space
 ID
 DIGIT
-BIG SCOPE
-line_no is 5
-identifier is i
-type is int
-value is 7
-
 newline
 tab
 while
@@ -329,34 +368,16 @@ int
 Space
 ID
 DIGIT
-BIG SCOPE
-line_no is 8
-identifier is j
-type is int
-value is 0
-
 newline
 tab
 int
 Space
 ID
-BIG SCOPE
-line_no is 9
-identifier is k
-type is int
-value is 
-
 newline
 tab
 int
 Space
 ID
-BIG SCOPE
-line_no is 10
-identifier is l
-type is int
-value is 
-
 newline
 tab
 close_curly
@@ -371,24 +392,28 @@ line_no is 9
 identifier is k
 type is int
 value is 
+Size is 4
 
 
 line_no is 5
 identifier is i
 type is int
 value is 7
+Size is 4
 
 
 line_no is 10
 identifier is l
 type is int
 value is 
+Size is 4
 
 
 line_no is 8
 identifier is j
 type is int
 value is 0
+Size is 4
 
 
 Input/test9.cpp
@@ -406,12 +431,6 @@ int
 Space
 ID
 DIGIT
-BIG SCOPE
-line_no is 4
-identifier is i
-type is int
-value is 0
-
 newline
 tab
 while
@@ -438,12 +457,6 @@ tab
 int
 Space
 ID
-BIG SCOPE
-line_no is 7
-identifier is j
-type is int
-value is 
-
 newline
 tab
 close_curly
@@ -465,12 +478,6 @@ tab
 int
 Space
 ID
-BIG SCOPE
-line_no is 10
-identifier is k
-type is int
-value is 
-
 newline
 tab
 close_curly
@@ -483,12 +490,6 @@ tab
 int
 Space
 ID
-BIG SCOPE
-line_no is 13
-identifier is l
-type is int
-value is 
-
 Space
 newline
 tab
@@ -504,23 +505,27 @@ line_no is 10
 identifier is k
 type is int
 value is 
+Size is 4
 
 
 line_no is 4
 identifier is i
 type is int
 value is 0
+Size is 4
 
 
 line_no is 13
 identifier is l
 type is int
 value is 
+Size is 4
 
 
 line_no is 7
 identifier is j
 type is int
 value is 
+Size is 4
 
 

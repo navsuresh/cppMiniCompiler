@@ -46,6 +46,7 @@ id [a-zA-Z_]([a-zA-Z_]|[0-9])*
 "/" {return '/';}
 "*" {return '*';}
 "--" {return DM;}
+"&" {return AMP;}
 "double" {yylval.str = strdup(yytext);return (DOUBLE);}
 "void" {yylval.str = strdup(yytext);return (VOID);}
 "if" {printf("if\n"); return IF;}

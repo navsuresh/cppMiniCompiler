@@ -21,6 +21,14 @@ ID
 DIGIT
 close
 open_curly
-error_msg: syntax error
-unsuccessful
+newline
+tab
+ID
+DIGIT
+newline
+close_curly
+newline
+close_curly
+newline
+successful
 TEST1 is 

@@ -20,6 +20,34 @@ ID
 DIGIT
 close
 open_curly
-error_msg: syntax error
-unsuccessful
+newline
+tab
+int
+Space
+ID
+newline
+tab
+int
+Space
+ID
+DIGIT
+newline
+close_curly
+newline
+close_curly
+successful
 TEST1 is 
+line_no is 6
+identifier is j
+type is int
+value is 5
+Size is 4
+
+
+line_no is 5
+identifier is i
+type is int
+value is 
+Size is 4
+
+
