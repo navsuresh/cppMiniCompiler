@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include "y.tab.h"
 void yyerror(const char* error_msg);
+int scope_count = 0;
 %}
 
 alpha [a-zA-z_]
@@ -56,8 +57,8 @@ id [a-zA-Z_]([a-zA-Z_]|[0-9])*
 "=" {return ('=');}
 ";" {return (';');}
 "," {return (',');}
-"{" {printf("open_curly\n");return ('{');}
-"}" {printf("close_curly\n");return ('}');}
+"{" {printf("open_curly\n");scope_count++;return ('{');}
+"}" {printf("close_curly\n");scope_count--;return ('}');}
 "for" {printf("for\n");return FOR;}
 "while" {printf("while\n"); return WHILE;}
 [a-zA-Z_]([a-zA-Z_]|[0-9])* {

@@ -6,7 +6,6 @@
 #include <vector>
 
 using namespace std;
-int scope_count=0;
 ast test;
 ast test1;
 unordered_map <string,int> size_map;
@@ -30,8 +29,8 @@ void yyerror(const char *error_msg);
 
 int counter = 0;
 extern FILE *yyin;
-extern FILE *yyout; 
 extern int yylineno;
+extern int scope_count;
 extern "C"
 {       
         int yyparse(void);
@@ -52,7 +51,6 @@ extern "C"
 %token <str> ID NUM INT FLOAT CHAR DOUBLE VOID AMP DM DP '+' '-' '*' '(' ')' '[' ']'
 %token FOR WHILE IF ELSE 
 
-
 %right ','
 %right '='
 %left AND OR
@@ -66,7 +64,6 @@ extern "C"
 %type<node> array_st assignment_st assignment_st_t assignment_st_f
 %start init
 
-
 %%
 init
 	: init declaration
@@ -77,9 +74,12 @@ init
 declaration
 	: type assignment_st ';' {
 		// cout<<"BIG SCOPE\n";
+		cout<<"LINE N1O IS "<<yylineno<<"\n";
+		cout<<"get_identifier is "<<$2->get_identifier()<<"\n";
 		$2->set_size(size_map[$1]);
 		$2->set_type($1);
-		// $2->disp_node(); 
+		cout<<"DISPLAY IS "<<"\n";
+		$2->disp_node(); 
 		test1.insert(*$2);}
 	| assignment_st ';' {
 
@@ -93,7 +93,7 @@ declaration
 	;
  
 array_st
-	: ID '[' NUM ']' {$$ = new node(yylineno,$1,"","",$3);}
+	: ID '[' NUM ']' {$$ = new node(yylineno,$1,"","",$3,scope_count);}
 	;
 
 array_st_usage
@@ -112,10 +112,15 @@ func_call
 	;
 
 compound_st 
-	: '{' statement_structure CLOSE {scope_count+=1;}
+	: '{' STATEMENT_STRUCTURE {cout<<"HERE1\n";scope_count+=1;}
 	;
+
+STATEMENT_STRUCTURE
+	: statement_structure CLOSE {cout<<"HERE2\n";scope_count-=1;}
+
 CLOSE 
-	: '}' {scope_count-=1;}
+	: '}' 
+
 statement_structure 
 	: statement_structure statement
 	| statement
@@ -124,7 +129,7 @@ statement_structure
 statement
 	: declaration
 	| while_stmt
-	| for_stmt
+	| for_stmt {cout<<"FOOOR LOOP\n";}
 	| if_stmt
 	;
 
@@ -175,11 +180,11 @@ assignment_st_for
 	;
 
 assignment_st
-	:	ID '=' assignment_st	{$$ = new node(yylineno,$1,"",$3->get_value(),0);};
+	:	ID '=' assignment_st	{$$ = new node(yylineno,$1,"",$3->get_value(),0,scope_count);};
 	|	assignment_st ',' assignment_st
 	|	assignment_st '+' assignment_st_t
 	|	assignment_st '-' assignment_st_t	
-	|	assignment_st_t
+	|	assignment_st_t {"ASSIFNMENT T\n";}
 	;
 
 assignment_st_t
@@ -192,107 +197,111 @@ assignment_st_f
 	:	'(' assignment_st ')' 
 		{
 		vector<string> temp1{$1,$2->get_value(),$3};
-		$$ = new node(yylineno,"","",conversion(temp1),0);
+		$$ = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
 	|	'-' '(' assignment_st ')'
 		{
 		vector<string> temp1{$1,$2,$3->get_value(),$4};
-		$$ = new node(yylineno,"","",conversion(temp1),0);
+		$$ = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
 	|	DM ID
 		{
 			vector<string> temp1{$1,$2};
-			$$ = new node(yylineno,"","",conversion(temp1),0);
+			$$ = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
 	|	DP ID
 		{
 			vector<string> temp1{$1,$2};
-			$$ = new node(yylineno,"","",conversion(temp1),0);
+			$$ = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
 	|	DP NUM
 		{
 			vector<string> temp1{$1,$2};
-			$$ = new node(yylineno,"","",conversion(temp1),0);
+			$$ = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}	
 	|	DM NUM
 		{
 			vector<string> temp1{$1,$2};
-			$$ = new node(yylineno,"","",conversion(temp1),0);
+			$$ = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
 	|	ID DP
 		{
 			vector<string> temp1{$1,$2};
-			$$ = new node(yylineno,"","",conversion(temp1),0);
+			$$ = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
 	|	ID DM
 		{
 			vector<string> temp1{$1,$2};
-			$$ = new node(yylineno,"","",conversion(temp1),0);
+			$$ = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
 	|	NUM DP
 		{
 			vector<string> temp1{$1,$2};
-			$$ = new node(yylineno,"","",conversion(temp1),0);
+			$$ = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
 	|	NUM DM
 		{
 			vector<string> temp1{$1,$2};
-			$$ = new node(yylineno,"","",conversion(temp1),0);
+			$$ = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
 	|	'+' NUM
 		{
 			vector<string> temp1{$1,$2};
-			$$ = new node(yylineno,"","",conversion(temp1),0);
+			$$ = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
 	|	'-' NUM	
 		{
 			vector<string> temp1{$1,$2};
-			$$ = new node(yylineno,"","",conversion(temp1),0);
+			$$ = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
 	|	'+' ID
 		{
 			vector<string> temp1{$1,$2};
-			$$ = new node(yylineno,"","",conversion(temp1),0);
+			$$ = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
-	|	'-' ID 
+	|	'-' ID
 		{
 			vector<string> temp1{$1,$2};
-			$$ = new node(yylineno,"","",conversion(temp1),0);
+			$$ = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
 	|	'*'ID
 		{
 			vector<string> temp1{$1,$2};
-			$$ = new node(yylineno,"","",conversion(temp1),0);
+			$$ = new node(yylineno,$2,"","",0,scope_count);
 		}
 	|	AMP ID
 		{
 			vector<string> temp1{$1,$2};
-			$$ = new node(yylineno,"","",conversion(temp1),0);
+			$$ = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
 	|	ID
 		{
 			vector<string> temp1{$1};
-			$$ = new node(yylineno,"","",conversion(temp1),0);
+			cout<<"COVERSION IS "<<conversion(temp1)<<"\n";
+			cout<<"LINE NO IS "<<yylineno<<"\n";
+			$$ = new node(yylineno,$1,"","",0,scope_count);
+			cout<<"ID DISPLAY IS\n";
+			$$->disp_node();
 		}
 	|	NUM
 		{
 			vector<string> temp1{$1};
-			$$ = new node(yylineno,"","",conversion(temp1),0);
+			$$ = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
 	|	'*' assignment_st
 		{
 			vector<string> temp1{$1,$2->get_value()};
-			$$ = new node(yylineno,"","",conversion(temp1),0);
+			$$ = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
 	|	array_st_usage	
 		{	
 			vector<string> temp1{$1};
-			$$ = new node(yylineno,"","",conversion(temp1),0);
+			$$ = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
 	|	func_call
 		{
 			vector<string> temp1{$1};
-			$$ = new node(yylineno,"","",conversion(temp1),0);
+			$$ = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
 	;
 
@@ -343,14 +352,8 @@ int main(int argc, char *argv[]) {
 	size_map["float"]=4;
 	size_map["double"]=8;
 
-	std:: string file_name(argv[1]);
 	// cout<<"HELLO WORLD\n";
 	yyin = fopen(argv[1], "r");
-	char p[100];
-	strcat(p,argv[1]);
-	strcat(p,"_");
-	strcat(p,"c.txt");
-	yyout=fopen(p,"w");
 	if (!yyparse()) {
 		printf("successful\n");
 	} else {
@@ -358,7 +361,7 @@ int main(int argc, char *argv[]) {
 	}
 
 
-	// test.insert(1,s,"int","",4,);
+	// test.insert(1,s,"int","",4);
 	// test.insert(3,s,"float","",4);
 	// test.insert(2,s,"double","",8);
 
@@ -374,7 +377,7 @@ int main(int argc, char *argv[]) {
 	cout<<"TEST1 is \n";
 	test1.display();
 	fclose(yyin);
-	fclose(yyout);
+	// fclose(yyout);
 
 	return 0;
 }

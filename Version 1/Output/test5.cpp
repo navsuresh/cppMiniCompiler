@@ -33,8 +33,13 @@ DIGIT
 9
 newline
 close_curly
+HERE2
+HERE1
+FOOOR LOOP
 newline
 close_curly
+HERE2
+HERE1
 newline
 successful
 TEST1 is 

@@ -40,7 +40,12 @@ DIGIT
 newline
 Space
 close_curly
+HERE2
+HERE1
+FOOOR LOOP
 newline
 close_curly
+HERE2
+HERE1
 successful
 TEST1 is 
