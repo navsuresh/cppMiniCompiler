@@ -11,12 +11,13 @@ class node
   string type;
   string value;
   int size;
+  int scope;
 
 public:
   //Constructors
   node();
-  node(int line_no, string identifier, string type, string value,int size);
-  node(int line_no, string identifier, string type, string value,string  size);
+  node(int line_no, string identifier, string type, string value,int size, int scope);
+  node(int line_no, string identifier, string type, string value,string  size, int scope);
   node(const node &copy_node);
 
   //Getters
@@ -25,14 +26,14 @@ public:
   string get_type() const;
   string get_value() const;
   int get_size() const;
-
+int get_scope() const;
   //Setters
   void set_line_no(int line_no);
   void set_identifier(string identifier);
   void set_type(string type);
   void set_value(string value);
   void set_size(int size);
-  
+  void set_scope(int scope);
   //Displays all attributes
   void disp_node() const;
   //Used for ordering in set
@@ -50,7 +51,7 @@ public:
   //Default constructor
   ast();
   //Overloaded insert functions, inserts into the hashmap.
-  void insert(int line_no, string identifier, string type, string value, int size);
+  void insert(int line_no, string identifier, string type, string value, int size, int scope);
   void insert(node _node);
   //Displays based on identifier, and the corresponding sorted line numbers.
   void display();

@@ -1,10 +1,14 @@
 int
 Space
 ID
+a
+a
 newline
 int
 Space
 ID
+b
+b
 newline
 int
 Space
@@ -12,6 +16,8 @@ ID
 Space
 Space
 DIGIT
+5
+5
 newline
 successful
 TEST1 is 
@@ -23,16 +29,15 @@ Size is 4
 
 
 line_no is 1
-identifier is a
+identifier is 
 type is int
-value is 
+value is a
 Size is 4
 
-
 line_no is 2
-identifier is b
+identifier is 
 type is int
-value is 
+value is b
 Size is 4
 
 

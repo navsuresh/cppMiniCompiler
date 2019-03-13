@@ -24,6 +24,8 @@ Space
 Space
 DIGIT
 close
+5
+5
 newline
 Space
 open_curly
@@ -33,6 +35,8 @@ ID
 Space
 Space
 DIGIT
+5
+5
 newline
 Space
 close_curly

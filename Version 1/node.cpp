@@ -8,11 +8,11 @@ using namespace std;
 //Node
 node::node() {}
 
-node::node(int line_no, string identifier, string type, string value, int size) : line_no(line_no), identifier(identifier), type(type), value(value), size(size) {}
+node::node(int line_no, string identifier, string type, string value, int size, int scope) : line_no(line_no), identifier(identifier), type(type), value(value), size(size), scope(scope) {}
 
-node::node(int line_no, string identifier, string type, string value, string size) : line_no(line_no), identifier(identifier), type(type), value(value), size(stoi(size)) {}
+node::node(int line_no, string identifier, string type, string value, string size, int scope) : line_no(line_no), identifier(identifier), type(type), value(value), size(stoi(size)), scope(scope) {}
 
-node::node(const node &copy_node) : line_no(copy_node.line_no), identifier(copy_node.identifier), type(copy_node.type), value(copy_node.value), size(copy_node.size) {}
+node::node(const node &copy_node) : line_no(copy_node.line_no), identifier(copy_node.identifier), type(copy_node.type), value(copy_node.value), size(copy_node.size), scope(copy_node.scope) {}
 
 int node::get_line_no() const
 {
@@ -39,6 +39,15 @@ int node::get_size() const
     return size;
 }
 
+int node::get_scope() const
+{
+    return scope;
+}
+
+void node::set_scope(int scope)
+{
+    this->scope = scope;
+}
 void node::set_line_no(int line_no)
 {
     this->line_no = line_no;
@@ -67,6 +76,8 @@ void node::disp_node() const
     cout << "type is " << this->type << "\n";
     cout << "value is " << this->value << "\n";
     cout << "Size is " << this->size << "\n";
+    cout << "Scope is " << this->scope << "\n";
+
     cout << "\n";
 }
 
@@ -77,13 +88,13 @@ bool node::operator<(const node &second) const
 
 //Abstract Syntax Tree
 ast::ast() {}
-void ast::insert(int line_no, string identifier, string type, string value, int size)
+void ast::insert(int line_no, string identifier, string type, string value, int size, int scope)
 {
     if (tree.find(identifier) == tree.end())
     {
         tree[identifier] = set<node>();
     }
-    tree[identifier].insert(node(line_no, identifier, type, value, size));
+    tree[identifier].insert(node(line_no, identifier, type, value, size, scope));
 }
 
 void ast::insert(node _node)
@@ -122,9 +133,7 @@ char *conversion(vector<string> vec_s)
         temp += i;
     }
 
-
-    
-    char * writable = new char[temp.size() + 1];
+    char *writable = new char[temp.size() + 1];
     std::copy(temp.begin(), temp.end(), writable);
     writable[temp.size()] = '\0'; // don't forget the terminating 0
     return writable;

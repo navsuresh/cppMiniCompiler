@@ -5,22 +5,30 @@ Space
 ID
 open
 close
+newline
 open_curly
 newline
-tab
+Space
 int
 Space
 ID
-i
-i
+Space
+Space
+DIGIT
+Space
+5
+5
+DIGIT
+5
+5
 newline
 close_curly
 successful
 TEST1 is 
-line_no is 4
-identifier is 
+line_no is 5
+identifier is a
 type is int
-value is i
+value is 5
 Size is 4
 
 

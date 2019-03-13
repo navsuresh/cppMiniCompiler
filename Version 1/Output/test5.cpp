@@ -12,6 +12,8 @@ open
 Space
 ID
 DIGIT
+0
+0
 ID
 Value1 is i
 LT
@@ -20,11 +22,15 @@ Value1 is n
 ID
 DIGIT
 close
+5
+5
 open_curly
 newline
 tab
 ID
 DIGIT
+9
+9
 newline
 close_curly
 newline

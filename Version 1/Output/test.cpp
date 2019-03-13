@@ -10,6 +10,8 @@ int
 Space
 ID
 DIGIT
+10
+10
 newline
 int
 Space

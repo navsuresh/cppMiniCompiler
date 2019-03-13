@@ -6,6 +6,7 @@
 #include <vector>
 
 using namespace std;
+int scope_count=0;
 ast test;
 ast test1;
 unordered_map <string,int> size_map;
@@ -29,6 +30,7 @@ void yyerror(const char *error_msg);
 
 int counter = 0;
 extern FILE *yyin;
+extern FILE *yyout; 
 extern int yylineno;
 extern "C"
 {       
@@ -50,14 +52,20 @@ extern "C"
 %token <str> ID NUM INT FLOAT CHAR DOUBLE VOID AMP DM DP '+' '-' '*' '(' ')' '[' ']'
 %token FOR WHILE IF ELSE 
 
+
+%right ','
 %right '='
 %left AND OR
 %left  LE GE EQ NE LT GT 
-%right	DP DM
+%left '+' '-'
+%left '*' '/' '%'	
+%right	DP DM 
+%left '(' ')'
 
 %type<str> type func_call array_st_usage
 %type<node> array_st assignment_st assignment_st_t assignment_st_f
 %start init
+
 
 %%
 init
@@ -104,9 +112,10 @@ func_call
 	;
 
 compound_st 
-	: '{' statement_structure '}'
+	: '{' statement_structure CLOSE {scope_count+=1;}
 	;
-
+CLOSE 
+	: '}' {scope_count-=1;}
 statement_structure 
 	: statement_structure statement
 	| statement
@@ -245,7 +254,7 @@ assignment_st_f
 			vector<string> temp1{$1,$2};
 			$$ = new node(yylineno,"","",conversion(temp1),0);
 		}
-	|	'-' ID
+	|	'-' ID 
 		{
 			vector<string> temp1{$1,$2};
 			$$ = new node(yylineno,"","",conversion(temp1),0);
@@ -334,9 +343,14 @@ int main(int argc, char *argv[]) {
 	size_map["float"]=4;
 	size_map["double"]=8;
 
-
+	std:: string file_name(argv[1]);
 	// cout<<"HELLO WORLD\n";
 	yyin = fopen(argv[1], "r");
+	char p[100];
+	strcat(p,argv[1]);
+	strcat(p,"_");
+	strcat(p,"c.txt");
+	yyout=fopen(p,"w");
 	if (!yyparse()) {
 		printf("successful\n");
 	} else {
@@ -344,15 +358,15 @@ int main(int argc, char *argv[]) {
 	}
 
 
-	test.insert(1,s,"int","",4);
-	test.insert(3,s,"float","",4);
-	test.insert(2,s,"double","",8);
+	// test.insert(1,s,"int","",4,);
+	// test.insert(3,s,"float","",4);
+	// test.insert(2,s,"double","",8);
 
 
-	const char *s1 = "Hello, World!1";   
-	test.insert(4,s1,"int","",4);
-	test.insert(4,s1,"float","",4);
-	test.insert(5,s1,"double","",8);
+	// const char *s1 = "Hello, World!1";   
+	// test.insert(4,s1,"int","",4);
+	// test.insert(4,s1,"float","",4);
+	// test.insert(5,s1,"double","",8);
 
 
 
@@ -360,7 +374,7 @@ int main(int argc, char *argv[]) {
 	cout<<"TEST1 is \n";
 	test1.display();
 	fclose(yyin);
-
+	fclose(yyout);
 
 	return 0;
 }

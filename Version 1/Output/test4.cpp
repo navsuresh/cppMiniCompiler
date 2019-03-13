@@ -11,6 +11,8 @@ for
 open
 ID
 DIGIT
+0
+0
 ID
 Value1 is i
 LT
@@ -19,18 +21,24 @@ Value1 is n
 ID
 DIGIT
 close
+5
+5
 open_curly
 newline
 tab
 int
 Space
 ID
+i
+i
 newline
 tab
 int
 Space
 ID
 DIGIT
+5
+5
 newline
 close_curly
 newline
@@ -45,9 +53,9 @@ Size is 4
 
 
 line_no is 5
-identifier is i
+identifier is 
 type is int
-value is 
+value is i
 Size is 4
 
 

@@ -12,6 +12,8 @@ int
 Space
 ID
 DIGIT
+0
+0
 newline
 tab
 while
@@ -38,6 +40,8 @@ tab
 int
 Space
 ID
+j
+j
 newline
 tab
 close_curly
@@ -59,6 +63,8 @@ tab
 int
 Space
 ID
+k
+k
 newline
 tab
 close_curly
@@ -71,6 +77,8 @@ tab
 int
 Space
 ID
+l
+l
 Space
 newline
 tab
@@ -82,10 +90,22 @@ newline
 close_curly
 successful
 TEST1 is 
-line_no is 10
-identifier is k
+line_no is 7
+identifier is 
 type is int
-value is 
+value is j
+Size is 4
+
+line_no is 10
+identifier is 
+type is int
+value is k
+Size is 4
+
+line_no is 13
+identifier is 
+type is int
+value is l
 Size is 4
 
 
@@ -93,20 +113,6 @@ line_no is 4
 identifier is i
 type is int
 value is 0
-Size is 4
-
-
-line_no is 13
-identifier is l
-type is int
-value is 
-Size is 4
-
-
-line_no is 7
-identifier is j
-type is int
-value is 
 Size is 4
 
 

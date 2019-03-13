@@ -20,6 +20,8 @@ int
 Space
 ID
 DIGIT
+0
+0
 newline
 tab
 close_curly
