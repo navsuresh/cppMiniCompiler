@@ -1,0 +1,10 @@
+Tomorrow - for:everything
+Tomorrow - identifier symbol table
+int main(){
+    x; (error)
+}
+//Tomorrow - length - 31
+
+Symbol table - last used 
+Symbol table - (int i; value is i, identifier is nothing)
+Array usage (a[5]=1)
