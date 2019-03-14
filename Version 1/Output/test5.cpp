@@ -30,6 +30,7 @@ DIGIT
 9
 9
 }
+HERE2
 FOOOR LOOP
 }
 

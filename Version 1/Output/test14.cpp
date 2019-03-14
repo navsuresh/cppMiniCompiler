@@ -6,6 +6,7 @@ main function
 {
 for
 (
+int
 ID
 =
 DIGIT
@@ -14,27 +15,21 @@ DIGIT
 0
 ID
 LT
-ID
+DIGIT
 ;
 ID
-=
-DIGIT
+--
+i
+i
+i
+i
 )
-5
-5
 {
 int
 ID
 ;
-i
-i
-int
-ID
-=
-DIGIT
-;
-5
-5
+j
+j
 }
 HERE2
 FOOOR LOOP
@@ -45,19 +40,19 @@ FOOOR LOOP
 Parsing is successful
 
 
-line_no is 6
-identifier is j
-type is int
-value is 5
-Size is 4
-Scope is 2
-
-
-line_no is 5
+line_no is 8
 identifier is 
 type is int
-value is i
+value is j
 Size is 4
 Scope is 2
+
+
+line_no is 6
+identifier is i
+type is int
+value is 0
+Size is 4
+Scope is 1
 
 

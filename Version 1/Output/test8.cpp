@@ -20,63 +20,14 @@ DIGIT
 {
 while
 (
-DIGIT
-)
-{
 int
-ID
-=
-DIGIT
-;
-0
-0
-int
-ID
-;
-k
-k
-int
-ID
-;
-l
-l
-}
-}
-}
-
-
-
-Parsing is successful
-
-
-line_no is 9
-identifier is 
-type is int
-value is k
-Size is 4
-Scope is 3
-
-line_no is 10
-identifier is 
-type is int
-value is l
-Size is 4
-Scope is 3
-
-
+error_msg: syntax error
+unsuccessful
 line_no is 5
 identifier is i
 type is int
 value is 7
 Size is 4
 Scope is 1
-
-
-line_no is 8
-identifier is j
-type is int
-value is 0
-Size is 4
-Scope is 3
 
 

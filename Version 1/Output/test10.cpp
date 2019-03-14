@@ -9,27 +9,7 @@ for
 ;
 ID
 LT
-DIGIT
-;
-ID
-=
-DIGIT
-)
-5
-5
-{
-ID
-=
-DIGIT
-;
-5
-5
-}
-FOOOR LOOP
-}
-
-
-
-Parsing is successful
-
-
+i
+i
+error_msg: syntax error
+unsuccessful

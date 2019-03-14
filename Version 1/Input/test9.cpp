@@ -5,6 +5,7 @@ int main(){
 	while(i>=0){
 		if(i==0){
 			int j;
+			int i = 10;
 		}
 		else if(i>0){
 			int k;

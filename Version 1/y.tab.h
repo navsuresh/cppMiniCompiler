@@ -67,7 +67,8 @@ extern int yydebug;
     EQ = 277,
     NE = 278,
     LT = 279,
-    GT = 280
+    GT = 280,
+    NO_ELSE = 281
   };
 #endif
 
@@ -81,7 +82,7 @@ union YYSTYPE
 	char* str;
 	class node* node;
 
-#line 85 "y.tab.h" /* yacc.c:1909  */
+#line 86 "y.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;

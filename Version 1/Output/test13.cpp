@@ -1,26 +1,49 @@
+#include
 int
+main function
+(
+)
+{
+for
+(
 ID
 =
+DIGIT
+;
+0
+0
 ID
-%
-b
-b
+LT
+DIGIT
+;
+ID
+++
+i
+i
+i
+i
+)
+{
+int
 ID
 ;
-d
-d
-HEREERE
+j
+j
+}
+HERE2
+FOOOR LOOP
+}
 
 
 
 Parsing is successful
 
 
-line_no is 1
-identifier is a
+line_no is 8
+identifier is 
 type is int
-value is b%d
+value is j
 Size is 4
-Scope is 0
+Scope is 2
 
 

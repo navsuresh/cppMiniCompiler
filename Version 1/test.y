@@ -60,6 +60,8 @@ extern "C"
 %left '*' '/' '%'	
 %right	DP DM 
 %left '(' ')'
+%nonassoc NO_ELSE
+%nonassoc ELSE
 
 %type<str> type func_call array_st_usage
 %type<node> array_st assignment_st assignment_st_t assignment_st_f
@@ -135,9 +137,13 @@ statement
 	| if_stmt
 	;
 
-for_stmt: FOR '(' assignment_st_for ';' expression_for ';' assignment_st_for ')' statement 
-	|
- 	FOR '(' assignment_st_for ';' expression_for ';' assignment_st_for ')' compound_st 
+for_stmt
+	:FOR '(' assignment_st_for  expression_for ';' assignment_st_for_1 ')' statement {cout<<"HERE1\n";}
+	|FOR '(' assignment_st_for  expression_for ';' assignment_st_for_1 ')' compound_st {cout<<"HERE2\n";}
+	|FOR '(' assignment_st_for_1 ';'  expression_for ';' assignment_st_for_1 ')' compound_st {cout<<"HERE3\n";}
+ 	|FOR '(' assignment_st_for_1 ';'  expression_for ';' assignment_st_for_1 ')' statement {cout<<"HERE4\n";}
+	 
+	
  	;
 while_stmt: WHILE '(' expression ')' statement
 	| WHILE '(' expression ')' compound_st
@@ -178,7 +184,13 @@ arg_final
 
 assignment_st_for
 	: 
-	|	assignment_st
+	|	declaration 
+	;
+
+assignment_st_for_1
+	:
+	assignment_st
+	| 
 	;
 
 assignment_st
@@ -325,7 +337,7 @@ type
 	;
 
 expression_for
-	:
+	: 
 	| expression
 	;
 

@@ -29,6 +29,13 @@ ID
 ;
 j
 j
+int
+ID
+=
+DIGIT
+;
+10
+10
 }
 else
 if
@@ -67,14 +74,14 @@ value is j
 Size is 4
 Scope is 3
 
-line_no is 10
+line_no is 11
 identifier is 
 type is int
 value is k
 Size is 4
 Scope is 3
 
-line_no is 13
+line_no is 14
 identifier is 
 type is int
 value is l
@@ -88,5 +95,12 @@ type is int
 value is 0
 Size is 4
 Scope is 1
+
+line_no is 8
+identifier is i
+type is int
+value is 10
+Size is 4
+Scope is 3
 
 
