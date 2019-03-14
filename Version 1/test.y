@@ -79,6 +79,10 @@ declaration
 		// cout<<"BIG SCOPE\n";
 		//cout<<"LINE N1O IS "<<yylineno<<"\n";
 		//cout<<"get_identifier is "<<$2->get_identifier()<<"\n";
+		if($2->get_identifier()==""){
+			$2->set_identifier($2->get_value());
+			$2->set_value("");
+		}
 		$2->set_size(size_map[$1]);
 		$2->set_type($1);
 		//cout<<"DISPLAY IS "<<"\n";
@@ -301,6 +305,7 @@ assignment_st_f
 		}
 	|	ID
 		{
+			test1.declaration_exists(yylineno,$1,scope_count);
 			vector<string> temp1{$1};
 		//	cout<<"COVERSION IS "<<conversion(temp1)<<"\n";
 		//	cout<<"LINE NO IS "<<yylineno<<"\n";

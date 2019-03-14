@@ -9,6 +9,7 @@ DIGIT
 int
 ID
 ;
+Identifier not declared
 b
 b
 ID
@@ -40,9 +41,9 @@ Scope is 0
 
 
 line_no is 3
-identifier is 
+identifier is b
 type is int
-value is b
+value is 
 Size is 4
 Scope is 0
 

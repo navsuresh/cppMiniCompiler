@@ -1,4 +1,3 @@
-#include
 int
 main function
 (
@@ -6,10 +5,16 @@ main function
 {
 int
 ID
+=
+DIGIT
 ;
-Identifier not declared
-i
-i
+10
+10
+ID
+;
+Identifier is declared
+x
+x
 }
 
 
@@ -17,10 +22,10 @@ i
 Parsing is successful
 
 
-line_no is 4
-identifier is i
+line_no is 2
+identifier is x
 type is int
-value is 
+value is 10
 Size is 4
 Scope is 1
 

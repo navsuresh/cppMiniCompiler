@@ -83,7 +83,11 @@ void node::disp_node() const
 
 bool node::operator<(const node &second) const
 {
-    return (this->get_line_no() < second.get_line_no());
+
+    if (this->get_scope() == second.get_scope())
+        return this->get_line_no() < second.get_line_no();
+
+    return this->get_scope() < second.get_scope();
 }
 
 //Abstract Syntax Tree
@@ -119,6 +123,52 @@ void ast::display()
     }
 }
 
+void ast::identifier_exists(int line_no, string identifier, int scope)
+{
+    // if(tree.find(identifier)==tree.end()){
+    //     cout<<"Identifier Doesn't Exist\n";
+    //     return;
+    // }
+    // // auto set_iterator = tree.find(identifier)->second;
+    // // auto set_iterator = *temp1;
+    // auto set_iterator = tree[identifier];
+    // node temp_node;
+    // temp_node.set_line_no(line_no);
+    // temp_node.set_identifier(identifier);
+
+    // for(auto i:set_iterator){
+    //     i.disp_node();
+    // }
+    // auto set_element_iterator = set_iterator.lower_bound(temp_node);
+    // if(set_element_iterator == set_iterator.begin()){
+    //     if()
+    // }
+    // cout<<"NERE\n";
+    // set_element_iterator->disp_node();
+    // auto temp_
+}
+
+void ast::declaration_exists(int line_no, string identifier, int scope)
+{   
+    // cout<<"INSIDE FUNCTIOn\n";
+    if (tree.find(identifier) == tree.end())
+    {
+        cout << "Identifier not declared\n";
+        return;
+    }
+
+    auto set_iterator = tree[identifier];
+
+    for (auto i : set_iterator)
+    {
+        if (scope >= i.get_scope() && line_no >= i.get_line_no())
+        {
+            cout<<"Identifier is declared\n";
+            return;
+        }
+    }
+    cout << "Identifier not declared\n";
+}
 char *conversion(vector<string> vec_s)
 {
     for (auto &i : vec_s)

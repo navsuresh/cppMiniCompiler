@@ -1,11 +1,13 @@
 int
 ID
 ;
+Identifier not declared
 a
 a
 int
 ID
 ;
+Identifier not declared
 b
 b
 int
@@ -30,16 +32,17 @@ Scope is 0
 
 
 line_no is 1
-identifier is 
+identifier is a
 type is int
-value is a
+value is 
 Size is 4
 Scope is 0
 
+
 line_no is 2
-identifier is 
+identifier is b
 type is int
-value is b
+value is 
 Size is 4
 Scope is 0
 

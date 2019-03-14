@@ -27,6 +27,7 @@ DIGIT
 int
 ID
 ;
+Identifier not declared
 j
 j
 int
@@ -48,6 +49,7 @@ DIGIT
 int
 ID
 ;
+Identifier not declared
 k
 k
 }
@@ -56,6 +58,7 @@ else
 int
 ID
 ;
+Identifier not declared
 l
 l
 }
@@ -67,24 +70,10 @@ l
 Parsing is successful
 
 
-line_no is 7
-identifier is 
-type is int
-value is j
-Size is 4
-Scope is 3
-
 line_no is 11
-identifier is 
+identifier is k
 type is int
-value is k
-Size is 4
-Scope is 3
-
-line_no is 14
-identifier is 
-type is int
-value is l
+value is 
 Size is 4
 Scope is 3
 
@@ -100,6 +89,22 @@ line_no is 8
 identifier is i
 type is int
 value is 10
+Size is 4
+Scope is 3
+
+
+line_no is 14
+identifier is l
+type is int
+value is 
+Size is 4
+Scope is 3
+
+
+line_no is 7
+identifier is j
+type is int
+value is 
 Size is 4
 Scope is 3
 

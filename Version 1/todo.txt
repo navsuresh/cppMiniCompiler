@@ -8,3 +8,4 @@ int main(){
 Symbol table - last used 
 Symbol table - (int i; value is i, identifier is nothing)
 Array usage (a[5]=1)
+Return statement

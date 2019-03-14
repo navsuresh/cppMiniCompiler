@@ -3,18 +3,22 @@ ID
 =
 ID
 +
+Identifier not declared
 b
 b
 ID
 +
+Identifier not declared
 c
 c
 ID
 *
+Identifier not declared
 d
 d
 ID
 ;
+Identifier not declared
 e
 e
 

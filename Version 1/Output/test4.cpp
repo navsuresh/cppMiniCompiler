@@ -27,6 +27,7 @@ DIGIT
 int
 ID
 ;
+Identifier not declared
 i
 i
 int
@@ -55,9 +56,9 @@ Scope is 2
 
 
 line_no is 5
-identifier is 
+identifier is i
 type is int
-value is i
+value is 
 Size is 4
 Scope is 2
 

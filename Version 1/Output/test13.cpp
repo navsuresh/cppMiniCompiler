@@ -28,6 +28,7 @@ i
 int
 ID
 ;
+Identifier not declared
 j
 j
 }
@@ -41,9 +42,9 @@ Parsing is successful
 
 
 line_no is 8
-identifier is 
+identifier is j
 type is int
-value is j
+value is 
 Size is 4
 Scope is 2
 

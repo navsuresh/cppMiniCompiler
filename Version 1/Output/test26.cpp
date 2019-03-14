@@ -1,24 +1,19 @@
-#include
 int
 main function
 (
-)
-{
-for
-(
-;
-;
 )
 {
 int
 ID
 ;
 Identifier not declared
-j
-j
-}
-HERE2
-FOOOR LOOP
+x
+x
+ID
+;
+Identifier is declared
+x
+x
 }
 
 
@@ -26,11 +21,11 @@ FOOOR LOOP
 Parsing is successful
 
 
-line_no is 5
-identifier is j
+line_no is 2
+identifier is x
 type is int
 value is 
 Size is 4
-Scope is 2
+Scope is 1
 
 
