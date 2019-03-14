@@ -17,6 +17,7 @@ num [0-9]
 digit [0-9]+
 id [a-zA-Z_]([a-zA-Z_]|[0-9])*
 %%
+"main" {printf("main function\n"); return MAIN;}
 "<"  {printf("LT\n");return LT;}
 ">"	 {printf("GT\n");
 		return GT;}

@@ -1,6 +1,6 @@
 #include
 int
-ID
+main function
 (
 )
 {

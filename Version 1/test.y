@@ -51,7 +51,7 @@ extern "C"
 
 %token <str> ID NUM INT FLOAT CHAR DOUBLE VOID AMP DM DP '+' '-' '*' '(' ')' '[' ']'
 %token FOR WHILE IF ELSE 
-
+%token MAIN
 %right ','
 %right '='
 %left AND OR
@@ -106,7 +106,7 @@ array_st_usage
 	;
 
 func_declaration
-	: type ID '(' arg_list_optional ')' compound_st
+	: type MAIN '(' arg_list_optional ')' compound_st
 	;
 func_call
 	:ID '(' arg_list_call ')'';'
