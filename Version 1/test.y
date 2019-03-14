@@ -106,7 +106,8 @@ array_st_usage
 	;
 
 func_declaration
-	: type MAIN '(' arg_list_optional ')' compound_st
+	: type ID '(' arg_list_optional ')' compound_st |
+	 type MAIN '(' arg_list_optional ')' compound_st
 	;
 func_call
 	:ID '(' arg_list_call ')'';'
