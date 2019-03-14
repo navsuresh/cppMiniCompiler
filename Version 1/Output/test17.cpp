@@ -11,7 +11,6 @@ DIGIT
 ;
 0
 0
-flag is 0
 while
 (
 ID
@@ -28,7 +27,6 @@ DIGIT
 ;
 9
 9
-flag is 0
 entered here
 ID
 LT

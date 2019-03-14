@@ -11,7 +11,6 @@ DIGIT
 ;
 0
 0
-flag is 0
 for
 (
 ;
@@ -29,7 +28,6 @@ ID
 ;
 j
 j
-flag is 0
 }
 HERE2
 FOOOR LOOP

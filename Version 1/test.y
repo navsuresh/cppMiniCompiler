@@ -10,7 +10,7 @@ ast test;
 ast test1;
 unordered_map <string,int> size_map;
 const char *s = "Hello, World!";   
-int flag=0;
+
 class test123{
 	int a;
 	public:
@@ -76,16 +76,6 @@ init
 
 declaration
 	: type assignment_st ';' {
-		printf("flag is %d\n",flag);
-		if(flag==1){
-		printf("entered here also\n");
-		$2->set_size(size_map[$1]);
-		$2->set_type($1);
-		$2->set_scope(scope_count+1);
-		cout<<"this is the scope "<<$2->get_scope();
-		test1.insert(*$2);
-		}
-		else{
 		// cout<<"BIG SCOPE\n";
 		//cout<<"LINE N1O IS "<<yylineno<<"\n";
 		//cout<<"get_identifier is "<<$2->get_identifier()<<"\n";
@@ -93,25 +83,16 @@ declaration
 		$2->set_type($1);
 		//cout<<"DISPLAY IS "<<"\n";
 		//$2->disp_node(); 
-		test1.insert(*$2);}}
+		test1.insert(*$2);}
 	| assignment_st ';' {
 
 	}
 	| type array_st';'{
-		if(flag==1){
-		flag=0;
-				$2->set_size($2->get_size()*size_map[$1]);
-		$2->set_type($1);
-		// $2->disp_node(); 
-		test1.insert(*$2);
-		$2->set_scope(scope_count+1);
-		}
-		else{
 		$2->set_size($2->get_size()*size_map[$1]);
 		$2->set_type($1);
 		// $2->disp_node(); 
 		test1.insert(*$2);
-	}
+	
 	}
 	;
  
@@ -198,17 +179,17 @@ for_s : FOR '('
 just_before_for: for_s assignment_st_for  expression_for  assignment_st_for_1 ')';
 just_before_for_1: for_s assignment_st_for_1 ';'  expression_for  assignment_st_for_1 ')';
 for_stmt
-	:just_before_for statement {cout<<"HERE1\n";flag=0;}
-	|just_before_for compound_st {cout<<"HERE2\n";flag=0;}
-	|just_before_for_1 compound_st {cout<<"HERE3\n";flag=0;}
- 	|just_before_for_1 statement {cout<<"HERE4\n";flag=0;}
+	:just_before_for statement {cout<<"HERE1\n";}
+	|just_before_for compound_st {cout<<"HERE2\n";}
+	|just_before_for_1 compound_st {cout<<"HERE3\n";}
+ 	|just_before_for_1 statement {cout<<"HERE4\n";}
 	 
 	
  	;
 
 assignment_st_for
 	: 
-	|	declaration { cout << "entered here\n";flag=1;}
+	|	declaration { cout << "entered here\n";}
 	| ';'
 	;
 expression_for
@@ -224,7 +205,7 @@ assignment_st_for_1
 	;
 
 assignment_st
-	:	ID '=' assignment_st	{if(flag){ printf("this is true\n");scope_count+=1;}$$ = new node(yylineno,$1,"",$3->get_value(),0,scope_count);}
+	:	ID '=' assignment_st	{$$ = new node(yylineno,$1,"",$3->get_value(),0,scope_count);}
 	|	assignment_st ',' assignment_st
 	|	assignment_st '+' assignment_st_t {$$->set_value($1->get_value()+'+'+$3->get_value());}
 	|	assignment_st '-' assignment_st_t {$$->set_value($1->get_value()+'-'+$3->get_value());}

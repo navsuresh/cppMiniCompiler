@@ -15,7 +15,6 @@ DIGIT
 ;
 5
 5
-flag is 0
 }
 
 

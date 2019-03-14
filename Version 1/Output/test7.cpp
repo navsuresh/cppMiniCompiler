@@ -16,7 +16,6 @@ DIGIT
 ;
 0
 0
-flag is 0
 }
 }
 

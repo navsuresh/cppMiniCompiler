@@ -11,7 +11,6 @@ DIGIT
 ;
 0
 0
-flag is 0
 for
 (
 int
@@ -21,7 +20,6 @@ DIGIT
 ;
 0
 0
-flag is 0
 entered here
 ;
 )
@@ -31,9 +29,7 @@ ID
 ;
 j
 j
-flag is 1
-entered here also
-this is the scope 3}
+}
 HERE2
 FOOOR LOOP
 }
@@ -48,7 +44,7 @@ identifier is
 type is int
 value is j
 Size is 4
-Scope is 3
+Scope is 2
 
 
 line_no is 4

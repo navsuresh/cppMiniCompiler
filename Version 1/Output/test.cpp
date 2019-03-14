@@ -11,7 +11,6 @@ DIGIT
 ;
 10
 10
-flag is 0
 int
 ID
 [

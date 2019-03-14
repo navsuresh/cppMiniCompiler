@@ -23,7 +23,6 @@ DIGIT
 )
 5
 5
-this is true
 {
 ID
 =
@@ -31,7 +30,6 @@ DIGIT
 ;
 9
 9
-this is true
 }
 HERE2
 FOOOR LOOP

@@ -17,7 +17,6 @@ ID
 ;
 e
 e
-flag is 0
 
 
 

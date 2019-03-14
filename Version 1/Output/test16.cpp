@@ -15,7 +15,6 @@ ID
 ;
 j
 j
-flag is 0
 }
 HERE2
 FOOOR LOOP

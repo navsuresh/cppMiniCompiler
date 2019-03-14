@@ -11,7 +11,6 @@ DIGIT
 ;
 7
 7
-flag is 0
 while
 (
 ID

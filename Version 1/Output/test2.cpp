@@ -5,7 +5,6 @@ DIGIT
 ;
 1
 1
-flag is 0
 
 
 

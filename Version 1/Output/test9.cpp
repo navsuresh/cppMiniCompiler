@@ -11,7 +11,6 @@ DIGIT
 ;
 0
 0
-flag is 0
 while
 (
 ID
@@ -30,7 +29,6 @@ ID
 ;
 j
 j
-flag is 0
 int
 ID
 =
@@ -38,7 +36,6 @@ DIGIT
 ;
 10
 10
-flag is 0
 }
 else
 if
@@ -53,7 +50,6 @@ ID
 ;
 k
 k
-flag is 0
 }
 else
 {
@@ -62,7 +58,6 @@ ID
 ;
 l
 l
-flag is 0
 }
 }
 }
