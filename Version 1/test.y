@@ -29,6 +29,7 @@ void yyerror(const char *error_msg);
 
 int counter = 0;
 extern FILE *yyin;
+extern FILE *yyout;
 extern int yylineno;
 extern int scope_count;
 extern "C"
@@ -74,12 +75,12 @@ init
 declaration
 	: type assignment_st ';' {
 		// cout<<"BIG SCOPE\n";
-		cout<<"LINE N1O IS "<<yylineno<<"\n";
-		cout<<"get_identifier is "<<$2->get_identifier()<<"\n";
+		//cout<<"LINE N1O IS "<<yylineno<<"\n";
+		//cout<<"get_identifier is "<<$2->get_identifier()<<"\n";
 		$2->set_size(size_map[$1]);
 		$2->set_type($1);
-		cout<<"DISPLAY IS "<<"\n";
-		$2->disp_node(); 
+		//cout<<"DISPLAY IS "<<"\n";
+		//$2->disp_node(); 
 		test1.insert(*$2);}
 	| assignment_st ';' {
 
@@ -112,11 +113,11 @@ func_call
 	;
 
 compound_st 
-	: '{' STATEMENT_STRUCTURE {cout<<"HERE1\n";scope_count+=1;}
+	: '{' STATEMENT_STRUCTURE {scope_count+=1;}
 	;
 
 STATEMENT_STRUCTURE
-	: statement_structure CLOSE {cout<<"HERE2\n";scope_count-=1;}
+	: statement_structure CLOSE {scope_count-=1;}
 
 CLOSE 
 	: '}' 
@@ -277,11 +278,11 @@ assignment_st_f
 	|	ID
 		{
 			vector<string> temp1{$1};
-			cout<<"COVERSION IS "<<conversion(temp1)<<"\n";
-			cout<<"LINE NO IS "<<yylineno<<"\n";
+		//	cout<<"COVERSION IS "<<conversion(temp1)<<"\n";
+		//	cout<<"LINE NO IS "<<yylineno<<"\n";
 			$$ = new node(yylineno,$1,"","",0,scope_count);
-			cout<<"ID DISPLAY IS\n";
-			$$->disp_node();
+		//	cout<<"ID DISPLAY IS\n";
+		//	$$->disp_node();
 		}
 	|	NUM
 		{
@@ -331,8 +332,8 @@ expression:  expression LE expression
 	| expression EQ expression
 	| expression GT expression
 	| expression LT expression
-	| ID {printf("Value1 is %s\n",$1);}
-	| NUM {printf("Value2 is %s\n",$1);}
+	| ID 
+	| NUM 
 	;
 %%
 
@@ -346,40 +347,34 @@ void yyerror(const char *error_msg) {
 int main(int argc, char *argv[]) {
 
 
-    
-	size_map["char"]=1;
+    size_map["char"]=1;
 	size_map["int"]=4;
 	size_map["float"]=4;
 	size_map["double"]=8;
+//	char dest[100];
+//	char another[7];
+//	cout <<"entered here"<<"\n";
+//	strcpy(another,"_c.txt");
+//	cout <<"entered here"<<"\n";
 
+	//strcpy(dest,(char *)argv[1]);
+	//strcat(dest,another);
 	// cout<<"HELLO WORLD\n";
 	yyin = fopen(argv[1], "r");
+	//yyout= fopen(argv[1],"w");
 	if (!yyparse()) {
-		printf("successful\n");
+		printf("\n\n\nParsing is successful\n\n\n");
 	} else {
 		printf("unsuccessful\n");
 	}
 
 
-	// test.insert(1,s,"int","",4);
-	// test.insert(3,s,"float","",4);
-	// test.insert(2,s,"double","",8);
-
-
-	// const char *s1 = "Hello, World!1";   
-	// test.insert(4,s1,"int","",4);
-	// test.insert(4,s1,"float","",4);
-	// test.insert(5,s1,"double","",8);
-
-
-
-// test.display();
-	cout<<"TEST1 is \n";
 	test1.display();
 	fclose(yyin);
-	// fclose(yyout);
+//	fclose(yyout);
 
 	return 0;
 }
+
 
 

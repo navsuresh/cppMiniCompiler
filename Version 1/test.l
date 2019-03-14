@@ -32,8 +32,8 @@ id [a-zA-Z_]([a-zA-Z_]|[0-9])*
 "==" {return EQ;}
 "!=" {return NE;}
 
-"#include"[ ]*"<".*">"\n {printf("here\n");}
-"#include"[ ]*"\"".*"\"" {printf("hello please\n");}
+"#include"[ ]*"<".*">"\n {printf("#include\n");}
+"#include"[ ]*"\"".*"\"" {printf("#include\n");}
 
 "int" {yylval.str = strdup(yytext);printf("int\n");
 		return (INT);}
@@ -41,24 +41,24 @@ id [a-zA-Z_]([a-zA-Z_]|[0-9])*
 "float" {yylval.str = strdup(yytext);return (FLOAT);}
 "char" {yylval.str = strdup(yytext);return (CHAR);}
 
-"++" {return DP;}
-"+" {return '+';}
-"-" {return '-';}
-"/" {return '/';}
-"*" {return '*';}
-"--" {return DM;}
-"&" {return AMP;}
-"double" {yylval.str = strdup(yytext);return (DOUBLE);}
-"void" {yylval.str = strdup(yytext);return (VOID);}
+"++" {printf("++\n");return DP;}
+"+" {printf("+\n");return '+';}
+"-" {printf("-\n");return '-';}
+"/" {printf("/\n");return '/';}
+"*" {printf("*\n");return '*';}
+"--" {printf("--\n");return DM;}
+"&" {printf("&\n");return AMP;}
+"double" {printf("double\n");yylval.str = strdup(yytext);return (DOUBLE);}
+"void" {printf("void\n");yylval.str = strdup(yytext);return (VOID);}
 "if" {printf("if\n"); return IF;}
 "else"  { printf("else\n"); return ELSE;}
 
 {digit}* {printf("DIGIT\n");yylval.str = strdup(yytext);return (NUM);}
-"=" {return ('=');}
-";" {return (';');}
-"," {return (',');}
-"{" {printf("open_curly\n");scope_count++;return ('{');}
-"}" {printf("close_curly\n");scope_count--;return ('}');}
+"=" {printf("=\n");return ('=');}
+";" {printf(";\n");return (';');}
+"," {printf(",\n");return (',');}
+"{" {printf("{\n");scope_count++;return ('{');}
+"}" {printf("}\n");scope_count--;return ('}');}
 "for" {printf("for\n");return FOR;}
 "while" {printf("while\n"); return WHILE;}
 [a-zA-Z_]([a-zA-Z_]|[0-9])* {
@@ -67,11 +67,11 @@ id [a-zA-Z_]([a-zA-Z_]|[0-9])*
         return (ID);
         }
 
-"[" {return ('[');}
-"]" {return (']');}
-"(" { printf("open\n");return ('(');}
-")" {printf("close\n");return (')');}
-[ ]* {printf("Space\n");}
-\t* {printf("tab\n");;}
-\n* {printf("newline\n");}
+"[" {printf("[\n");return ('[');}
+"]" {printf("]\n");return (']');}
+"(" { printf("(\n");return ('(');}
+")" {printf(")\n");return (')');}
+[ ]* {;}
+\t* {;;}
+\n* {;}
 %%

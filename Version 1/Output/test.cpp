@@ -1,38 +1,29 @@
-here
-Space
+#include
+void
 ID
-open
-Space
-close
-open_curly
-newline
+(
+)
+{
 int
-Space
 ID
+=
 DIGIT
+;
 10
 10
-LINE N1O IS 3
-get_identifier is a
-DISPLAY IS 
-line_no is 3
-identifier is a
-type is int
-value is 10
-Size is 4
-Scope is 1
+int
+ID
+[
+DIGIT
+]
+;
+}
 
-newline
-int
-Space
-ID
-DIGIT
-newline
-close_curly
-HERE2
-HERE1
-successful
-TEST1 is 
+
+
+Parsing is successful
+
+
 line_no is 4
 identifier is b
 type is int
