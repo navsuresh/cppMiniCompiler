@@ -6,17 +6,20 @@ DIGIT
 ;
 5
 5
+flag is 0
 int
 ID
 ;
 b
 b
+flag is 0
 ID
 =
 DIGIT
 ;
 9
 9
+flag is 0
 
 
 

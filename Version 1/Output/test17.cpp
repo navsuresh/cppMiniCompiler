@@ -4,8 +4,6 @@ main function
 (
 )
 {
-for
-(
 int
 ID
 =
@@ -14,29 +12,47 @@ DIGIT
 0
 0
 flag is 0
+while
+(
+ID
+LT
+DIGIT
+)
+{
+for
+(
+int
+ID
+=
+DIGIT
+;
+9
+9
+flag is 0
 entered here
 ID
 LT
 DIGIT
 ;
 ID
---
-i
-i
-i
-i
+++
+j
+j
+j
+j
 )
 {
-int
 ID
+++
+i
+i
+i
+i
 ;
-j
-j
-flag is 1
-entered here also
-this is the scope 3}
+}
 HERE2
 FOOOR LOOP
+}
 }
 
 
@@ -44,15 +60,15 @@ FOOOR LOOP
 Parsing is successful
 
 
-line_no is 8
-identifier is 
-type is int
-value is j
-Size is 4
-Scope is 3
-
-
 line_no is 6
+identifier is j
+type is int
+value is 9
+Size is 4
+Scope is 2
+
+
+line_no is 4
 identifier is i
 type is int
 value is 0

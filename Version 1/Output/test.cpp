@@ -11,29 +11,20 @@ DIGIT
 ;
 10
 10
+flag is 0
 int
 ID
 [
 DIGIT
 ]
 ;
-ID
-[
-DIGIT
-]
-b
-b
-2
-2
-b
-b
-2
-2
-bb22
-bb22
-=
-error_msg: syntax error
-unsuccessful
+}
+
+
+
+Parsing is successful
+
+
 line_no is 4
 identifier is b
 type is int

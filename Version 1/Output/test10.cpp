@@ -9,7 +9,28 @@ for
 ;
 ID
 LT
-i
-i
-error_msg: syntax error
-unsuccessful
+DIGIT
+;
+ID
+=
+DIGIT
+)
+5
+5
+{
+ID
+=
+DIGIT
+;
+5
+5
+}
+HERE2
+FOOOR LOOP
+}
+
+
+
+Parsing is successful
+
+

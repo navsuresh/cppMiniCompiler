@@ -1,7 +1,8 @@
 #include<iostream>
 
 int main(){
-	for(;;){
+	int i=0;
+	for(int k=0;;){
 		int j;
 	}
 }

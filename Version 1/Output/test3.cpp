@@ -3,11 +3,13 @@ ID
 ;
 a
 a
+flag is 0
 int
 ID
 ;
 b
 b
+flag is 0
 int
 ID
 =
@@ -15,6 +17,7 @@ DIGIT
 ;
 5
 5
+flag is 0
 
 
 
