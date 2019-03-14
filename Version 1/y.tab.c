@@ -503,8 +503,8 @@ static const yytype_uint16 yyrline[] =
      171,   172,   176,   179,   181,   185,   186,   187,   188,   189,
      193,   194,   195,   196,   199,   204,   209,   214,   219,   224,
      229,   234,   239,   244,   249,   254,   259,   264,   269,   274,
-     279,   288,   293,   298,   303,   318,   319,   320,   321,   322,
-     325,   327,   330,   331,   332,   333,   334,   335,   336,   337
+     279,   290,   295,   300,   305,   320,   321,   322,   323,   324,
+     327,   329,   332,   333,   334,   335,   336,   337,   338,   339
 };
 #endif
 
@@ -1476,10 +1476,40 @@ yyreduce:
 #line 1477 "y.tab.c" /* yacc.c:1646  */
     break;
 
+  case 47:
+#line 187 "test.y" /* yacc.c:1646  */
+    {(yyval.node)->set_value((yyvsp[-2].node)->get_value()+'+'+(yyvsp[0].node)->get_value());}
+#line 1483 "y.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 48:
+#line 188 "test.y" /* yacc.c:1646  */
+    {(yyval.node)->set_value((yyvsp[-2].node)->get_value()+'-'+(yyvsp[0].node)->get_value());}
+#line 1489 "y.tab.c" /* yacc.c:1646  */
+    break;
+
   case 49:
 #line 189 "test.y" /* yacc.c:1646  */
     {"ASSIFNMENT T\n";}
-#line 1483 "y.tab.c" /* yacc.c:1646  */
+#line 1495 "y.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 50:
+#line 193 "test.y" /* yacc.c:1646  */
+    {(yyval.node)->set_value((yyvsp[-2].node)->get_value()+'*'+(yyvsp[0].node)->get_value());}
+#line 1501 "y.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 51:
+#line 194 "test.y" /* yacc.c:1646  */
+    {(yyval.node)->set_value((yyvsp[-2].node)->get_value()+'/'+(yyvsp[0].node)->get_value());}
+#line 1507 "y.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 52:
+#line 195 "test.y" /* yacc.c:1646  */
+    { cout<<"HEREERE\n";(yyval.node)->set_value((yyvsp[-2].node)->get_value()+'%'+(yyvsp[0].node)->get_value());}
+#line 1513 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 54:
@@ -1488,7 +1518,7 @@ yyreduce:
 		vector<string> temp1{(yyvsp[-2].str),(yyvsp[-1].node)->get_value(),(yyvsp[0].str)};
 		(yyval.node) = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
-#line 1492 "y.tab.c" /* yacc.c:1646  */
+#line 1522 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 55:
@@ -1497,7 +1527,7 @@ yyreduce:
 		vector<string> temp1{(yyvsp[-3].str),(yyvsp[-2].str),(yyvsp[-1].node)->get_value(),(yyvsp[0].str)};
 		(yyval.node) = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
-#line 1501 "y.tab.c" /* yacc.c:1646  */
+#line 1531 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 56:
@@ -1506,7 +1536,7 @@ yyreduce:
 			vector<string> temp1{(yyvsp[-1].str),(yyvsp[0].str)};
 			(yyval.node) = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
-#line 1510 "y.tab.c" /* yacc.c:1646  */
+#line 1540 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 57:
@@ -1515,7 +1545,7 @@ yyreduce:
 			vector<string> temp1{(yyvsp[-1].str),(yyvsp[0].str)};
 			(yyval.node) = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
-#line 1519 "y.tab.c" /* yacc.c:1646  */
+#line 1549 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 58:
@@ -1524,7 +1554,7 @@ yyreduce:
 			vector<string> temp1{(yyvsp[-1].str),(yyvsp[0].str)};
 			(yyval.node) = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
-#line 1528 "y.tab.c" /* yacc.c:1646  */
+#line 1558 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 59:
@@ -1533,7 +1563,7 @@ yyreduce:
 			vector<string> temp1{(yyvsp[-1].str),(yyvsp[0].str)};
 			(yyval.node) = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
-#line 1537 "y.tab.c" /* yacc.c:1646  */
+#line 1567 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 60:
@@ -1542,7 +1572,7 @@ yyreduce:
 			vector<string> temp1{(yyvsp[-1].str),(yyvsp[0].str)};
 			(yyval.node) = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
-#line 1546 "y.tab.c" /* yacc.c:1646  */
+#line 1576 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 61:
@@ -1551,7 +1581,7 @@ yyreduce:
 			vector<string> temp1{(yyvsp[-1].str),(yyvsp[0].str)};
 			(yyval.node) = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
-#line 1555 "y.tab.c" /* yacc.c:1646  */
+#line 1585 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 62:
@@ -1560,7 +1590,7 @@ yyreduce:
 			vector<string> temp1{(yyvsp[-1].str),(yyvsp[0].str)};
 			(yyval.node) = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
-#line 1564 "y.tab.c" /* yacc.c:1646  */
+#line 1594 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 63:
@@ -1569,7 +1599,7 @@ yyreduce:
 			vector<string> temp1{(yyvsp[-1].str),(yyvsp[0].str)};
 			(yyval.node) = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
-#line 1573 "y.tab.c" /* yacc.c:1646  */
+#line 1603 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 64:
@@ -1578,7 +1608,7 @@ yyreduce:
 			vector<string> temp1{(yyvsp[-1].str),(yyvsp[0].str)};
 			(yyval.node) = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
-#line 1582 "y.tab.c" /* yacc.c:1646  */
+#line 1612 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 65:
@@ -1587,7 +1617,7 @@ yyreduce:
 			vector<string> temp1{(yyvsp[-1].str),(yyvsp[0].str)};
 			(yyval.node) = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
-#line 1591 "y.tab.c" /* yacc.c:1646  */
+#line 1621 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 66:
@@ -1596,7 +1626,7 @@ yyreduce:
 			vector<string> temp1{(yyvsp[-1].str),(yyvsp[0].str)};
 			(yyval.node) = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
-#line 1600 "y.tab.c" /* yacc.c:1646  */
+#line 1630 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 67:
@@ -1605,7 +1635,7 @@ yyreduce:
 			vector<string> temp1{(yyvsp[-1].str),(yyvsp[0].str)};
 			(yyval.node) = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
-#line 1609 "y.tab.c" /* yacc.c:1646  */
+#line 1639 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 68:
@@ -1614,7 +1644,7 @@ yyreduce:
 			vector<string> temp1{(yyvsp[-1].str),(yyvsp[0].str)};
 			(yyval.node) = new node(yylineno,(yyvsp[0].str),"","",0,scope_count);
 		}
-#line 1618 "y.tab.c" /* yacc.c:1646  */
+#line 1648 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 69:
@@ -1623,7 +1653,7 @@ yyreduce:
 			vector<string> temp1{(yyvsp[-1].str),(yyvsp[0].str)};
 			(yyval.node) = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
-#line 1627 "y.tab.c" /* yacc.c:1646  */
+#line 1657 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 70:
@@ -1632,81 +1662,83 @@ yyreduce:
 			vector<string> temp1{(yyvsp[0].str)};
 		//	cout<<"COVERSION IS "<<conversion(temp1)<<"\n";
 		//	cout<<"LINE NO IS "<<yylineno<<"\n";
-			(yyval.node) = new node(yylineno,(yyvsp[0].str),"","",0,scope_count);
+			// $$ = new node(yylineno,$1,"","",0,scope_count);
+			(yyval.node) = new node(yylineno,"","",conversion(temp1),0,scope_count);
+		
 		//	cout<<"ID DISPLAY IS\n";
 		//	$$->disp_node();
 		}
-#line 1640 "y.tab.c" /* yacc.c:1646  */
+#line 1672 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 71:
-#line 289 "test.y" /* yacc.c:1646  */
+#line 291 "test.y" /* yacc.c:1646  */
     {
 			vector<string> temp1{(yyvsp[0].str)};
 			(yyval.node) = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
-#line 1649 "y.tab.c" /* yacc.c:1646  */
+#line 1681 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 72:
-#line 294 "test.y" /* yacc.c:1646  */
+#line 296 "test.y" /* yacc.c:1646  */
     {
 			vector<string> temp1{(yyvsp[-1].str),(yyvsp[0].node)->get_value()};
 			(yyval.node) = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
-#line 1658 "y.tab.c" /* yacc.c:1646  */
+#line 1690 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 73:
-#line 299 "test.y" /* yacc.c:1646  */
+#line 301 "test.y" /* yacc.c:1646  */
     {	
 			vector<string> temp1{(yyvsp[0].str)};
 			(yyval.node) = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
-#line 1667 "y.tab.c" /* yacc.c:1646  */
+#line 1699 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 74:
-#line 304 "test.y" /* yacc.c:1646  */
+#line 306 "test.y" /* yacc.c:1646  */
     {
 			vector<string> temp1{(yyvsp[0].str)};
 			(yyval.node) = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
-#line 1676 "y.tab.c" /* yacc.c:1646  */
+#line 1708 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 75:
-#line 318 "test.y" /* yacc.c:1646  */
+#line 320 "test.y" /* yacc.c:1646  */
     {(yyval.str)=(yyvsp[0].str);}
-#line 1682 "y.tab.c" /* yacc.c:1646  */
+#line 1714 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 76:
-#line 319 "test.y" /* yacc.c:1646  */
+#line 321 "test.y" /* yacc.c:1646  */
     {(yyval.str)=(yyvsp[0].str);}
-#line 1688 "y.tab.c" /* yacc.c:1646  */
+#line 1720 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 77:
-#line 320 "test.y" /* yacc.c:1646  */
+#line 322 "test.y" /* yacc.c:1646  */
     {(yyval.str)=(yyvsp[0].str);}
-#line 1694 "y.tab.c" /* yacc.c:1646  */
+#line 1726 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 78:
-#line 321 "test.y" /* yacc.c:1646  */
+#line 323 "test.y" /* yacc.c:1646  */
     {(yyval.str)=(yyvsp[0].str);}
-#line 1700 "y.tab.c" /* yacc.c:1646  */
+#line 1732 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 79:
-#line 322 "test.y" /* yacc.c:1646  */
+#line 324 "test.y" /* yacc.c:1646  */
     {(yyval.str)=(yyvsp[0].str);}
-#line 1706 "y.tab.c" /* yacc.c:1646  */
+#line 1738 "y.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1710 "y.tab.c" /* yacc.c:1646  */
+#line 1742 "y.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1934,7 +1966,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 339 "test.y" /* yacc.c:1906  */
+#line 341 "test.y" /* yacc.c:1906  */
 
 
 

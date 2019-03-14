@@ -9,6 +9,8 @@ DIGIT
 int
 ID
 ;
+b
+b
 ID
 =
 DIGIT
@@ -38,9 +40,9 @@ Scope is 0
 
 
 line_no is 3
-identifier is b
+identifier is 
 type is int
-value is 
+value is b
 Size is 4
 Scope is 0
 

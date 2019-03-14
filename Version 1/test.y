@@ -184,15 +184,15 @@ assignment_st_for
 assignment_st
 	:	ID '=' assignment_st	{$$ = new node(yylineno,$1,"",$3->get_value(),0,scope_count);};
 	|	assignment_st ',' assignment_st
-	|	assignment_st '+' assignment_st_t
-	|	assignment_st '-' assignment_st_t	
+	|	assignment_st '+' assignment_st_t {$$->set_value($1->get_value()+'+'+$3->get_value());}
+	|	assignment_st '-' assignment_st_t {$$->set_value($1->get_value()+'-'+$3->get_value());}
 	|	assignment_st_t {"ASSIFNMENT T\n";}
 	;
 
 assignment_st_t
-	:	assignment_st_t '*' assignment_st_f
-	|	assignment_st_t '/' assignment_st_f
-	|	assignment_st_t '%' assignment_st_f
+	:	assignment_st_t '*' assignment_st_f {$$->set_value($1->get_value()+'*'+$3->get_value());}
+	|	assignment_st_t '/' assignment_st_f {$$->set_value($1->get_value()+'/'+$3->get_value());}
+	|	assignment_st_t '%' assignment_st_f { cout<<"HEREERE\n";$$->set_value($1->get_value()+'%'+$3->get_value());}
 	|	assignment_st_f
 	;
 assignment_st_f
@@ -281,7 +281,9 @@ assignment_st_f
 			vector<string> temp1{$1};
 		//	cout<<"COVERSION IS "<<conversion(temp1)<<"\n";
 		//	cout<<"LINE NO IS "<<yylineno<<"\n";
-			$$ = new node(yylineno,$1,"","",0,scope_count);
+			// $$ = new node(yylineno,$1,"","",0,scope_count);
+			$$ = new node(yylineno,"","",conversion(temp1),0,scope_count);
+		
 		//	cout<<"ID DISPLAY IS\n";
 		//	$$->disp_node();
 		}

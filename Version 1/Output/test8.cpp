@@ -33,9 +33,13 @@ DIGIT
 int
 ID
 ;
+k
+k
 int
 ID
 ;
+l
+l
 }
 }
 }
@@ -46,9 +50,16 @@ Parsing is successful
 
 
 line_no is 9
-identifier is k
+identifier is 
 type is int
-value is 
+value is k
+Size is 4
+Scope is 3
+
+line_no is 10
+identifier is 
+type is int
+value is l
 Size is 4
 Scope is 3
 
@@ -59,14 +70,6 @@ type is int
 value is 7
 Size is 4
 Scope is 1
-
-
-line_no is 10
-identifier is l
-type is int
-value is 
-Size is 4
-Scope is 3
 
 
 line_no is 8

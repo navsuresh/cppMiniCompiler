@@ -26,6 +26,8 @@ DIGIT
 int
 ID
 ;
+i
+i
 int
 ID
 =
@@ -51,9 +53,9 @@ Scope is 2
 
 
 line_no is 5
-identifier is i
+identifier is 
 type is int
-value is 
+value is i
 Size is 4
 Scope is 2
 

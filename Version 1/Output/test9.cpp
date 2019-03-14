@@ -27,6 +27,8 @@ DIGIT
 int
 ID
 ;
+j
+j
 }
 else
 if
@@ -39,12 +41,16 @@ DIGIT
 int
 ID
 ;
+k
+k
 }
 else
 {
 int
 ID
 ;
+l
+l
 }
 }
 }
@@ -54,10 +60,24 @@ ID
 Parsing is successful
 
 
-line_no is 10
-identifier is k
+line_no is 7
+identifier is 
 type is int
-value is 
+value is j
+Size is 4
+Scope is 3
+
+line_no is 10
+identifier is 
+type is int
+value is k
+Size is 4
+Scope is 3
+
+line_no is 13
+identifier is 
+type is int
+value is l
 Size is 4
 Scope is 3
 
@@ -68,21 +88,5 @@ type is int
 value is 0
 Size is 4
 Scope is 1
-
-
-line_no is 13
-identifier is l
-type is int
-value is 
-Size is 4
-Scope is 3
-
-
-line_no is 7
-identifier is j
-type is int
-value is 
-Size is 4
-Scope is 3
 
 

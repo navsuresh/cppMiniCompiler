@@ -1,9 +1,13 @@
 int
 ID
 ;
+a
+a
 int
 ID
 ;
+b
+b
 int
 ID
 =
@@ -26,17 +30,16 @@ Scope is 0
 
 
 line_no is 1
-identifier is a
+identifier is 
 type is int
-value is 
+value is a
 Size is 4
 Scope is 0
 
-
 line_no is 2
-identifier is b
+identifier is 
 type is int
-value is 
+value is b
 Size is 4
 Scope is 0
 

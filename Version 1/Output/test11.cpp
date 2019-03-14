@@ -25,7 +25,7 @@ Parsing is successful
 line_no is 5
 identifier is a
 type is int
-value is 5
+value is 5+5
 Size is 4
 Scope is 1
 
