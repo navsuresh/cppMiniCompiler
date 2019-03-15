@@ -14,16 +14,12 @@ ID
 =
 DIGIT
 ;
+error_msg: Identifier not declared
 0
 0
 }
 }
-
-
-
-Parsing is successful
-
-
+unsuccessful
 line_no is 5
 identifier is i
 type is int

@@ -10,7 +10,7 @@ ast test;
 ast test1;
 unordered_map <string,int> size_map;
 const char *s = "Hello, World!";   
-
+int flag=1;
 class test123{
 	int a;
 	public:
@@ -305,7 +305,10 @@ assignment_st_f
 		}
 	|	ID
 		{
-			test1.declaration_exists(yylineno,$1,scope_count);
+			if(test1.declaration_exists(yylineno,$1,scope_count)==0){
+			yyerror("Identifier not declared");
+			flag=0;
+			};
 			vector<string> temp1{$1};
 		//	cout<<"COVERSION IS "<<conversion(temp1)<<"\n";
 		//	cout<<"LINE NO IS "<<yylineno<<"\n";
@@ -317,8 +320,18 @@ assignment_st_f
 		}
 	|	NUM
 		{
+			if(test1.declaration_exists(yylineno,$1,scope_count)==0){
+			yyerror("Identifier not declared");
+			flag=0;
+			};
 			vector<string> temp1{$1};
+		//	cout<<"COVERSION IS "<<conversion(temp1)<<"\n";
+		//	cout<<"LINE NO IS "<<yylineno<<"\n";
+			// $$ = new node(yylineno,$1,"","",0,scope_count);
 			$$ = new node(yylineno,"","",conversion(temp1),0,scope_count);
+		
+		//	cout<<"ID DISPLAY IS\n";
+		//	$$->disp_node();
 		}
 	|	'*' assignment_st
 		{
@@ -389,7 +402,7 @@ int main(int argc, char *argv[]) {
 	// cout<<"HELLO WORLD\n";
 	yyin = fopen(argv[1], "r");
 	//yyout= fopen(argv[1],"w");
-	if (!yyparse()) {
+	if (!yyparse() && flag==1) {
 		printf("\n\n\nParsing is successful\n\n\n");
 	} else {
 		printf("unsuccessful\n");

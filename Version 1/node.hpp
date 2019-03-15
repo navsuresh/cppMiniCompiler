@@ -53,7 +53,7 @@ public:
   void insert(int line_no, string identifier, string type, string value, int size, int scope);
   void insert(node _node);
   void identifier_exists(int line_no, string identifier, int scope);
-  void declaration_exists(int line_no, string identifier, int scope);
+  int declaration_exists(int line_no, string identifier, int scope);
   //Displays based on identifier, and the corresponding sorted line numbers.
   void display();
 };

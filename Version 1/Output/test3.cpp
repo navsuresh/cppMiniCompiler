@@ -1,13 +1,13 @@
 int
 ID
 ;
-Identifier not declared
+error_msg: Identifier not declared
 a
 a
 int
 ID
 ;
-Identifier not declared
+error_msg: Identifier not declared
 b
 b
 int
@@ -15,14 +15,10 @@ ID
 =
 DIGIT
 ;
+error_msg: Identifier not declared
 5
 5
-
-
-
-Parsing is successful
-
-
+unsuccessful
 line_no is 3
 identifier is c
 type is int

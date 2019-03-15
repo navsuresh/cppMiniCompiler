@@ -10,6 +10,7 @@ ID
 =
 DIGIT
 ;
+error_msg: Identifier not declared
 0
 0
 entered here
@@ -21,6 +22,7 @@ ID
 =
 DIGIT
 )
+error_msg: Identifier not declared
 5
 5
 {
@@ -28,15 +30,11 @@ ID
 =
 DIGIT
 ;
+error_msg: Identifier not declared
 9
 9
 }
 HERE2
 FOOOR LOOP
 }
-
-
-
-Parsing is successful
-
-
+unsuccessful

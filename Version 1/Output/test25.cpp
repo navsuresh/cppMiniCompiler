@@ -8,20 +8,15 @@ ID
 =
 DIGIT
 ;
+error_msg: Identifier not declared
 10
 10
 ID
 ;
-Identifier is declared
 x
 x
 }
-
-
-
-Parsing is successful
-
-
+unsuccessful
 line_no is 2
 identifier is x
 type is int

@@ -9,19 +9,16 @@ ID
 =
 DIGIT
 +
+error_msg: Identifier not declared
 5
 5
 DIGIT
 ;
+error_msg: Identifier not declared
 5
 5
 }
-
-
-
-Parsing is successful
-
-
+unsuccessful
 line_no is 5
 identifier is a
 type is int

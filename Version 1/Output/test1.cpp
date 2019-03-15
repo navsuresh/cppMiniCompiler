@@ -4,26 +4,23 @@ ID
 =
 DIGIT
 ;
+error_msg: Identifier not declared
 5
 5
 int
 ID
 ;
-Identifier not declared
+error_msg: Identifier not declared
 b
 b
 ID
 =
 DIGIT
 ;
+error_msg: Identifier not declared
 9
 9
-
-
-
-Parsing is successful
-
-
+unsuccessful
 line_no is 4
 identifier is c
 type is float

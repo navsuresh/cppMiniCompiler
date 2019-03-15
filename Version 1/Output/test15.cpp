@@ -3,30 +3,25 @@ ID
 =
 ID
 +
-Identifier not declared
+error_msg: Identifier not declared
 b
 b
 ID
 +
-Identifier not declared
+error_msg: Identifier not declared
 c
 c
 ID
 *
-Identifier not declared
+error_msg: Identifier not declared
 d
 d
 ID
 ;
-Identifier not declared
+error_msg: Identifier not declared
 e
 e
-
-
-
-Parsing is successful
-
-
+unsuccessful
 line_no is 1
 identifier is a
 type is int

@@ -6,21 +6,15 @@ main function
 int
 ID
 ;
-Identifier not declared
+error_msg: Identifier not declared
 x
 x
 ID
 ;
-Identifier is declared
 x
 x
 }
-
-
-
-Parsing is successful
-
-
+unsuccessful
 line_no is 2
 identifier is x
 type is int

@@ -9,6 +9,7 @@ ID
 =
 DIGIT
 ;
+error_msg: Identifier not declared
 0
 0
 while
@@ -27,7 +28,7 @@ DIGIT
 int
 ID
 ;
-Identifier not declared
+error_msg: Identifier not declared
 j
 j
 int
@@ -35,6 +36,7 @@ ID
 =
 DIGIT
 ;
+error_msg: Identifier not declared
 10
 10
 }
@@ -49,7 +51,7 @@ DIGIT
 int
 ID
 ;
-Identifier not declared
+error_msg: Identifier not declared
 k
 k
 }
@@ -58,18 +60,13 @@ else
 int
 ID
 ;
-Identifier not declared
+error_msg: Identifier not declared
 l
 l
 }
 }
 }
-
-
-
-Parsing is successful
-
-
+unsuccessful
 line_no is 11
 identifier is k
 type is int

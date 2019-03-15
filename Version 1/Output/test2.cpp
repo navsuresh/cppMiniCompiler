@@ -3,14 +3,10 @@ ID
 =
 DIGIT
 ;
+error_msg: Identifier not declared
 1
 1
-
-
-
-Parsing is successful
-
-
+unsuccessful
 line_no is 1
 identifier is a
 type is int

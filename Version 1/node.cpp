@@ -148,13 +148,12 @@ void ast::identifier_exists(int line_no, string identifier, int scope)
     // auto temp_
 }
 
-void ast::declaration_exists(int line_no, string identifier, int scope)
+int ast::declaration_exists(int line_no, string identifier, int scope)
 {   
     // cout<<"INSIDE FUNCTIOn\n";
     if (tree.find(identifier) == tree.end())
     {
-        cout << "Identifier not declared\n";
-        return;
+        return 0;
     }
 
     auto set_iterator = tree[identifier];
@@ -163,11 +162,10 @@ void ast::declaration_exists(int line_no, string identifier, int scope)
     {
         if (scope >= i.get_scope() && line_no >= i.get_line_no())
         {
-            cout<<"Identifier is declared\n";
-            return;
+            return 1;
         }
     }
-    cout << "Identifier not declared\n";
+    return 0;
 }
 char *conversion(vector<string> vec_s)
 {

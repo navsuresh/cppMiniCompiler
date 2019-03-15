@@ -9,6 +9,7 @@ ID
 =
 DIGIT
 ;
+error_msg: Identifier not declared
 7
 7
 while

@@ -9,6 +9,7 @@ ID
 =
 DIGIT
 ;
+error_msg: Identifier not declared
 0
 0
 for
@@ -23,19 +24,14 @@ DIGIT
 int
 ID
 ;
-Identifier not declared
+error_msg: Identifier not declared
 j
 j
 }
 HERE2
 FOOOR LOOP
 }
-
-
-
-Parsing is successful
-
-
+unsuccessful
 line_no is 6
 identifier is j
 type is int

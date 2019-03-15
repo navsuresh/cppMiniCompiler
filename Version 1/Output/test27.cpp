@@ -4,19 +4,12 @@ main function
 (
 )
 {
-int
 ID
+=
+DIGIT
 ;
 error_msg: Identifier not declared
-i
-i
+5
+5
 }
 unsuccessful
-line_no is 4
-identifier is i
-type is int
-value is 
-Size is 4
-Scope is 1
-
-

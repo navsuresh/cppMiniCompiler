@@ -9,6 +9,7 @@ ID
 =
 DIGIT
 ;
+error_msg: Identifier not declared
 10
 10
 int
@@ -18,12 +19,7 @@ DIGIT
 ]
 ;
 }
-
-
-
-Parsing is successful
-
-
+unsuccessful
 line_no is 4
 identifier is b
 type is int

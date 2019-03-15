@@ -13,19 +13,14 @@ for
 int
 ID
 ;
-Identifier not declared
+error_msg: Identifier not declared
 j
 j
 }
 HERE2
 FOOOR LOOP
 }
-
-
-
-Parsing is successful
-
-
+unsuccessful
 line_no is 5
 identifier is j
 type is int

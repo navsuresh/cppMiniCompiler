@@ -9,6 +9,7 @@ ID
 =
 DIGIT
 ;
+error_msg: Identifier not declared
 0
 0
 for
@@ -18,6 +19,7 @@ ID
 =
 DIGIT
 ;
+error_msg: Identifier not declared
 5
 5
 entered here
@@ -36,7 +38,7 @@ k
 int
 ID
 ;
-Identifier not declared
+error_msg: Identifier not declared
 j
 j
 for
@@ -45,6 +47,7 @@ ID
 =
 DIGIT
 ;
+error_msg: Identifier not declared
 0
 0
 entered here
@@ -65,6 +68,7 @@ ID
 =
 DIGIT
 ;
+error_msg: Identifier not declared
 0
 0
 }
@@ -74,12 +78,7 @@ FOOOR LOOP
 HERE2
 FOOOR LOOP
 }
-
-
-
-Parsing is successful
-
-
+unsuccessful
 line_no is 8
 identifier is p
 type is int
