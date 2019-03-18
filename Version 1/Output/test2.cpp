@@ -7,6 +7,7 @@ error_msg: Identifier not declared
 1
 1
 unsuccessful
+BIG Scope is 0
 line_no is 1
 identifier is a
 type is int

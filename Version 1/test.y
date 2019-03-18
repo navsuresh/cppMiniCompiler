@@ -121,7 +121,7 @@ func_call
 	;
 
 compound_st 
-	: '{' STATEMENT_STRUCTURE {scope_count+=1;}
+	: '{'  {scope_count+=1; test1.create_map(scope_count);} STATEMENT_STRUCTURE
 	;
 
 STATEMENT_STRUCTURE

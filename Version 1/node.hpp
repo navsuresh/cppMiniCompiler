@@ -36,7 +36,7 @@ public:
   void set_scope(int scope);
   //Displays all attributes
   void disp_node() const;
-  
+
   //Used for ordering in set
   bool operator<(const node &d) const;
 };
@@ -44,17 +44,18 @@ public:
 class ast : public node
 {
   //Abstract syntax tree is a hashmap. The key is the identifier. The value is a set(tree) with comparison done based on line number. Should be useful to find scope, by going to the closest line number which is lesser than the required line.
-unordered_map<string, set<node>> tree;
+  vector<vector<unordered_map<string, node>>> tree;
+
 public:
-  
   //Default constructor
   ast();
   //Overloaded insert functions, inserts into the hashmap.
+  void create_map(int scope);
   void insert(int line_no, string identifier, string type, string value, int size, int scope);
   void insert(node _node);
-  void identifier_exists(int line_no, string identifier, int scope);
+  // void identifier_exists(int line_no, string identifier, int scope);
   int declaration_exists(int line_no, string identifier, int scope);
-  //Displays based on identifier, and the corresponding sorted line numbers.
+  //Displays based on identi`fier, and the corresponding sorted line numbers.
   void display();
 };
 

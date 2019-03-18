@@ -91,81 +91,94 @@ bool node::operator<(const node &second) const
 }
 
 //Abstract Syntax Tree
-ast::ast() {}
+ast::ast()
+{
+    vector<unordered_map<string, node>> temp;
+    tree.push_back(temp);
+    unordered_map<string, node> temp1;
+    tree[0].push_back(temp1);
+}
+void ast::create_map(int scope)
+{
+    if (scope >= tree.size())
+    {
+        vector<unordered_map<string, node>> temp;
+        tree.push_back(temp);
+    }
+    unordered_map<string, node> temp1;
+    tree[scope].push_back(temp1);
+    return;
+}
 void ast::insert(int line_no, string identifier, string type, string value, int size, int scope)
 {
-    if (tree.find(identifier) == tree.end())
-    {
-        tree[identifier] = set<node>();
-    }
-    tree[identifier].insert(node(line_no, identifier, type, value, size, scope));
+    unordered_map<string, node> &temp = tree[scope].back();
+    temp[identifier] = node(line_no, identifier, type, value, size, scope);
 }
 
 void ast::insert(node _node)
 {
     string identifier = _node.get_identifier();
-    if (tree.find(identifier) == tree.end())
-    {
-        tree[identifier] = set<node>();
-    }
-    tree[identifier].insert(_node);
+    int scope = _node.get_scope();
+
+    unordered_map<string, node> &temp = tree[scope].back();
+    temp[identifier] = _node;
 }
 
 void ast::display()
 {
-    for (auto &it : tree)
+
+    for (int i = 0; i < tree.size(); i++)
     {
-        for (auto &it1 : it.second)
+        cout << "BIG Scope is " << i << "\n";
+        for (int j = 0; j < tree[i].size(); j++)
         {
-            it1.disp_node();
+            for (auto &it1 : tree[i][j])
+            {
+                it1.second.disp_node();
+            }
         }
         cout << "\n";
     }
 }
 
-void ast::identifier_exists(int line_no, string identifier, int scope)
-{
-    // if(tree.find(identifier)==tree.end()){
-    //     cout<<"Identifier Doesn't Exist\n";
-    //     return;
-    // }
-    // // auto set_iterator = tree.find(identifier)->second;
-    // // auto set_iterator = *temp1;
-    // auto set_iterator = tree[identifier];
-    // node temp_node;
-    // temp_node.set_line_no(line_no);
-    // temp_node.set_identifier(identifier);
+// void ast::identifier_exists(int line_no, string identifier, int scope)
+// {
+// if(tree.find(identifier)==tree.end()){
+//     cout<<"Identifier Doesn't Exist\n";
+//     return;
+// }
+// // auto set_iterator = tree.find(identifier)->second;
+// // auto set_iterator = *temp1;
+// auto set_iterator = tree[identifier];
+// node temp_node;
+// temp_node.set_line_no(line_no);
+// temp_node.set_identifier(identifier);
 
-    // for(auto i:set_iterator){
-    //     i.disp_node();
-    // }
-    // auto set_element_iterator = set_iterator.lower_bound(temp_node);
-    // if(set_element_iterator == set_iterator.begin()){
-    //     if()
-    // }
-    // cout<<"NERE\n";
-    // set_element_iterator->disp_node();
-    // auto temp_
-}
+// for(auto i:set_iterator){
+//     i.disp_node();
+// }
+// auto set_element_iterator = set_iterator.lower_bound(temp_node);
+// if(set_element_iterator == set_iterator.begin()){
+//     if()
+// }
+// cout<<"NERE\n";
+// set_element_iterator->disp_node();
+// auto temp_
+// }
 
 int ast::declaration_exists(int line_no, string identifier, int scope)
-{   
+{
     // cout<<"INSIDE FUNCTIOn\n";
-    if (tree.find(identifier) == tree.end())
+    int n = scope;
+    while (n >= 0)
     {
-        return 0;
-    }
-
-    auto set_iterator = tree[identifier];
-
-    for (auto i : set_iterator)
-    {
-        if (scope >= i.get_scope() && line_no >= i.get_line_no())
+        unordered_map<string, node> &temp = tree[scope].back();
+        if (temp.find(identifier) != temp.end())
         {
             return 1;
         }
+        n--;
     }
-    return 0;
 }
 char *conversion(vector<string> vec_s)
 {
