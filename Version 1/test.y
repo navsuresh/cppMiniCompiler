@@ -320,6 +320,7 @@ assignment_st_f
 		}
 	|	NUM
 		{
+			cout<<"$1 is "<<$1<<"\n";
 			if(test1.declaration_exists(yylineno,$1,scope_count)==0){
 			yyerror("Identifier not declared");
 			flag=0;

@@ -3,6 +3,7 @@ ID
 =
 DIGIT
 ;
+$1 is 1
 error_msg: Identifier not declared
 1
 1

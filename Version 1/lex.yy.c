@@ -979,12 +979,12 @@ YY_RULE_SETUP
 case 29:
 YY_RULE_SETUP
 #line 62 "test.l"
-{printf("{\n");scope_count++;return ('{');}
+{printf("{\n");return ('{');}
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
 #line 63 "test.l"
-{printf("}\n");scope_count--;return ('}');}
+{printf("}\n");return ('}');}
 	YY_BREAK
 case 31:
 YY_RULE_SETUP

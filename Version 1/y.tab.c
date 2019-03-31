@@ -505,8 +505,8 @@ static const yytype_uint16 yyrline[] =
      196,   197,   199,   201,   202,   207,   208,   212,   213,   214,
      215,   216,   220,   221,   222,   223,   226,   231,   236,   241,
      246,   251,   256,   261,   266,   271,   276,   281,   286,   291,
-     296,   301,   306,   321,   336,   341,   346,   361,   362,   363,
-     364,   365,   369,   370,   371,   372,   373,   374,   375,   376
+     296,   301,   306,   321,   337,   342,   347,   362,   363,   364,
+     365,   366,   370,   371,   372,   373,   374,   375,   376,   377
 };
 #endif
 
@@ -1729,6 +1729,7 @@ yyreduce:
   case 83:
 #line 322 "test.y" /* yacc.c:1646  */
     {
+			cout<<"$1 is "<<(yyvsp[0].str)<<"\n";
 			if(test1.declaration_exists(yylineno,(yyvsp[0].str),scope_count)==0){
 			yyerror("Identifier not declared");
 			flag=0;
@@ -1742,68 +1743,68 @@ yyreduce:
 		//	cout<<"ID DISPLAY IS\n";
 		//	$$->disp_node();
 		}
-#line 1746 "y.tab.c" /* yacc.c:1646  */
+#line 1747 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 84:
-#line 337 "test.y" /* yacc.c:1646  */
+#line 338 "test.y" /* yacc.c:1646  */
     {
 			vector<string> temp1{(yyvsp[-1].str),(yyvsp[0].node)->get_value()};
 			(yyval.node) = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
-#line 1755 "y.tab.c" /* yacc.c:1646  */
+#line 1756 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 85:
-#line 342 "test.y" /* yacc.c:1646  */
+#line 343 "test.y" /* yacc.c:1646  */
     {	
 			vector<string> temp1{(yyvsp[0].str)};
 			(yyval.node) = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
-#line 1764 "y.tab.c" /* yacc.c:1646  */
+#line 1765 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 86:
-#line 347 "test.y" /* yacc.c:1646  */
+#line 348 "test.y" /* yacc.c:1646  */
     {
 			vector<string> temp1{(yyvsp[0].str)};
 			(yyval.node) = new node(yylineno,"","",conversion(temp1),0,scope_count);
 		}
-#line 1773 "y.tab.c" /* yacc.c:1646  */
+#line 1774 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 87:
-#line 361 "test.y" /* yacc.c:1646  */
+#line 362 "test.y" /* yacc.c:1646  */
     {(yyval.str)=(yyvsp[0].str);}
-#line 1779 "y.tab.c" /* yacc.c:1646  */
+#line 1780 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 88:
-#line 362 "test.y" /* yacc.c:1646  */
+#line 363 "test.y" /* yacc.c:1646  */
     {(yyval.str)=(yyvsp[0].str);}
-#line 1785 "y.tab.c" /* yacc.c:1646  */
+#line 1786 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 89:
-#line 363 "test.y" /* yacc.c:1646  */
+#line 364 "test.y" /* yacc.c:1646  */
     {(yyval.str)=(yyvsp[0].str);}
-#line 1791 "y.tab.c" /* yacc.c:1646  */
+#line 1792 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 90:
-#line 364 "test.y" /* yacc.c:1646  */
+#line 365 "test.y" /* yacc.c:1646  */
     {(yyval.str)=(yyvsp[0].str);}
-#line 1797 "y.tab.c" /* yacc.c:1646  */
+#line 1798 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 91:
-#line 365 "test.y" /* yacc.c:1646  */
+#line 366 "test.y" /* yacc.c:1646  */
     {(yyval.str)=(yyvsp[0].str);}
-#line 1803 "y.tab.c" /* yacc.c:1646  */
+#line 1804 "y.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1807 "y.tab.c" /* yacc.c:1646  */
+#line 1808 "y.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -2031,7 +2032,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 378 "test.y" /* yacc.c:1906  */
+#line 379 "test.y" /* yacc.c:1906  */
 
 
 

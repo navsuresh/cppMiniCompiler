@@ -59,8 +59,8 @@ id [a-zA-Z_]([a-zA-Z_]|[0-9])*
 "=" {printf("=\n");return ('=');}
 ";" {printf(";\n");return (';');}
 "," {printf(",\n");return (',');}
-"{" {printf("{\n");scope_count++;return ('{');}
-"}" {printf("}\n");scope_count--;return ('}');}
+"{" {printf("{\n");return ('{');}
+"}" {printf("}\n");return ('}');}
 "for" {printf("for\n");return FOR;}
 "while" {printf("while\n"); return WHILE;}
 [a-zA-Z_]([a-zA-Z_]|[0-9])* {

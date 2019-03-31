@@ -4,6 +4,7 @@ ID
 =
 DIGIT
 ;
+$1 is 5
 error_msg: Identifier not declared
 5
 5
@@ -17,6 +18,7 @@ ID
 =
 DIGIT
 ;
+$1 is 9
 error_msg: Identifier not declared
 9
 9
