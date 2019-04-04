@@ -1,0 +1,23 @@
+storage_class_specifier
+enum_specifier
+enumerator_list
+enumerator
+type_qualifier
+type_qualifier_list
+pointer
+struct_or_union
+struct_or_union_specifier
+struct_declaration_list
+struct_declaration
+struct_declarator_list
+struct_declarator
+jump_statement
+SWITCH
+labeled_statement
+abstract_declarator
+direct_abstract_declarator
+PTR_OP
+cast_expression replaced with unary_expression
+and_expression
+exclusive_or_expression
+inclusive_or_expression
