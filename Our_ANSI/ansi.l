@@ -4,111 +4,91 @@ H			[a-fA-F0-9]
 E			[Ee][+-]?{D}+
 FS			(f|F|l|L)
 IS			(u|U|l|L)*
+%option yylineno
 
 %{
+
+
+
 #include <stdio.h>
 #include "y.tab.h"
+void yyerror(const char* error_msg);
 
-void count();
+void printcode();
 %}
 
 %%
-"/*"			{ comment(); }
+.*\/\/.*    {;}
+.*"/*"([^*]|\*+[^*/])*+\*"/" {;}
+"#include"[ ]*"<".*">"\n {printf("%s\n", yytext);}
+"#include"[ ]*"\"".*"\"" {printf("%s\n", yytext);}
 
-"auto"			{ count(); return(AUTO); }
-"break"			{ count(); return(BREAK); }
-"case"			{ count(); return(CASE); }
-"char"			{ count(); return(CHAR); }
-"const"			{ count(); return(CONST); }
-"continue"		{ count(); return(CONTINUE); }
-"default"		{ count(); return(DEFAULT); }
-"do"			{ count(); return(DO); }
-"double"		{ count(); return(DOUBLE); }
-"else"			{ count(); return(ELSE); }
-"enum"			{ count(); return(ENUM); }
-"extern"		{ count(); return(EXTERN); }
-"float"			{ count(); return(FLOAT); }
-"for"			{ count(); return(FOR); }
-"goto"			{ count(); return(GOTO); }
-"if"			{ count(); return(IF); }
-"int"			{ count(); return(INT); }
-"long"			{ count(); return(LONG); }
-"register"		{ count(); return(REGISTER); }
-"return"		{ count(); return(RETURN); }
-"short"			{ count(); return(SHORT); }
-"signed"		{ count(); return(SIGNED); }
-"sizeof"		{ count(); return(SIZEOF); }
-"static"		{ count(); return(STATIC); }
-"struct"		{ count(); return(STRUCT); }
-"switch"		{ count(); return(SWITCH); }
-"typedef"		{ count(); return(TYPEDEF); }
-"union"			{ count(); return(UNION); }
-"unsigned"		{ count(); return(UNSIGNED); }
-"void"			{ count(); return(VOID); }
-"volatile"		{ count(); return(VOLATILE); }
-"while"			{ count(); return(WHILE); }
 
-{L}({L}|{D})*		{ count(); return(check_type()); }
+"break"			{ printcode(); return(BREAK); }
+"char"			{ printcode(); return(CHAR); }
+"const"			{ printcode(); return(CONST); }
+"continue"		{ printcode(); return(CONTINUE); }
+"do"			{ printcode(); return(DO); }
+"double"		{ printcode(); return(DOUBLE); }
+"else"			{ printcode(); return(ELSE); }
+"float"			{ printcode(); return(FLOAT); }
+"for"			{ printcode(); return(FOR); }
+"if"			{ printcode(); return(IF); }
+"int"			{ printcode(); return(INT); }
+"return"		{ printcode(); return(RETURN); }
+"sizeof"		{ printcode(); return(SIZEOF); }
+"void"			{ printcode(); return(VOID); }
+"while"			{ printcode(); return(WHILE); }
 
-0[xX]{H}+{IS}?		{ count(); return(CONSTANT); }
-0{D}+{IS}?		{ count(); return(CONSTANT); }
-{D}+{IS}?		{ count(); return(CONSTANT); }
-L?'(\\.|[^\\'])+'	{ count(); return(CONSTANT); }
+{L}({L}|{D})*		{ printcode(); return(check_type()); }
 
-{D}+{E}{FS}?		{ count(); return(CONSTANT); }
-{D}*"."{D}+({E})?{FS}?	{ count(); return(CONSTANT); }
-{D}+"."{D}*({E})?{FS}?	{ count(); return(CONSTANT); }
+0[xX]{H}+{IS}?		{ printcode(); return(CONSTANT); }
+0{D}+{IS}?		{ printcode(); return(CONSTANT); }
+{D}+{IS}?		{ printcode(); return(CONSTANT); }
+L?'(\\.|[^\\'])+'	{ printcode(); return(CONSTANT); }
 
-L?\"(\\.|[^\\"])*\"	{ count(); return(STRING_LITERAL); }
+{D}+{E}{FS}?		{ printcode(); return(CONSTANT); }
+{D}*"."{D}+({E})?{FS}?	{ printcode(); return(CONSTANT); }
+{D}+"."{D}*({E})?{FS}?	{ printcode(); return(CONSTANT); }
 
-"..."			{ count(); return(ELLIPSIS); }
-">>="			{ count(); return(RIGHT_ASSIGN); }
-"<<="			{ count(); return(LEFT_ASSIGN); }
-"+="			{ count(); return(ADD_ASSIGN); }
-"-="			{ count(); return(SUB_ASSIGN); }
-"*="			{ count(); return(MUL_ASSIGN); }
-"/="			{ count(); return(DIV_ASSIGN); }
-"%="			{ count(); return(MOD_ASSIGN); }
-"&="			{ count(); return(AND_ASSIGN); }
-"^="			{ count(); return(XOR_ASSIGN); }
-"|="			{ count(); return(OR_ASSIGN); }
-">>"			{ count(); return(RIGHT_OP); }
-"<<"			{ count(); return(LEFT_OP); }
-"++"			{ count(); return(INC_OP); }
-"--"			{ count(); return(DEC_OP); }
-"->"			{ count(); return(PTR_OP); }
-"&&"			{ count(); return(AND_OP); }
-"||"			{ count(); return(OR_OP); }
-"<="			{ count(); return(LE_OP); }
-">="			{ count(); return(GE_OP); }
-"=="			{ count(); return(EQ_OP); }
-"!="			{ count(); return(NE_OP); }
-";"			{ count(); return(';'); }
-("{"|"<%")		{ count(); return('{'); }
-("}"|"%>")		{ count(); return('}'); }
-","			{ count(); return(','); }
-":"			{ count(); return(':'); }
-"="			{ count(); return('='); }
-"("			{ count(); return('('); }
-")"			{ count(); return(')'); }
-("["|"<:")		{ count(); return('['); }
-("]"|":>")		{ count(); return(']'); }
-"."			{ count(); return('.'); }
-"&"			{ count(); return('&'); }
-"!"			{ count(); return('!'); }
-"~"			{ count(); return('~'); }
-"-"			{ count(); return('-'); }
-"+"			{ count(); return('+'); }
-"*"			{ count(); return('*'); }
-"/"			{ count(); return('/'); }
-"%"			{ count(); return('%'); }
-"<"			{ count(); return('<'); }
-">"			{ count(); return('>'); }
-"^"			{ count(); return('^'); }
-"|"			{ count(); return('|'); }
-"?"			{ count(); return('?'); }
+L?\"(\\.|[^\\"])*\"	{ printcode(); return(STRING_LITERAL); }
 
-[ \t\v\n\f]		{ count(); }
+
+"++"			{ printcode(); return(INC_OP); }
+"--"			{ printcode(); return(DEC_OP); }
+"->"			{ printcode(); return(PTR_OP); }
+"&&"			{ printcode(); return(AND_OP); }
+"||"			{ printcode(); return(OR_OP); }
+"<="			{ printcode(); return(LE_OP); }
+">="			{ printcode(); return(GE_OP); }
+"=="			{ printcode(); return(EQ_OP); }
+"!="			{ printcode(); return(NE_OP); }
+";"			{ printcode(); return(';'); }
+("{"|"<%")		{ printcode(); return('{'); }
+("}"|"%>")		{ printcode(); return('}'); }
+","			{ printcode(); return(','); }
+":"			{ printcode(); return(':'); }
+"="			{ printcode(); return('='); }
+"("			{ printcode(); return('('); }
+")"			{ printcode(); return(')'); }
+("["|"<:")		{ printcode(); return('['); }
+("]"|":>")		{ printcode(); return(']'); }
+"."			{ printcode(); return('.'); }
+"&"			{ printcode(); return('&'); }
+"!"			{ printcode(); return('!'); }
+"~"			{ printcode(); return('~'); }
+"-"			{ printcode(); return('-'); }
+"+"			{ printcode(); return('+'); }
+"*"			{ printcode(); return('*'); }
+"/"			{ printcode(); return('/'); }
+"%"			{ printcode(); return('%'); }
+"<"			{ printcode(); return('<'); }
+">"			{ printcode(); return('>'); }
+"^"			{ printcode(); return('^'); }
+"|"			{ printcode(); return('|'); }
+"?"			{ printcode(); return('?'); }
+
+[ \t\v\n\f]		{ printcode(); }
 .			{ /* ignore bad characters */ }
 
 %%
@@ -119,57 +99,17 @@ yywrap()
 }
 
 
-comment()
-{
-	char c, c1;
-
-loop:
-	while ((c = input()) != '*' && c != 0)
-		putchar(c);
-
-	if ((c1 = input()) != '/' && c != 0)
-	{
-		unput(c1);
-		goto loop;
-	}
-
-	if (c != 0)
-		putchar(c1);
-}
 
 
 int column = 0;
 
-void count()
+void printcode()
 {
-	int i;
-
-	for (i = 0; yytext[i] != '\0'; i++)
-		if (yytext[i] == '\n')
-			column = 0;
-		else if (yytext[i] == '\t')
-			column += 8 - (column % 8);
-		else
-			column++;
-
 	ECHO;
 }
 
 
 int check_type()
 {
-/*
-* pseudo code --- this is what it should check
-*
-*	if (yytext == type_name)
-*		return(TYPE_NAME);
-*
-*	return(IDENTIFIER);
-*/
-
-/*
-*	it actually will only return IDENTIFIER
-*/
-
 	return(IDENTIFIER);
 }

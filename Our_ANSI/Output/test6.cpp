@@ -1,4 +1,11 @@
-include<
-       ^
-syntax error
-unsuccessful
+#include<iostream>
+
+
+int main(){
+	int i;
+}
+
+
+Parsing is successful
+
+

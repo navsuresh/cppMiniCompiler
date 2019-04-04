@@ -306,7 +306,6 @@ char *s;
 
 	
 	fflush(stdout);
-	printf("\n%*s\n%*s\n", column, "^", column, s);
 }
 
 
