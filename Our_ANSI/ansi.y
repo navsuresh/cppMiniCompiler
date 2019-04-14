@@ -1,11 +1,56 @@
 %{
-#if YYBISON
-union YYSTYPE;
-int yylex();
-void yyerror();
-#endif
+#include <stdio.h>
+#include <iostream>
+#include <string.h>
+#include "node.hpp"
+#include <vector>
+
+using namespace std;
+ast test;
+// ast test1;
+unordered_map <string,int> size_map;
+const char *s = "Hello, World!";   
+int flag=1;
+class test123{
+	int a;
+	public:
+	test123(){
+		a=5;
+	}
+	void print_func(){
+		cout<<"A is "<<a<<"\n";
+	}
+
+};
+
+
+
+void yyerror(const char *error_msg);
+
+int counter = 0;
+extern FILE *yyin;
+extern FILE *yyout;
+extern int yylineno;
+extern int scope_count;
+extern "C"
+{       
+        int yyparse(void);
+        int yylex(void);  
+        int yywrap()
+        {
+                return 1;
+        }
+
+}
 
 %}
+
+
+%union {
+	char* str;
+	class node* node;
+}
+
 %token IDENTIFIER CONSTANT STRING_LITERAL SIZEOF
 %token PTR_OP INC_OP DEC_OP LEFT_OP RIGHT_OP LE_OP GE_OP EQ_OP NE_OP
 %token AND_OP OR_OP MUL_ASSIGN DIV_ASSIGN MOD_ASSIGN ADD_ASSIGN
@@ -304,6 +349,11 @@ function_definition
 	;
 
 %%
+
+void yyerror(const char *error_msg) {
+	printf("error_msg: %s\n", error_msg);
+}
+
 #include <stdio.h>
 extern char yytext[];
 extern int column;
@@ -317,6 +367,57 @@ int main(int argc, char *argv[]) {
 	//strcat(dest,another);
 	// cout<<"HELLO WORLD\n";
 	//yyout= fopen(argv[1],"w");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	string s1 = "a";
+    string s2 = "b";
+    string s3 = "c";
+
+    
+    test.insert(1, s1, "int", "", 0, 0);
+    test.insert(3, s2, "float", "", 0, 0);
+    test.insert(2, s3, "double", "", 0, 0);
+
+    test.create_map(1);
+
+    test.insert(1, s1, "int", "", 0, 1);
+    test.insert(3, s2, "float", "", 0, 1);
+    test.insert(2, s3, "double", "", 0, 1);
+
+    test.create_map(1);
+
+    test.insert(1, s1 + "b", "int", "", 0, 1);
+    test.insert(3, s2 + "b", "float", "", 0, 1);
+    test.insert(2, s3 + "b", "double", "", 0, 1);
+
+    test.insert(1, s1 + "c", "int", "", 0, 0);
+    test.insert(3, s2 + "c", "float", "", 0, 0);
+    test.insert(2, s3 + "c", "double", "", 0, 0);
+
+
+
+
+	test.display();
+
+
+
+
+
+
+
+
 	if (!yyparse()) {
 		printf("\n\n\nParsing is successful\n\n\n");
 	} else {

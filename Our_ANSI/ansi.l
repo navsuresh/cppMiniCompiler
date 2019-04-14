@@ -8,7 +8,10 @@ IS			(u|U|l|L)*
 
 %{
 
-
+    extern "C"
+    {
+        int yylex(void);
+    }
 
 #include <stdio.h>
 #include "y.tab.h"
@@ -98,10 +101,6 @@ L?\"(\\.|[^\\"])*\"	{ printcode(); return(STRING_LITERAL); }
 
 %%
 
-int yywrap()
-{
-	return(1);
-}
 
 
 void printcode3(){

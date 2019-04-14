@@ -4,7 +4,7 @@
 
 .PHONY = all clean
 
-CC = gcc                      # compiler to use
+CC = g++                      # compiler to use
 LINKERFLAG = -ll -ly
 
 SRCS_L := $(wildcard *.l)
@@ -12,7 +12,7 @@ SRCS_Y := $(wildcard *.y)
 SRCS_CPP := $(wildcard *.cpp)
 
 
-objects = y.tab.c lex.yy.c 
+objects = y.tab.c lex.yy.c $(SRCS_CPP)
 
 exec: $(objects)
 	${CC} -o exec $(objects) -ll -ly
@@ -27,8 +27,8 @@ lex.yy.c: $(SRCS_L)
 
 clean:
 	@echo "Cleaning up..."
-	mkdir temp
-	mv Makefile *.l *.y *.sh *.cpp *.hpp todo.txt temp 
+	mkdir ashdu8asjido
+	mv Makefile *.l *.y *.sh *.cpp *.hpp ashdu8asjido 
 	find . -maxdepth 1 -type f -exec rm -fv {} \;
-	mv temp/* .
-	rmdir temp
+	mv ashdu8asjido/* .
+	rmdir ashdu8asjido
