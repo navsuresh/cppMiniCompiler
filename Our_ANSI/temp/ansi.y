@@ -17,9 +17,10 @@ void yyerror();
 %token STRUCT UNION ENUM ELLIPSIS
 
 %token CASE DEFAULT IF ELSE SWITCH WHILE DO FOR GOTO CONTINUE BREAK RETURN
+
+%start translation_unit
 %nonassoc IFX
 %nonassoc ELSE
-%start translation_unit
 %%
 
 primary_expression
@@ -276,7 +277,7 @@ expression_statement
 
 selection_statement
 	: IF '(' expression ')' statement %prec IFX
-	| IF '(' expression ')' statement ELSE statement
+	| IF '(' expression ')' statement ELSE statement 
 	;
 
 iteration_statement
@@ -305,24 +306,24 @@ function_definition
 
 %%
 #include <stdio.h>
+
 extern char yytext[];
 extern int column;
+void yyerror(const char *error_msg){
+	printf("syntax error. Parsing Unsuccessful!!\n");
+}
+
 int main(int argc, char *argv[]) {
-//	char dest[100];
-//	char another[7];
-//	cout <<"entered here"<<"\n";
-//	strcpy(another,"_c.txt");
-//	cout <<"entered here"<<"\n";
-	//strcpy(dest,(char *)argv[1]);
-	//strcat(dest,another);
-	// cout<<"HELLO WORLD\n";
-	//yyout= fopen(argv[1],"w");
+
+
 	if (!yyparse()) {
 		printf("\n\n\nParsing is successful\n\n\n");
 	} else {
 		printf("unsuccessful\n");
 	}
+
+
 	
-//	fclose(yyout);
+
 	return 0;
 }
