@@ -1,4 +1,5 @@
-include <
-        ^
-syntax error
-unsuccessful
+#include <iostream>
+
+int main()
+{
+for(intunsuccessful

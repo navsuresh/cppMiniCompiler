@@ -17,6 +17,8 @@ void comment();
 void count();
 int check_type();
 void printcode();
+void printcode2();
+void printcode3();
 %}
 
 %%
@@ -89,8 +91,9 @@ L?\"(\\.|[^\\"])*\"	{ printcode(); return(STRING_LITERAL); }
 "^"			{ printcode(); return('^'); }
 "|"			{ printcode(); return('|'); }
 "?"			{ printcode(); return('?'); }
+[\n]* {printcode3();}
+[ \t\n\v\f]*		{ printcode2(); }
 
-[ \t\v\n\f]		{ printcode(); }
 .			{ /* ignore bad characters */ }
 
 %%
@@ -101,10 +104,14 @@ int yywrap()
 }
 
 
-
+void printcode3(){
+	printf("\n");
+}
 
 int column = 0;
-
+void printcode2(){
+	printf(" ");
+}
 void printcode()
 {
 	ECHO;

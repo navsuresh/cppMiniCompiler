@@ -1,6 +1,4 @@
-int main(){
-    int x = 10;
-    x;
+int main(){ int x = 10; x;
 }
 
 
