@@ -32,33 +32,33 @@ void printcode3();
 
 
 "break"			{ printcode(); return(BREAK); }
-"char"			{ printcode(); return(CHAR); }
+"char"			{ printcode(); yylval.str = strdup(yytext); return(CHAR); }
 "const"			{ printcode(); return(CONST); }
 "continue"		{ printcode(); return(CONTINUE); }
 "do"			{ printcode(); return(DO); }
-"double"		{ printcode(); return(DOUBLE); }
+"double"		{ printcode(); yylval.str = strdup(yytext); return(DOUBLE); }
 "else"			{ printcode(); return(ELSE); }
-"float"			{ printcode(); return(FLOAT); }
+"float"			{ printcode(); yylval.str = strdup(yytext); return(FLOAT); }
 "for"			{ printcode(); return(FOR); }
 "if"			{ printcode(); return(IF); }
-"int"			{ printcode(); return(INT); }
+"int"			{ printcode(); yylval.str = strdup(yytext); return(INT); }
 "return"		{ printcode(); return(RETURN); }
 "sizeof"		{ printcode(); return(SIZEOF); }
 "void"			{ printcode(); return(VOID); }
 "while"			{ printcode(); return(WHILE); }
 
-{L}({L}|{D})*		{ printcode(); return(check_type()); }
+{L}({L}|{D})*		{ printcode(); yylval.str = strdup(yytext); return(check_type()); }
 
-0[xX]{H}+{IS}?		{ printcode(); return(CONSTANT); }
-0{D}+{IS}?		{ printcode(); return(CONSTANT); }
-{D}+{IS}?		{ printcode(); return(CONSTANT); }
-L?'(\\.|[^\\'])+'	{ printcode(); return(CONSTANT); }
+0[xX]{H}+{IS}?		{ printcode(); yylval.str = strdup(yytext); return(CONSTANT); }
+0{D}+{IS}?		{ printcode(); yylval.str = strdup(yytext); return(CONSTANT); }
+{D}+{IS}?		{ printcode(); yylval.str = strdup(yytext); return(CONSTANT); }
+L?'(\\.|[^\\'])+'	{ printcode(); yylval.str = strdup(yytext); return(CONSTANT); }
 
-{D}+{E}{FS}?		{ printcode(); return(CONSTANT); }
-{D}*"."{D}+({E})?{FS}?	{ printcode(); return(CONSTANT); }
-{D}+"."{D}*({E})?{FS}?	{ printcode(); return(CONSTANT); }
+{D}+{E}{FS}?		{ printcode(); yylval.str = strdup(yytext); return(CONSTANT); }
+{D}*"."{D}+({E})?{FS}?	{ printcode(); yylval.str = strdup(yytext); return(CONSTANT); }
+{D}+"."{D}*({E})?{FS}?	{ printcode(); yylval.str = strdup(yytext); return(CONSTANT); }
 
-L?\"(\\.|[^\\"])*\"	{ printcode(); return(STRING_LITERAL); }
+L?\"(\\.|[^\\"])*\"	{ printcode(); yylval.str = strdup(yytext); return(STRING_LITERAL); }
 
 
 "++"			{ printcode(); return(INC_OP); }

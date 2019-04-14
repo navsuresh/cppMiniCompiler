@@ -31,7 +31,7 @@ int counter = 0;
 extern FILE *yyin;
 extern FILE *yyout;
 extern int yylineno;
-extern int scope_count;
+int scope_count;
 extern "C"
 {       
         int yyparse(void);
@@ -51,19 +51,27 @@ extern "C"
 	class node* node;
 }
 
-%token IDENTIFIER CONSTANT STRING_LITERAL SIZEOF
-%token PTR_OP INC_OP DEC_OP LEFT_OP RIGHT_OP LE_OP GE_OP EQ_OP NE_OP
-%token AND_OP OR_OP MUL_ASSIGN DIV_ASSIGN MOD_ASSIGN ADD_ASSIGN
-%token SUB_ASSIGN LEFT_ASSIGN RIGHT_ASSIGN AND_ASSIGN
-%token XOR_ASSIGN OR_ASSIGN TYPE_NAME
+%token <str> IDENTIFIER CONSTANT STRING_LITERAL SIZEOF
+%token <str> PTR_OP INC_OP DEC_OP LEFT_OP RIGHT_OP LE_OP GE_OP EQ_OP NE_OP
+%token <str> AND_OP OR_OP MUL_ASSIGN DIV_ASSIGN MOD_ASSIGN ADD_ASSIGN
+%token <str> SUB_ASSIGN LEFT_ASSIGN RIGHT_ASSIGN AND_ASSIGN
+%token <str> XOR_ASSIGN OR_ASSIGN TYPE_NAME
 
-%token TYPEDEF EXTERN STATIC AUTO REGISTER
-%token CHAR SHORT INT LONG SIGNED UNSIGNED FLOAT DOUBLE CONST VOLATILE VOID
-%token STRUCT UNION ENUM ELLIPSIS
+%token <str> TYPEDEF EXTERN STATIC AUTO REGISTER
+%token <str> CHAR SHORT INT LONG SIGNED UNSIGNED FLOAT DOUBLE CONST VOLATILE VOID
+%token <str> STRUCT UNION ENUM ELLIPSIS
 
-%token CASE DEFAULT IF ELSE SWITCH WHILE DO FOR GOTO CONTINUE BREAK RETURN
+%token <str> CASE DEFAULT IF ELSE SWITCH WHILE DO FOR GOTO CONTINUE BREAK RETURN
 %nonassoc IFX
 %nonassoc ELSE
+
+%type <node> declaration init_declarator type_specifier declaration_specifiers
+%type <node> declarator direct_declarator initializer initializer_list assignment_expression
+%type <node> conditional_expression logical_or_expression logical_and_expression 
+%type <node> inclusive_or_expression exclusive_or_expression and_expression
+%type <node> equality_expression relational_expression shift_expression additive_expression
+%type <node> multiplicative_expression unary_expression postfix_expression primary_expression
+%type <node> init_declarator_list
 %start translation_unit
 %%
 
@@ -202,32 +210,40 @@ constant_expression
 
 declaration
 	: declaration_specifiers ';'
-	| declaration_specifiers init_declarator_list ';'
+	| declaration_specifiers init_declarator_list {$2 = $1;}';'
 	;
 
 declaration_specifiers
-	: type_specifier
+	: type_specifier { 
+					   $1->set_size(size_map[$1->get_type()]); 
+					   cout<<"One\n";$1->disp_node(); 
+				     }
 	| type_specifier declaration_specifiers
 	;
 
 init_declarator_list
-	: init_declarator
+	: init_declarator {cout<<"Two\n";$<node>0->disp_node(); $1 = $<node>0;}
 	| init_declarator_list ',' init_declarator
 	;
 
 init_declarator
-	: declarator
-	| declarator '=' initializer
+	: declarator {
+					string temp = $1->get_identifier();
+					$1 = $<node>0; 
+					$1->set_identifier(temp); 
+					cout<<"New\n";$1->disp_node();
+				 }
+	| declarator '=' initializer {$1 = $<node>0; cout<<"New\n";$1->disp_node();}
 	;
 
 type_specifier
 	: VOID
-	| CHAR
+	| CHAR {$$ = new node(yylineno,"",$1,"",0,scope_count);}
 	| SHORT
-	| INT
+	| INT {$$ = new node(yylineno,"",$1,"",0,scope_count);}
 	| LONG
-	| FLOAT
-	| DOUBLE
+	| FLOAT {$$ = new node(yylineno,"",$1,"",0,scope_count);}
+	| DOUBLE {$$ = new node(yylineno,"",$1,"",0,scope_count);}
 	| SIGNED
 	| UNSIGNED
 	| TYPE_NAME
@@ -240,11 +256,11 @@ specifier_qualifier_list
 	;
 
 declarator
-	: direct_declarator
+	: direct_declarator {$$=$1;}
 	;
 
 direct_declarator
-	: IDENTIFIER
+	: IDENTIFIER {$$ = new node(0,$1,"","",0,0);}
 	| '(' declarator ')'
 	| direct_declarator '[' constant_expression ']'
 	| direct_declarator '[' ']'
@@ -358,56 +374,13 @@ void yyerror(const char *error_msg) {
 extern char yytext[];
 extern int column;
 int main(int argc, char *argv[]) {
-//	char dest[100];
-//	char another[7];
-//	cout <<"entered here"<<"\n";
-//	strcpy(another,"_c.txt");
-//	cout <<"entered here"<<"\n";
-	//strcpy(dest,(char *)argv[1]);
-	//strcat(dest,another);
-	// cout<<"HELLO WORLD\n";
-	//yyout= fopen(argv[1],"w");
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-	string s1 = "a";
-    string s2 = "b";
-    string s3 = "c";
-
-    
-    test.insert(1, s1, "int", "", 0, 0);
-    test.insert(3, s2, "float", "", 0, 0);
-    test.insert(2, s3, "double", "", 0, 0);
-
-    test.create_map(1);
-
-    test.insert(1, s1, "int", "", 0, 1);
-    test.insert(3, s2, "float", "", 0, 1);
-    test.insert(2, s3, "double", "", 0, 1);
-
-    test.create_map(1);
-
-    test.insert(1, s1 + "b", "int", "", 0, 1);
-    test.insert(3, s2 + "b", "float", "", 0, 1);
-    test.insert(2, s3 + "b", "double", "", 0, 1);
-
-    test.insert(1, s1 + "c", "int", "", 0, 0);
-    test.insert(3, s2 + "c", "float", "", 0, 0);
-    test.insert(2, s3 + "c", "double", "", 0, 0);
-
-
-
+	scope_count = 0;
+    size_map["char"]=1;
+	size_map["int"]=4;
+	size_map["float"]=4;
+	size_map["double"]=8;
 
 	test.display();
 

@@ -28,7 +28,7 @@ lex.yy.c: $(SRCS_L)
 clean:
 	@echo "Cleaning up..."
 	mkdir ashdu8asjido
-	mv Makefile *.l *.y *.sh *.cpp *.hpp ashdu8asjido 
+	mv Makefile *.l *.y *.sh *.cpp *.hpp flow ashdu8asjido 
 	find . -maxdepth 1 -type f -exec rm -fv {} \;
 	mv ashdu8asjido/* .
 	rmdir ashdu8asjido
