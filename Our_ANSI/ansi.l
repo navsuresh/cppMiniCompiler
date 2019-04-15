@@ -61,39 +61,39 @@ L?'(\\.|[^\\'])+'	{ printcode(); yylval.str = strdup(yytext); return(CONSTANT); 
 L?\"(\\.|[^\\"])*\"	{ printcode(); yylval.str = strdup(yytext); return(STRING_LITERAL); }
 
 
-"++"			{ printcode(); return(INC_OP); }
-"--"			{ printcode(); return(DEC_OP); }
-"->"			{ printcode(); return(PTR_OP); }
-"&&"			{ printcode(); return(AND_OP); }
-"||"			{ printcode(); return(OR_OP); }
-"<="			{ printcode(); return(LE_OP); }
-">="			{ printcode(); return(GE_OP); }
-"=="			{ printcode(); return(EQ_OP); }
-"!="			{ printcode(); return(NE_OP); }
-";"			{ printcode(); return(';'); }
-("{"|"<%")		{ printcode(); return('{'); }
-("}"|"%>")		{ printcode(); return('}'); }
-","			{ printcode(); return(','); }
-":"			{ printcode(); return(':'); }
-"="			{ printcode(); return('='); }
-"("			{ printcode(); return('('); }
-")"			{ printcode(); return(')'); }
-("["|"<:")		{ printcode(); return('['); }
-("]"|":>")		{ printcode(); return(']'); }
-"."			{ printcode(); return('.'); }
-"&"			{ printcode(); return('&'); }
-"!"			{ printcode(); return('!'); }
-"~"			{ printcode(); return('~'); }
-"-"			{ printcode(); return('-'); }
-"+"			{ printcode(); return('+'); }
-"*"			{ printcode(); return('*'); }
-"/"			{ printcode(); return('/'); }
-"%"			{ printcode(); return('%'); }
-"<"			{ printcode(); return('<'); }
-">"			{ printcode(); return('>'); }
-"^"			{ printcode(); return('^'); }
-"|"			{ printcode(); return('|'); }
-"?"			{ printcode(); return('?'); }
+"++"			{ printcode(); yylval.str = strdup(yytext); return(INC_OP); }
+"--"			{ printcode(); yylval.str = strdup(yytext); return(DEC_OP); }
+"->"			{ printcode(); yylval.str = strdup(yytext); return(PTR_OP); }
+"&&"			{ printcode(); yylval.str = strdup(yytext); return(AND_OP); }
+"||"			{ printcode(); yylval.str = strdup(yytext); return(OR_OP); }
+"<="			{ printcode(); yylval.str = strdup(yytext); return(LE_OP); }
+">="			{ printcode(); yylval.str = strdup(yytext); return(GE_OP); }
+"=="			{ printcode(); yylval.str = strdup(yytext); return(EQ_OP); }
+"!="			{ printcode(); yylval.str = strdup(yytext); return(NE_OP); }
+";"			{ printcode(); yylval.str = strdup(yytext); return(';'); }
+("{"|"<%")		{ printcode(); yylval.str = strdup(yytext); return('{'); }
+("}"|"%>")		{ printcode(); yylval.str = strdup(yytext); return('}'); }
+","			{ printcode(); yylval.str = strdup(yytext); return(','); }
+":"			{ printcode(); yylval.str = strdup(yytext); return(':'); }
+"="			{ printcode(); yylval.str = strdup(yytext); return('='); }
+"("			{ printcode(); yylval.str = strdup(yytext); return('('); }
+")"			{ printcode(); yylval.str = strdup(yytext); return(')'); }
+("["|"<:")		{ printcode(); yylval.str = strdup(yytext); return('['); }
+("]"|":>")		{ printcode(); yylval.str = strdup(yytext); return(']'); }
+"."			{ printcode(); yylval.str = strdup(yytext); return('.'); }
+"&"			{ printcode(); yylval.str = strdup(yytext); return('&'); }
+"!"			{ printcode(); yylval.str = strdup(yytext); return('!'); }
+"~"			{ printcode(); yylval.str = strdup(yytext); return('~'); }
+"-"			{ printcode(); yylval.str = strdup(yytext); return('-'); }
+"+"			{ printcode(); yylval.str = strdup(yytext); return('+'); }
+"*"			{ printcode(); yylval.str = strdup(yytext); return('*'); }
+"/"			{ printcode(); yylval.str = strdup(yytext); return('/'); }
+"%"			{ printcode(); yylval.str = strdup(yytext); return('%'); }
+"<"			{ printcode(); yylval.str = strdup(yytext); return('<'); }
+">"			{ printcode(); yylval.str = strdup(yytext); return('>'); }
+"^"			{ printcode(); yylval.str = strdup(yytext); return('^'); }
+"|"			{ printcode(); yylval.str = strdup(yytext); return('|'); }
+"?"			{ printcode(); yylval.str = strdup(yytext); return('?'); }
 [\n]* {printcode3();}
 [ \t\n\v\f]*		{ printcode2(); }
 
