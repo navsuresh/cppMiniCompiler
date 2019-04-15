@@ -166,19 +166,22 @@ void ast::display()
 // auto temp_
 // }
 
-int ast::declaration_exists(int line_no, string identifier, int scope)
+int ast::declaration_exists(string identifier, int scope)
 {
     // cout<<"INSIDE FUNCTIOn\n";
+    
+    // n is scope
     int n = scope;
     while (n >= 0)
     {
-        unordered_map<string, node> &temp = tree[scope].back();
+        unordered_map<string, node> &temp = tree[n].back();
         if (temp.find(identifier) != temp.end())
         {
             return 1;
         }
         n--;
     }
+    return 0;
 }
 char *conversion(vector<string> vec_s)
 {

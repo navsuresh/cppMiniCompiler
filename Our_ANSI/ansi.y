@@ -57,7 +57,7 @@ extern "C"
 %token <str> AND_OP OR_OP MUL_ASSIGN DIV_ASSIGN MOD_ASSIGN ADD_ASSIGN
 %token <str> SUB_ASSIGN LEFT_ASSIGN RIGHT_ASSIGN AND_ASSIGN
 %token <str> XOR_ASSIGN OR_ASSIGN TYPE_NAME
-%token <str> '+' '-' '*' '/' '%' '<' '>' '&' '^' '|' '='
+%token <str> '+' '-' '*' '/' '%' '<' '>' '&' '^' '|' '=' '{' '}'
 
 %token <str> TYPEDEF EXTERN STATIC AUTO REGISTER
 %token <str> CHAR SHORT INT LONG SIGNED UNSIGNED FLOAT DOUBLE CONST VOLATILE VOID
@@ -236,12 +236,11 @@ init_declarator_list
 
 init_declarator
 	: declarator {
-					
-					
 					string temp = $1->get_identifier();
 					$1 = new node(*type); 
 					$1->set_identifier(temp); 
 					cout<<"New\n";$1->disp_node();
+					test.insert(*$1);
 				 }
 	| declarator '=' initializer {
 		string temp = $1->get_identifier();
@@ -249,6 +248,7 @@ init_declarator
 		$1->set_identifier(temp); 
 		$1->set_value($3);
 		$1->disp_node();
+		test.insert(*$1);
 		}
 	;
 
@@ -329,12 +329,23 @@ statement
 	;
 
 
+
 compound_statement
-	: '{' '}'
-	| '{' statement_list '}'
-	| '{' declaration_list '}'
-	| '{' declaration_list statement_list '}'
+	: '{' {
+		cout<<"OVER JERE\n";
+		// test.create_map(scope_count++);
+		} 
+		temp1
 	;
+
+temp1
+	: '}' {scope_count--;} 
+	| statement_list '}' {scope_count--;}
+	| declaration_list '}' {scope_count--;}
+	| declaration_list statement_list '}' {scope_count--;}
+	;
+
+
 
 declaration_list
 	: declaration
@@ -398,7 +409,6 @@ int main(int argc, char *argv[]) {
 	size_map["float"]=4;
 	size_map["double"]=8;
 
-	test.display();
 
 
 
@@ -412,7 +422,9 @@ int main(int argc, char *argv[]) {
 	} else {
 		printf("unsuccessful\n");
 	}
-	
+		cout<<"DISPLAY is \n";
+	test.display();
+
 //	fclose(yyout);
 	return 0;
 }
