@@ -300,8 +300,8 @@ iteration_statement
 	;
 
 translation_unit
-	: external_declaration{$$=$1;printf("\n"); if(root==NULL){root=$$; }}
-	| translation_unit external_declaration{$$=mknode($1,$2,"statements");printf("\n");root=$$;}
+	: external_declaration{$$=$1; if(root==NULL){root=$$; }}
+	| translation_unit external_declaration{$$=mknode($1,$2," ");root=$$;}
 	;
 
 external_declaration
@@ -311,7 +311,7 @@ external_declaration
 
 function_definition
 	: declaration_specifiers declarator declaration_list compound_statement {$$=mknode($1,$4,"func");}
-	| declaration_specifiers declarator compound_statement{$$=mknode($1,$3,$2->token);}
+	| declaration_specifiers declarator compound_statement { $$=mknode($1,$3,$2->token);}
 	| declarator declaration_list compound_statement{$$=mknode($1,$3,"func");}
 	| declarator compound_statement{$$=mknode($1,$2,"func");}
 	;
@@ -321,6 +321,48 @@ extern int column;
 void yyerror(){
 	printf("Parsing Unsuccessful!!\n");
 }
+char depth[ 2056 ];
+int di=0;
+
+
+void Push( char c )
+{
+    depth[ di++ ] = ' ';
+    depth[ di++ ] = c;
+    depth[ di++ ] = ' ';
+    depth[ di++ ] = ' ';
+    depth[ di ] = 0;
+}
+ 
+void Pop( )
+{
+    depth[ di -= 4 ] = 0;
+}
+ 
+void Print( node* tree )
+{	if(tree==NULL){
+	return ;
+}
+    printf( "(%s)\n", tree->token );
+ 
+    if ( tree->left )
+    {
+        printf( "%s \\__", depth );
+        Push( '|' );
+        Print( tree->left );
+        Pop( );
+ 		if(tree->right){
+        printf( "%s \\__", depth );
+        Push( ' ' );
+        Print( tree->right );
+        Pop( );
+        }
+    }
+
+}
+
+
+
 int main(int argc, char *argv[]) {
 //	char dest[100];
 //	char another[7];
@@ -332,8 +374,10 @@ int main(int argc, char *argv[]) {
 	// cout<<"HELLO WORLD\n";
 	//yyout= fopen(argv[1],"w");
 	if (!yyparse()) {
-		printf("Preorder traversal of the abstract syntax tree\n");
+		printf("\n\nPreorder traversal of the abstract syntax tree\n");
 		printtree(root);
+		printf("\n\n\n\nTree\n");
+		Print(root);
 		printf("\n\n\nParsing is successful\n\n\n");
 	} else {
 		printf("unsuccessful\n");

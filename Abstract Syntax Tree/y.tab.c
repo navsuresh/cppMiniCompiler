@@ -2246,13 +2246,13 @@ yyreduce:
 
   case 132:
 #line 303 "ansi.y" /* yacc.c:1646  */
-    {(yyval)=(yyvsp[0]);printf("\n"); if(root==NULL){root=(yyval); }}
+    {(yyval)=(yyvsp[0]); if(root==NULL){root=(yyval); }}
 #line 2251 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 133:
 #line 304 "ansi.y" /* yacc.c:1646  */
-    {(yyval)=mknode((yyvsp[-1]),(yyvsp[0]),"statements");printf("\n");root=(yyval);}
+    {(yyval)=mknode((yyvsp[-1]),(yyvsp[0])," ");root=(yyval);}
 #line 2257 "y.tab.c" /* yacc.c:1646  */
     break;
 
@@ -2276,7 +2276,7 @@ yyreduce:
 
   case 137:
 #line 314 "ansi.y" /* yacc.c:1646  */
-    {(yyval)=mknode((yyvsp[-2]),(yyvsp[0]),(yyvsp[-1])->token);}
+    { (yyval)=mknode((yyvsp[-2]),(yyvsp[0]),(yyvsp[-1])->token);}
 #line 2281 "y.tab.c" /* yacc.c:1646  */
     break;
 
@@ -2528,6 +2528,48 @@ extern int column;
 void yyerror(){
 	printf("Parsing Unsuccessful!!\n");
 }
+char depth[ 2056 ];
+int di=0;
+
+
+void Push( char c )
+{
+    depth[ di++ ] = ' ';
+    depth[ di++ ] = c;
+    depth[ di++ ] = ' ';
+    depth[ di++ ] = ' ';
+    depth[ di ] = 0;
+}
+ 
+void Pop( )
+{
+    depth[ di -= 4 ] = 0;
+}
+ 
+void Print( node* tree )
+{	if(tree==NULL){
+	return ;
+}
+    printf( "(%s)\n", tree->token );
+ 
+    if ( tree->left )
+    {
+        printf( "%s \\__", depth );
+        Push( '|' );
+        Print( tree->left );
+        Pop( );
+ 		if(tree->right){
+        printf( "%s \\__", depth );
+        Push( ' ' );
+        Print( tree->right );
+        Pop( );
+        }
+    }
+
+}
+
+
+
 int main(int argc, char *argv[]) {
 //	char dest[100];
 //	char another[7];
@@ -2539,8 +2581,10 @@ int main(int argc, char *argv[]) {
 	// cout<<"HELLO WORLD\n";
 	//yyout= fopen(argv[1],"w");
 	if (!yyparse()) {
-		printf("Preorder traversal of the abstract syntax tree\n");
+		printf("\n\nPreorder traversal of the abstract syntax tree\n");
 		printtree(root);
+		printf("\n\n\n\nTree\n");
+		Print(root);
 		printf("\n\n\nParsing is successful\n\n\n");
 	} else {
 		printf("unsuccessful\n");
