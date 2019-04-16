@@ -7,11 +7,12 @@ value is
 Size is 4
 Scope is 0
 
- = 4;line_no is 1
+[5];New
+line_no is 1
 identifier is a
 type is int
-value is 4
-Size is 4
+value is 
+Size is 20
 Scope is 0
 
 DECL
@@ -26,8 +27,8 @@ BIG Scope is 0
 line_no is 1
 identifier is a
 type is int
-value is 4
-Size is 4
+value is 
+Size is 20
 Scope is 0
 
 

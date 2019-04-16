@@ -1,24 +1,14 @@
-#include <algorithm>
-
- int a
+int main
 One
-line_no is 2
+line_no is 1
 identifier is 
 type is int
 value is 
 Size is 4
 Scope is 0
 
- =5;line_no is 2
-identifier is a
-type is int
-value is 5
-Size is 4
-Scope is 0
-
-DECL
-
-int b
+(){OVER JERE
+ int a
 One
 line_no is 3
 identifier is 
@@ -29,54 +19,67 @@ Scope is 0
 
 ;New
 line_no is 3
+identifier is a
+type is int
+value is 
+Size is 4
+Scope is 0
+
+ {OVER JERE
+ int b
+One
+line_no is 5
+identifier is 
+type is int
+value is 
+Size is 4
+Scope is 0
+
+;New
+line_no is 5
 identifier is b
 type is int
 value is 
 Size is 4
 Scope is 0
 
-DECL
-
-float c
+ {OVER JERE
+ int c
 One
-line_no is 4
+line_no is 7
 identifier is 
-type is float
+type is int
 value is 
 Size is 4
 Scope is 0
 
- = 9;line_no is 4
+;New
+line_no is 7
 identifier is c
-type is float
-value is 9
+type is int
+value is 
 Size is 4
 Scope is 0
 
-DECL
-
-
-
-Parsing is successful
-
-
+ } interror_msg: syntax error
+unsuccessful
 DISPLAY is 
 BIG Scope is 0
-line_no is 4
+line_no is 7
 identifier is c
-type is float
-value is 9
-Size is 4
-Scope is 0
-
-line_no is 2
-identifier is a
 type is int
-value is 5
+value is 
 Size is 4
 Scope is 0
 
 line_no is 3
+identifier is a
+type is int
+value is 
+Size is 4
+Scope is 0
+
+line_no is 5
 identifier is b
 type is int
 value is 

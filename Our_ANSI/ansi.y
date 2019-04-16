@@ -74,7 +74,7 @@ extern "C"
 %type <str> inclusive_or_expression exclusive_or_expression and_expression
 %type <str> equality_expression relational_expression shift_expression additive_expression
 %type <str> multiplicative_expression unary_expression postfix_expression primary_expression
-%type <str> assignment_operator
+%type <str> assignment_operator constant_expression
 %type <node> init_declarator_list
 
 
@@ -94,7 +94,7 @@ postfix_expression
 	| postfix_expression '(' ')'
 	| postfix_expression '(' argument_expression_list ')'
 	| postfix_expression '.' IDENTIFIER
-	| postfix_expression INC_OP {vector<string> temp1{$1,$2}; $$ = conversion(temp1);}
+	| postfix_expression INC_OP {cout<<"INSIDE HERE \n";vector<string> temp1{$1,$2}; $$ = conversion(temp1);}
 	| postfix_expression DEC_OP {vector<string> temp1{$1,$2}; $$ = conversion(temp1);}
 	;
 
@@ -105,8 +105,8 @@ argument_expression_list
 
 unary_expression
 	: postfix_expression {$$ = $1;}
-	| INC_OP unary_expression
-	| DEC_OP unary_expression
+	| INC_OP unary_expression {vector<string> temp1{$1,$2}; $$ = conversion(temp1);}
+	| DEC_OP unary_expression {vector<string> temp1{$1,$2}; $$ = conversion(temp1);}
 	| unary_operator unary_expression
 	| SIZEOF unary_expression
 	| SIZEOF '(' type_name ')'
@@ -211,7 +211,7 @@ expression
 	;
 
 constant_expression
-	: conditional_expression
+	: conditional_expression {$$=$1;}
 	;
 
 declaration
@@ -237,8 +237,14 @@ init_declarator_list
 init_declarator
 	: declarator {
 					string temp = $1->get_identifier();
+					int temp_size = $1->get_size();
+
 					$1 = new node(*type); 
+					
 					$1->set_identifier(temp); 
+					if(temp_size!=0){
+						$1->set_size($1->get_size()*temp_size);
+					}
 					cout<<"New\n";$1->disp_node();
 					test.insert(*$1);
 				 }
@@ -276,9 +282,9 @@ declarator
 	;
 
 direct_declarator
-	: IDENTIFIER {$$ = new node(0,$1,"","",0,0);}
+	: IDENTIFIER {$$ = new node(yylineno,$1,"","",0,scope_count);}
 	| '(' declarator ')'
-	| direct_declarator '[' constant_expression ']'
+	| direct_declarator '[' constant_expression ']' {$$ = new node(yylineno,$1->get_identifier(),"","",atoi($3),scope_count);}
 	| direct_declarator '[' ']'
 	| direct_declarator '(' parameter_type_list ')'
 	| direct_declarator '(' identifier_list ')'
@@ -380,15 +386,15 @@ translation_unit
 	;
 
 external_declaration
-	: function_definition
-	| declaration
+	: function_definition {cout<<"FUNCDECL\n";}
+	| declaration {cout<<"DECL\n";}
 	;
 
 function_definition
-	: declaration_specifiers declarator declaration_list compound_statement
-	| declaration_specifiers declarator compound_statement
-	| declarator declaration_list compound_statement
-	| declarator compound_statement
+	: declaration_specifiers declarator declaration_list compound_statement  {cout<<"ONE1\n";}
+	| declaration_specifiers declarator compound_statement  {cout<<"TWO1\n";}
+	| declarator declaration_list compound_statement {cout<<"THREE1\n";}
+	| declarator compound_statement {cout<<"FOUR1\n";}
 	;
 
 %%
