@@ -271,6 +271,7 @@ compound_statement
 	| '{' statement_list '}'{$$=$2;}
 	| '{' declaration_list '}'{$$=$2;}
 	| '{' declaration_list statement_list '}'{$$=mknode($2,$3," ");}
+	| '{' statement_list declaration_list  '}'{$$=mknode($2,$3," ");}
 	;
 
 declaration_list
