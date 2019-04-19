@@ -3,13 +3,14 @@ int main(){
 }
 
 Preorder traversal of the abstract syntax tree
-( main  int )
+( main  int    )
 
 
 
 Tree
 (main)
  \__(int)
+ \__( )
 
 
 

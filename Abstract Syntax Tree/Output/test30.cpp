@@ -1,5 +1,4 @@
-int main(){ int a; { { int b; } int c; }
-}
+int main(){ int a; { { int b; } int c; } }
 
 Preorder traversal of the abstract syntax tree
 ( main  int (    a (    b  c )))

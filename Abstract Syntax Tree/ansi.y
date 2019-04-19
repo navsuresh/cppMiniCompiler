@@ -1,4 +1,5 @@
 %{
+
 #include <stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -220,7 +221,7 @@ direct_declarator
 	| direct_declarator '[' ']'
 	| direct_declarator '(' parameter_type_list ')'
 	| direct_declarator '(' identifier_list ')'
-	| direct_declarator '(' ')'
+	| direct_declarator '(' ')'{}
 	;
 
 parameter_type_list
@@ -263,15 +264,19 @@ statement
 	| expression_statement{$$=$1;}
 	| selection_statement{$$=$1;}
 	| iteration_statement{$$=$1;}
+
 	;
 
 
 compound_statement
-	: '{' '}'
+	: '{' '}' {$$=mknode(0,0," ");}
 	| '{' statement_list '}'{$$=$2;}
 	| '{' declaration_list '}'{$$=$2;}
 	| '{' declaration_list statement_list '}'{$$=mknode($2,$3," ");}
 	| '{' statement_list declaration_list  '}'{$$=mknode($2,$3," ");}
+	| '{' statement_list declaration_list statement_list  '}'{$$=mknode($2,mknode($3,$4," ")," ");}
+| '{' declaration_list statement_list declaration_list '}'{ $$=mknode($2,mknode($3,$4," ")," ");}
+	
 	;
 
 declaration_list
@@ -365,15 +370,7 @@ void Print( node* tree )
 
 
 int main(int argc, char *argv[]) {
-//	char dest[100];
-//	char another[7];
-//	cout <<"entered here"<<"\n";
-//	strcpy(another,"_c.txt");
-//	cout <<"entered here"<<"\n";
-	//strcpy(dest,(char *)argv[1]);
-	//strcat(dest,another);
-	// cout<<"HELLO WORLD\n";
-	//yyout= fopen(argv[1],"w");
+
 	if (!yyparse()) {
 		printf("\n\nPreorder traversal of the abstract syntax tree\n");
 		printtree(root);
