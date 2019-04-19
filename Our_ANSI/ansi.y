@@ -5,6 +5,7 @@
 #include "node.hpp"
 #include <vector>
 
+// #define YYDEBUG 1
 using namespace std;
 ast test;
 // ast test1;
@@ -288,7 +289,7 @@ direct_declarator
 	| direct_declarator '[' ']'
 	| direct_declarator '(' parameter_type_list ')'
 	| direct_declarator '(' identifier_list ')'
-	| direct_declarator '(' ')'
+	| direct_declarator '(' ')' {}
 	;
 
 parameter_type_list
@@ -332,6 +333,8 @@ statement
 	| expression_statement
 	| selection_statement
 	| iteration_statement
+	| jump_statement
+
 	;
 
 
@@ -339,16 +342,31 @@ statement
 compound_statement
 	: '{' {
 		cout<<"OVER JERE\n";
-		// test.create_map(scope_count++);
+		test.create_map(++scope_count);
+		cout<<"DSIPLY IS \n";
+		test.display();
+		cout<<"SCope count is "<<scope_count<<"\n";
 		} 
 		temp1
 	;
 
 temp1
-	: '}' {scope_count--;} 
-	| statement_list '}' {scope_count--;}
-	| declaration_list '}' {scope_count--;}
-	| declaration_list statement_list '}' {scope_count--;}
+	: '}' 
+	{scope_count--;} 
+	| statement_list '}' 
+	{scope_count--;}
+	| declaration_list '}'
+	 {scope_count--;}
+	| declaration_list statement_list '}'
+	 {scope_count--;}
+	| statement_list declaration_list '}'
+	 {scope_count--;}
+	| statement_list declaration_list statement_list  '}'
+	 {scope_count--;}
+	| declaration_list statement_list declaration_list  '}'
+	 {scope_count--;}
+	| declaration_list statement_list declaration_list statement_list'}'
+	{scope_count--;}
 	;
 
 
@@ -378,6 +396,11 @@ iteration_statement
 	| DO statement WHILE '(' expression ')' ';'
 	| FOR '(' expression_statement expression_statement ')' statement
 	| FOR '(' expression_statement expression_statement expression ')' statement
+	;
+
+jump_statement
+	: RETURN ';'
+	| RETURN expression ';'
 	;
 
 translation_unit
@@ -417,7 +440,9 @@ int main(int argc, char *argv[]) {
 
 
 
-
+	// #if YYDEBUG
+	// 	yydebug = 1;
+	// #endif
 
 
 

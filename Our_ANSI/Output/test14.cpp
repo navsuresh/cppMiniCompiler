@@ -12,8 +12,16 @@ Scope is 0
 
 ()
 {OVER JERE
+DSIPLY IS 
+BIG Scope is 0
+
+BIG Scope is 1
+
+SCope count is 1
  for (interror_msg: syntax error
 unsuccessful
 DISPLAY is 
 BIG Scope is 0
+
+BIG Scope is 1
 

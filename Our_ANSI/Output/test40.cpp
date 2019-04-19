@@ -1,47 +1,46 @@
-#include<iostream>
-
-
 int main
 One
-line_no is 3
+line_no is 1
 identifier is 
 type is int
 value is 
 Size is 4
 Scope is 0
 
-(){OVER JERE
+()
+{OVER JERE
 DSIPLY IS 
 BIG Scope is 0
 
 BIG Scope is 1
 
 SCope count is 1
- int i
+ int a
 One
-line_no is 4
+line_no is 3
 identifier is 
 type is int
 value is 
 Size is 4
 Scope is 1
 
-=0;line_no is 4
-identifier is i
+;New
+line_no is 3
+identifier is a
 type is int
-value is 0
+value is 
 Size is 4
 Scope is 1
 
- for(i=6;;){OVER JERE
+ {OVER JERE
 DSIPLY IS 
 BIG Scope is 0
 
 BIG Scope is 1
-line_no is 4
-identifier is i
+line_no is 3
+identifier is a
 type is int
-value is 0
+value is 
 Size is 4
 Scope is 1
 
@@ -49,26 +48,27 @@ Scope is 1
 BIG Scope is 2
 
 SCope count is 2
- int j
+ } int c
 One
-line_no is 6
+line_no is 7
 identifier is 
 type is int
 value is 
 Size is 4
-Scope is 2
+Scope is 1
 
 ;New
-line_no is 6
-identifier is j
+line_no is 7
+identifier is c
 type is int
 value is 
 Size is 4
-Scope is 2
+Scope is 1
 
- }
+ return;
 }TWO1
 FUNCDECL
+
 
 
 
@@ -79,20 +79,20 @@ DISPLAY is
 BIG Scope is 0
 
 BIG Scope is 1
-line_no is 4
-identifier is i
+line_no is 7
+identifier is c
 type is int
-value is 0
+value is 
+Size is 4
+Scope is 1
+
+line_no is 3
+identifier is a
+type is int
+value is 
 Size is 4
 Scope is 1
 
 
 BIG Scope is 2
-line_no is 6
-identifier is j
-type is int
-value is 
-Size is 4
-Scope is 2
-
 

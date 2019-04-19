@@ -7,7 +7,8 @@ value is
 Size is 4
 Scope is 0
 
-(){OVER JERE
+()
+{OVER JERE
 DSIPLY IS 
 BIG Scope is 0
 
@@ -47,23 +48,6 @@ Scope is 1
 BIG Scope is 2
 
 SCope count is 2
- int b
-One
-line_no is 5
-identifier is 
-type is int
-value is 
-Size is 4
-Scope is 2
-
-;New
-line_no is 5
-identifier is b
-type is int
-value is 
-Size is 4
-Scope is 2
-
  {OVER JERE
 DSIPLY IS 
 BIG Scope is 0
@@ -78,20 +62,13 @@ Scope is 1
 
 
 BIG Scope is 2
-line_no is 5
-identifier is b
-type is int
-value is 
-Size is 4
-Scope is 2
-
 
 BIG Scope is 3
 
 SCope count is 3
- int c
+ int b
 One
-line_no is 7
+line_no is 6
 identifier is 
 type is int
 value is 
@@ -99,16 +76,16 @@ Size is 4
 Scope is 3
 
 ;New
-line_no is 7
-identifier is c
+line_no is 6
+identifier is b
 type is int
 value is 
 Size is 4
 Scope is 3
 
- } int d
+ } int c
 One
-line_no is 9
+line_no is 8
 identifier is 
 type is int
 value is 
@@ -116,8 +93,8 @@ Size is 4
 Scope is 2
 
 ;New
-line_no is 9
-identifier is d
+line_no is 8
+identifier is c
 type is int
 value is 
 Size is 4
@@ -145,15 +122,8 @@ Scope is 1
 
 
 BIG Scope is 2
-line_no is 9
-identifier is d
-type is int
-value is 
-Size is 4
-Scope is 2
-
-line_no is 5
-identifier is b
+line_no is 8
+identifier is c
 type is int
 value is 
 Size is 4
@@ -161,8 +131,8 @@ Scope is 2
 
 
 BIG Scope is 3
-line_no is 7
-identifier is c
+line_no is 6
+identifier is b
 type is int
 value is 
 Size is 4
