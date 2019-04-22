@@ -857,8 +857,8 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "ansi.l"
-#line 10 "ansi.l"
+#line 1 "ast.l"
+#line 10 "ast.l"
 
 
 
@@ -1089,7 +1089,7 @@ YY_DECL
 		}
 
 	{
-#line 24 "ansi.l"
+#line 24 "ast.l"
 
 #line 1095 "lex.yy.c"
 
@@ -1160,328 +1160,328 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 25 "ansi.l"
+#line 25 "ast.l"
 {;}
 	YY_BREAK
 case 2:
 /* rule 2 can match eol */
 YY_RULE_SETUP
-#line 26 "ansi.l"
+#line 26 "ast.l"
 {;}
 	YY_BREAK
 case 3:
 /* rule 3 can match eol */
 YY_RULE_SETUP
-#line 27 "ansi.l"
+#line 27 "ast.l"
 {printf("%s\n", yytext);}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 28 "ansi.l"
+#line 28 "ast.l"
 {printf("%s\n", yytext);}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 31 "ansi.l"
+#line 31 "ast.l"
 { printcode(); return(BREAK); }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 32 "ansi.l"
+#line 32 "ast.l"
 { printcode(); return(CHAR); }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 33 "ansi.l"
+#line 33 "ast.l"
 { printcode(); return(CONST); }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 34 "ansi.l"
+#line 34 "ast.l"
 { printcode(); return(CONTINUE); }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 35 "ansi.l"
+#line 35 "ast.l"
 { printcode(); return(DO); }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 36 "ansi.l"
+#line 36 "ast.l"
 { printcode(); return(DOUBLE); }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 37 "ansi.l"
+#line 37 "ast.l"
 { printcode(); return(ELSE); }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 38 "ansi.l"
+#line 38 "ast.l"
 { printcode(); return(FLOAT); }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 39 "ansi.l"
+#line 39 "ast.l"
 { printcode(); return(FOR); }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 40 "ansi.l"
+#line 40 "ast.l"
 { printcode(); return(IF); }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 41 "ansi.l"
+#line 41 "ast.l"
 { printcode(); return(INT); }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 42 "ansi.l"
+#line 42 "ast.l"
 { printcode(); return(RETURN); }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 43 "ansi.l"
+#line 43 "ast.l"
 { printcode(); return(SIZEOF); }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 44 "ansi.l"
+#line 44 "ast.l"
 { printcode(); return(VOID); }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 45 "ansi.l"
+#line 45 "ast.l"
 { printcode(); return(WHILE); }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 47 "ansi.l"
+#line 47 "ast.l"
 { printcode(); return(check_type()); }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 49 "ansi.l"
+#line 49 "ast.l"
 { printcode();yylval=atoi(yytext); return(CONSTANT); }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 50 "ansi.l"
+#line 50 "ast.l"
 { printcode();yylval=atoi(yytext); return(CONSTANT); }
 	YY_BREAK
 case 23:
 /* rule 23 can match eol */
 YY_RULE_SETUP
-#line 51 "ansi.l"
+#line 51 "ast.l"
 { printcode(); return(CONSTANT); }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 53 "ansi.l"
+#line 53 "ast.l"
 { printcode(); yylval=atof(yytext);return(CONSTANT); }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 54 "ansi.l"
+#line 54 "ast.l"
 { printcode(); yylval=atof(yytext);return(CONSTANT); }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 55 "ansi.l"
+#line 55 "ast.l"
 { printcode(); yylval=atof(yytext);return(CONSTANT); }
 	YY_BREAK
 case 27:
 /* rule 27 can match eol */
 YY_RULE_SETUP
-#line 57 "ansi.l"
+#line 57 "ast.l"
 { printcode(); return(STRING_LITERAL); }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 60 "ansi.l"
+#line 60 "ast.l"
 { printcode(); return(INC_OP); }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 61 "ansi.l"
+#line 61 "ast.l"
 { printcode(); return(DEC_OP); }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 62 "ansi.l"
+#line 62 "ast.l"
 { printcode(); return(PTR_OP); }
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 63 "ansi.l"
+#line 63 "ast.l"
 { printcode(); return(AND_OP); }
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 64 "ansi.l"
+#line 64 "ast.l"
 { printcode(); return(OR_OP); }
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 65 "ansi.l"
+#line 65 "ast.l"
 { printcode(); return(LE_OP); }
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 66 "ansi.l"
+#line 66 "ast.l"
 { printcode(); return(GE_OP); }
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 67 "ansi.l"
+#line 67 "ast.l"
 { printcode(); return(EQ_OP); }
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 68 "ansi.l"
+#line 68 "ast.l"
 { printcode(); return(NE_OP); }
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 69 "ansi.l"
+#line 69 "ast.l"
 { printcode(); return(';'); }
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 70 "ansi.l"
+#line 70 "ast.l"
 { printcode(); return('{'); }
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 71 "ansi.l"
+#line 71 "ast.l"
 { printcode(); return('}'); }
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 72 "ansi.l"
+#line 72 "ast.l"
 { printcode(); return(','); }
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 73 "ansi.l"
+#line 73 "ast.l"
 { printcode(); return(':'); }
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 74 "ansi.l"
+#line 74 "ast.l"
 { printcode(); return('='); }
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 75 "ansi.l"
+#line 75 "ast.l"
 { printcode(); return('('); }
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 76 "ansi.l"
+#line 76 "ast.l"
 { printcode(); return(')'); }
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 77 "ansi.l"
+#line 77 "ast.l"
 { printcode(); return('['); }
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 78 "ansi.l"
+#line 78 "ast.l"
 { printcode(); return(']'); }
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 79 "ansi.l"
+#line 79 "ast.l"
 { printcode(); return('.'); }
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 80 "ansi.l"
+#line 80 "ast.l"
 { printcode(); return('&'); }
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 81 "ansi.l"
+#line 81 "ast.l"
 { printcode(); return('!'); }
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
-#line 82 "ansi.l"
+#line 82 "ast.l"
 { printcode(); return('~'); }
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
-#line 83 "ansi.l"
+#line 83 "ast.l"
 { printcode(); return('-'); }
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
-#line 84 "ansi.l"
+#line 84 "ast.l"
 { printcode(); return('+'); }
 	YY_BREAK
 case 53:
 YY_RULE_SETUP
-#line 85 "ansi.l"
+#line 85 "ast.l"
 { printcode(); return('*'); }
 	YY_BREAK
 case 54:
 YY_RULE_SETUP
-#line 86 "ansi.l"
+#line 86 "ast.l"
 { printcode(); return('/'); }
 	YY_BREAK
 case 55:
 YY_RULE_SETUP
-#line 87 "ansi.l"
+#line 87 "ast.l"
 { printcode(); return('%'); }
 	YY_BREAK
 case 56:
 YY_RULE_SETUP
-#line 88 "ansi.l"
+#line 88 "ast.l"
 { printcode(); return('<'); }
 	YY_BREAK
 case 57:
 YY_RULE_SETUP
-#line 89 "ansi.l"
+#line 89 "ast.l"
 { printcode(); return('>'); }
 	YY_BREAK
 case 58:
 YY_RULE_SETUP
-#line 90 "ansi.l"
+#line 90 "ast.l"
 { printcode(); return('^'); }
 	YY_BREAK
 case 59:
 YY_RULE_SETUP
-#line 91 "ansi.l"
+#line 91 "ast.l"
 { printcode(); return('|'); }
 	YY_BREAK
 case 60:
 YY_RULE_SETUP
-#line 92 "ansi.l"
+#line 92 "ast.l"
 { printcode(); return('?'); }
 	YY_BREAK
 case 61:
 /* rule 61 can match eol */
 YY_RULE_SETUP
-#line 93 "ansi.l"
+#line 93 "ast.l"
 {printcode3();}
 	YY_BREAK
 case 62:
 /* rule 62 can match eol */
 YY_RULE_SETUP
-#line 94 "ansi.l"
+#line 94 "ast.l"
 { printcode2(); }
 	YY_BREAK
 case 63:
 YY_RULE_SETUP
-#line 96 "ansi.l"
+#line 96 "ast.l"
 { /* ignore bad characters */ }
 	YY_BREAK
 case 64:
 YY_RULE_SETUP
-#line 98 "ansi.l"
+#line 98 "ast.l"
 ECHO;
 	YY_BREAK
 #line 1488 "lex.yy.c"
@@ -2501,7 +2501,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 98 "ansi.l"
+#line 98 "ast.l"
 
 
 int yywrap()

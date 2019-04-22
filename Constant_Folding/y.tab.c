@@ -62,7 +62,7 @@
 
 
 /* Copy the first part of user declarations.  */
-#line 1 "ansi.y" /* yacc.c:339  */
+#line 1 "const_folding.y" /* yacc.c:339  */
 
 #include <stdio.h>
 #include <iostream>
@@ -234,7 +234,7 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 72 "ansi.y" /* yacc.c:355  */
+#line 72 "const_folding.y" /* yacc.c:355  */
 
 	char* str;
 	class node* node;
@@ -1706,7 +1706,7 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 108 "ansi.y" /* yacc.c:1646  */
+#line 108 "const_folding.y" /* yacc.c:1646  */
     {
 		if(!test.declaration_exists((yyvsp[0].str),scope_count)){
 		flag=0;
@@ -1721,25 +1721,25 @@ yyreduce:
     break;
 
   case 3:
-#line 118 "ansi.y" /* yacc.c:1646  */
+#line 118 "const_folding.y" /* yacc.c:1646  */
     {(yyval.str)=(yyvsp[0].str);}
 #line 1727 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 4:
-#line 119 "ansi.y" /* yacc.c:1646  */
+#line 119 "const_folding.y" /* yacc.c:1646  */
     {(yyval.str)=(yyvsp[0].str);}
 #line 1733 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 6:
-#line 124 "ansi.y" /* yacc.c:1646  */
+#line 124 "const_folding.y" /* yacc.c:1646  */
     {(yyval.str) = (yyvsp[0].str);}
 #line 1739 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 11:
-#line 130 "ansi.y" /* yacc.c:1646  */
+#line 130 "const_folding.y" /* yacc.c:1646  */
     {
 		 (yyval.str)=(yyvsp[-1].str);
 
@@ -1757,7 +1757,7 @@ yyreduce:
     break;
 
   case 12:
-#line 143 "ansi.y" /* yacc.c:1646  */
+#line 143 "const_folding.y" /* yacc.c:1646  */
     {
 		(yyval.str)=(yyvsp[-1].str);
 
@@ -1774,13 +1774,13 @@ yyreduce:
     break;
 
   case 15:
-#line 163 "ansi.y" /* yacc.c:1646  */
+#line 163 "const_folding.y" /* yacc.c:1646  */
     {(yyval.str) = (yyvsp[0].str);}
 #line 1780 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 16:
-#line 164 "ansi.y" /* yacc.c:1646  */
+#line 164 "const_folding.y" /* yacc.c:1646  */
     {
 		
 		(yyval.str)=(yyvsp[0].str);
@@ -1799,7 +1799,7 @@ yyreduce:
     break;
 
   case 17:
-#line 178 "ansi.y" /* yacc.c:1646  */
+#line 178 "const_folding.y" /* yacc.c:1646  */
     {
 		(yyval.str)=(yyvsp[0].str);
 
@@ -1816,7 +1816,7 @@ yyreduce:
     break;
 
   case 27:
-#line 208 "ansi.y" /* yacc.c:1646  */
+#line 208 "const_folding.y" /* yacc.c:1646  */
     {
 		 if((yyvsp[0].str)[0]>='0' && (yyvsp[0].str)[0]<='9'){
 			 (yyval.str) = (yyvsp[0].str);
@@ -1829,7 +1829,7 @@ yyreduce:
     break;
 
   case 28:
-#line 217 "ansi.y" /* yacc.c:1646  */
+#line 217 "const_folding.y" /* yacc.c:1646  */
     {
 
 		 if((yyvsp[0].str)[0]>='0' && (yyvsp[0].str)[0]<='9'){
@@ -1846,7 +1846,7 @@ yyreduce:
     break;
 
   case 29:
-#line 230 "ansi.y" /* yacc.c:1646  */
+#line 230 "const_folding.y" /* yacc.c:1646  */
     {
 		if((yyvsp[0].str)[0]>='0' && (yyvsp[0].str)[0]<='9'){
 			 (yyvsp[0].str) = (yyvsp[0].str);
@@ -1861,7 +1861,7 @@ yyreduce:
     break;
 
   case 30:
-#line 241 "ansi.y" /* yacc.c:1646  */
+#line 241 "const_folding.y" /* yacc.c:1646  */
     {
 		 if((yyvsp[0].str)[0]>='0' && (yyvsp[0].str)[0]<='9'){
 			 (yyvsp[0].str) = (yyvsp[0].str);
@@ -1876,133 +1876,133 @@ yyreduce:
     break;
 
   case 31:
-#line 254 "ansi.y" /* yacc.c:1646  */
+#line 254 "const_folding.y" /* yacc.c:1646  */
     {(yyval.str) = (yyvsp[0].str);}
 #line 1882 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 32:
-#line 255 "ansi.y" /* yacc.c:1646  */
+#line 255 "const_folding.y" /* yacc.c:1646  */
     {(yyval.str) = strdup(to_string(atof((yyvsp[-2].str)) + atof((yyvsp[0].str))).c_str());}
 #line 1888 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 33:
-#line 256 "ansi.y" /* yacc.c:1646  */
+#line 256 "const_folding.y" /* yacc.c:1646  */
     {(yyval.str) = strdup(to_string(atof((yyvsp[-2].str)) - atof((yyvsp[0].str))).c_str());}
 #line 1894 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 34:
-#line 260 "ansi.y" /* yacc.c:1646  */
+#line 260 "const_folding.y" /* yacc.c:1646  */
     {(yyval.str) = (yyvsp[0].str);}
 #line 1900 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 35:
-#line 264 "ansi.y" /* yacc.c:1646  */
+#line 264 "const_folding.y" /* yacc.c:1646  */
     {(yyval.str) = (yyvsp[0].str);}
 #line 1906 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 36:
-#line 265 "ansi.y" /* yacc.c:1646  */
+#line 265 "const_folding.y" /* yacc.c:1646  */
     {(yyval.str) = strdup(to_string(atof((yyvsp[-2].str)) < atof((yyvsp[0].str))).c_str());}
 #line 1912 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 37:
-#line 266 "ansi.y" /* yacc.c:1646  */
+#line 266 "const_folding.y" /* yacc.c:1646  */
     {(yyval.str) = strdup(to_string(atof((yyvsp[-2].str)) > atof((yyvsp[0].str))).c_str());}
 #line 1918 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 38:
-#line 267 "ansi.y" /* yacc.c:1646  */
+#line 267 "const_folding.y" /* yacc.c:1646  */
     {(yyval.str) = strdup(to_string(atof((yyvsp[-2].str)) <= atof((yyvsp[0].str))).c_str());}
 #line 1924 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 39:
-#line 268 "ansi.y" /* yacc.c:1646  */
+#line 268 "const_folding.y" /* yacc.c:1646  */
     {(yyval.str) = strdup(to_string(atof((yyvsp[-2].str)) >= atof((yyvsp[0].str))).c_str());}
 #line 1930 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 40:
-#line 272 "ansi.y" /* yacc.c:1646  */
+#line 272 "const_folding.y" /* yacc.c:1646  */
     {(yyval.str) = (yyvsp[0].str);}
 #line 1936 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 41:
-#line 273 "ansi.y" /* yacc.c:1646  */
+#line 273 "const_folding.y" /* yacc.c:1646  */
     {(yyval.str) = strdup(to_string(atof((yyvsp[-2].str)) == atof((yyvsp[0].str))).c_str());}
 #line 1942 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 42:
-#line 274 "ansi.y" /* yacc.c:1646  */
+#line 274 "const_folding.y" /* yacc.c:1646  */
     {(yyval.str) = strdup(to_string(atof((yyvsp[-2].str)) != atof((yyvsp[0].str))).c_str());}
 #line 1948 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 43:
-#line 278 "ansi.y" /* yacc.c:1646  */
+#line 278 "const_folding.y" /* yacc.c:1646  */
     {(yyval.str) = (yyvsp[0].str);}
 #line 1954 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 44:
-#line 282 "ansi.y" /* yacc.c:1646  */
+#line 282 "const_folding.y" /* yacc.c:1646  */
     {(yyval.str) = (yyvsp[0].str);}
 #line 1960 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 45:
-#line 286 "ansi.y" /* yacc.c:1646  */
+#line 286 "const_folding.y" /* yacc.c:1646  */
     {(yyval.str) = (yyvsp[0].str);}
 #line 1966 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 46:
-#line 290 "ansi.y" /* yacc.c:1646  */
+#line 290 "const_folding.y" /* yacc.c:1646  */
     {(yyval.str) = (yyvsp[0].str);}
 #line 1972 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 47:
-#line 291 "ansi.y" /* yacc.c:1646  */
+#line 291 "const_folding.y" /* yacc.c:1646  */
     {(yyval.str) = strdup(to_string(atof((yyvsp[-2].str)) && atof((yyvsp[0].str))).c_str());}
 #line 1978 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 48:
-#line 295 "ansi.y" /* yacc.c:1646  */
+#line 295 "const_folding.y" /* yacc.c:1646  */
     {(yyval.str) = (yyvsp[0].str);}
 #line 1984 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 49:
-#line 296 "ansi.y" /* yacc.c:1646  */
+#line 296 "const_folding.y" /* yacc.c:1646  */
     {(yyval.str) = strdup(to_string(atof((yyvsp[-2].str)) || atof((yyvsp[0].str))).c_str());}
 #line 1990 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 50:
-#line 300 "ansi.y" /* yacc.c:1646  */
+#line 300 "const_folding.y" /* yacc.c:1646  */
     {(yyval.str) = (yyvsp[0].str);}
 #line 1996 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 52:
-#line 305 "ansi.y" /* yacc.c:1646  */
+#line 305 "const_folding.y" /* yacc.c:1646  */
     {(yyval.str) = (yyvsp[0].str);}
 #line 2002 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 53:
-#line 307 "ansi.y" /* yacc.c:1646  */
+#line 307 "const_folding.y" /* yacc.c:1646  */
     {
 		// cout<<"HERE!\n";
 		// cout<<$1<<"\n"<<$3<<"\n";
@@ -2026,19 +2026,19 @@ yyreduce:
     break;
 
   case 54:
-#line 329 "ansi.y" /* yacc.c:1646  */
+#line 329 "const_folding.y" /* yacc.c:1646  */
     {(yyval.str) = (yyvsp[0].str);}
 #line 2032 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 67:
-#line 348 "ansi.y" /* yacc.c:1646  */
+#line 348 "const_folding.y" /* yacc.c:1646  */
     {(yyval.str)=(yyvsp[0].str);}
 #line 2038 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 70:
-#line 357 "ansi.y" /* yacc.c:1646  */
+#line 357 "const_folding.y" /* yacc.c:1646  */
     { 
 					   (yyvsp[0].node)->set_size(size_map[(yyvsp[0].node)->get_type()]); 
 					//    cout<<"\nOne\n";
@@ -2049,7 +2049,7 @@ yyreduce:
     break;
 
   case 74:
-#line 372 "ansi.y" /* yacc.c:1646  */
+#line 372 "const_folding.y" /* yacc.c:1646  */
     {
 					string temp = (yyvsp[0].node)->get_identifier();
 					int temp_size = (yyvsp[0].node)->get_size();
@@ -2067,7 +2067,7 @@ yyreduce:
     break;
 
   case 75:
-#line 385 "ansi.y" /* yacc.c:1646  */
+#line 385 "const_folding.y" /* yacc.c:1646  */
     {
 		string temp = (yyvsp[-2].node)->get_identifier();
 		(yyvsp[-2].node) = new node(*type);
@@ -2084,37 +2084,37 @@ yyreduce:
     break;
 
   case 77:
-#line 401 "ansi.y" /* yacc.c:1646  */
+#line 401 "const_folding.y" /* yacc.c:1646  */
     {(yyval.node) = new node(yylineno,"",(yyvsp[0].str),"",0,scope_count);}
 #line 2090 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 79:
-#line 403 "ansi.y" /* yacc.c:1646  */
+#line 403 "const_folding.y" /* yacc.c:1646  */
     {(yyval.node) = new node(yylineno,"",(yyvsp[0].str),"",0,scope_count);}
 #line 2096 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 81:
-#line 405 "ansi.y" /* yacc.c:1646  */
+#line 405 "const_folding.y" /* yacc.c:1646  */
     {(yyval.node) = new node(yylineno,"",(yyvsp[0].str),"",0,scope_count);}
 #line 2102 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 82:
-#line 406 "ansi.y" /* yacc.c:1646  */
+#line 406 "const_folding.y" /* yacc.c:1646  */
     {(yyval.node) = new node(yylineno,"",(yyvsp[0].str),"",0,scope_count);}
 #line 2108 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 88:
-#line 419 "ansi.y" /* yacc.c:1646  */
+#line 419 "const_folding.y" /* yacc.c:1646  */
     {(yyval.node)=(yyvsp[0].node);}
 #line 2114 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 89:
-#line 424 "ansi.y" /* yacc.c:1646  */
+#line 424 "const_folding.y" /* yacc.c:1646  */
     {
 		if(test.declaration_exists((yyvsp[0].str),scope_count)){
 		flag=0;
@@ -2125,19 +2125,19 @@ yyreduce:
     break;
 
   case 91:
-#line 431 "ansi.y" /* yacc.c:1646  */
+#line 431 "const_folding.y" /* yacc.c:1646  */
     {(yyval.node) = new node(yylineno,(yyvsp[-3].node)->get_identifier(),"","",atoi((yyvsp[-1].str)),scope_count);}
 #line 2131 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 95:
-#line 435 "ansi.y" /* yacc.c:1646  */
+#line 435 "const_folding.y" /* yacc.c:1646  */
     {}
 #line 2137 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 115:
-#line 486 "ansi.y" /* yacc.c:1646  */
+#line 486 "const_folding.y" /* yacc.c:1646  */
     {
 		// cout<<"OVER JERE\n";
 		test.create_map(++scope_count);
@@ -2149,49 +2149,49 @@ yyreduce:
     break;
 
   case 117:
-#line 498 "ansi.y" /* yacc.c:1646  */
+#line 498 "const_folding.y" /* yacc.c:1646  */
     {scope_count--;}
 #line 2155 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 118:
-#line 500 "ansi.y" /* yacc.c:1646  */
+#line 500 "const_folding.y" /* yacc.c:1646  */
     {scope_count--;}
 #line 2161 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 119:
-#line 502 "ansi.y" /* yacc.c:1646  */
+#line 502 "const_folding.y" /* yacc.c:1646  */
     {scope_count--;}
 #line 2167 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 120:
-#line 504 "ansi.y" /* yacc.c:1646  */
+#line 504 "const_folding.y" /* yacc.c:1646  */
     {scope_count--;}
 #line 2173 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 121:
-#line 506 "ansi.y" /* yacc.c:1646  */
+#line 506 "const_folding.y" /* yacc.c:1646  */
     {scope_count--;}
 #line 2179 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 122:
-#line 508 "ansi.y" /* yacc.c:1646  */
+#line 508 "const_folding.y" /* yacc.c:1646  */
     {scope_count--;}
 #line 2185 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 123:
-#line 510 "ansi.y" /* yacc.c:1646  */
+#line 510 "const_folding.y" /* yacc.c:1646  */
     {scope_count--;}
 #line 2191 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 124:
-#line 512 "ansi.y" /* yacc.c:1646  */
+#line 512 "const_folding.y" /* yacc.c:1646  */
     {scope_count--;}
 #line 2197 "y.tab.c" /* yacc.c:1646  */
     break;
@@ -2425,7 +2425,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 572 "ansi.y" /* yacc.c:1906  */
+#line 572 "const_folding.y" /* yacc.c:1906  */
 
 
 void yyerror(const char *error_msg) {

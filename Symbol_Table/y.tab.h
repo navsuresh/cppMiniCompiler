@@ -112,7 +112,7 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 52 "ansi.y" /* yacc.c:1909  */
+#line 52 "sym_tab.y" /* yacc.c:1909  */
 
 	char* str;
 	class node* node;

@@ -112,7 +112,7 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 72 "ansi.y" /* yacc.c:1909  */
+#line 72 "const_folding.y" /* yacc.c:1909  */
 
 	char* str;
 	class node* node;

@@ -62,7 +62,7 @@
 
 
 /* Copy the first part of user declarations.  */
-#line 1 "ansi.y" /* yacc.c:339  */
+#line 1 "sym_tab.y" /* yacc.c:339  */
 
 #include <stdio.h>
 #include <iostream>
@@ -214,7 +214,7 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 52 "ansi.y" /* yacc.c:355  */
+#line 52 "sym_tab.y" /* yacc.c:355  */
 
 	char* str;
 	class node* node;
@@ -1684,7 +1684,7 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 88 "ansi.y" /* yacc.c:1646  */
+#line 88 "sym_tab.y" /* yacc.c:1646  */
     {
 		if(!test.declaration_exists((yyvsp[0].str),scope_count)){
 		flag=0;
@@ -1696,235 +1696,235 @@ yyreduce:
     break;
 
   case 3:
-#line 95 "ansi.y" /* yacc.c:1646  */
+#line 95 "sym_tab.y" /* yacc.c:1646  */
     {(yyval.str)=(yyvsp[0].str);}
 #line 1702 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 4:
-#line 96 "ansi.y" /* yacc.c:1646  */
+#line 96 "sym_tab.y" /* yacc.c:1646  */
     {(yyval.str)=(yyvsp[0].str);}
 #line 1708 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 6:
-#line 101 "ansi.y" /* yacc.c:1646  */
+#line 101 "sym_tab.y" /* yacc.c:1646  */
     {(yyval.str) = (yyvsp[0].str);}
 #line 1714 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 11:
-#line 106 "ansi.y" /* yacc.c:1646  */
+#line 106 "sym_tab.y" /* yacc.c:1646  */
     {vector<string> temp1{(yyvsp[-1].str),(yyvsp[0].str)}; (yyval.str) = conversion(temp1);}
 #line 1720 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 12:
-#line 107 "ansi.y" /* yacc.c:1646  */
+#line 107 "sym_tab.y" /* yacc.c:1646  */
     {vector<string> temp1{(yyvsp[-1].str),(yyvsp[0].str)}; (yyval.str) = conversion(temp1);}
 #line 1726 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 15:
-#line 116 "ansi.y" /* yacc.c:1646  */
+#line 116 "sym_tab.y" /* yacc.c:1646  */
     {(yyval.str) = (yyvsp[0].str);}
 #line 1732 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 16:
-#line 117 "ansi.y" /* yacc.c:1646  */
+#line 117 "sym_tab.y" /* yacc.c:1646  */
     {vector<string> temp1{(yyvsp[-1].str),(yyvsp[0].str)}; (yyval.str) = conversion(temp1);}
 #line 1738 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 17:
-#line 118 "ansi.y" /* yacc.c:1646  */
+#line 118 "sym_tab.y" /* yacc.c:1646  */
     {vector<string> temp1{(yyvsp[-1].str),(yyvsp[0].str)}; (yyval.str) = conversion(temp1);}
 #line 1744 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 27:
-#line 136 "ansi.y" /* yacc.c:1646  */
+#line 136 "sym_tab.y" /* yacc.c:1646  */
     {(yyval.str) = (yyvsp[0].str);}
 #line 1750 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 28:
-#line 137 "ansi.y" /* yacc.c:1646  */
+#line 137 "sym_tab.y" /* yacc.c:1646  */
     {vector<string> temp1{(yyvsp[-2].str),(yyvsp[-1].str),(yyvsp[0].str)}; (yyval.str) = conversion(temp1);}
 #line 1756 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 29:
-#line 138 "ansi.y" /* yacc.c:1646  */
+#line 138 "sym_tab.y" /* yacc.c:1646  */
     {vector<string> temp1{(yyvsp[-2].str),(yyvsp[-1].str),(yyvsp[0].str)}; (yyval.str) = conversion(temp1);}
 #line 1762 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 30:
-#line 139 "ansi.y" /* yacc.c:1646  */
+#line 139 "sym_tab.y" /* yacc.c:1646  */
     {vector<string> temp1{(yyvsp[-2].str),(yyvsp[-1].str),(yyvsp[0].str)}; (yyval.str) = conversion(temp1);}
 #line 1768 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 31:
-#line 143 "ansi.y" /* yacc.c:1646  */
+#line 143 "sym_tab.y" /* yacc.c:1646  */
     {(yyval.str) = (yyvsp[0].str);}
 #line 1774 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 32:
-#line 144 "ansi.y" /* yacc.c:1646  */
+#line 144 "sym_tab.y" /* yacc.c:1646  */
     {vector<string> temp1{(yyvsp[-2].str),(yyvsp[-1].str),(yyvsp[0].str)}; (yyval.str) = conversion(temp1);}
 #line 1780 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 33:
-#line 145 "ansi.y" /* yacc.c:1646  */
+#line 145 "sym_tab.y" /* yacc.c:1646  */
     {vector<string> temp1{(yyvsp[-2].str),(yyvsp[-1].str),(yyvsp[0].str)}; (yyval.str) = conversion(temp1);}
 #line 1786 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 34:
-#line 149 "ansi.y" /* yacc.c:1646  */
+#line 149 "sym_tab.y" /* yacc.c:1646  */
     {(yyval.str) = (yyvsp[0].str);}
 #line 1792 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 35:
-#line 150 "ansi.y" /* yacc.c:1646  */
+#line 150 "sym_tab.y" /* yacc.c:1646  */
     {vector<string> temp1{(yyvsp[-2].str),(yyvsp[-1].str),(yyvsp[0].str)}; (yyval.str) = conversion(temp1);}
 #line 1798 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 36:
-#line 151 "ansi.y" /* yacc.c:1646  */
+#line 151 "sym_tab.y" /* yacc.c:1646  */
     {vector<string> temp1{(yyvsp[-2].str),(yyvsp[-1].str),(yyvsp[0].str)}; (yyval.str) = conversion(temp1);}
 #line 1804 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 37:
-#line 155 "ansi.y" /* yacc.c:1646  */
+#line 155 "sym_tab.y" /* yacc.c:1646  */
     {(yyval.str) = (yyvsp[0].str);}
 #line 1810 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 38:
-#line 156 "ansi.y" /* yacc.c:1646  */
+#line 156 "sym_tab.y" /* yacc.c:1646  */
     {vector<string> temp1{(yyvsp[-2].str),(yyvsp[-1].str),(yyvsp[0].str)}; (yyval.str) = conversion(temp1);}
 #line 1816 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 39:
-#line 157 "ansi.y" /* yacc.c:1646  */
+#line 157 "sym_tab.y" /* yacc.c:1646  */
     {vector<string> temp1{(yyvsp[-2].str),(yyvsp[-1].str),(yyvsp[0].str)}; (yyval.str) = conversion(temp1);}
 #line 1822 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 40:
-#line 158 "ansi.y" /* yacc.c:1646  */
+#line 158 "sym_tab.y" /* yacc.c:1646  */
     {vector<string> temp1{(yyvsp[-2].str),(yyvsp[-1].str),(yyvsp[0].str)}; (yyval.str) = conversion(temp1);}
 #line 1828 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 41:
-#line 159 "ansi.y" /* yacc.c:1646  */
+#line 159 "sym_tab.y" /* yacc.c:1646  */
     {vector<string> temp1{(yyvsp[-2].str),(yyvsp[-1].str),(yyvsp[0].str)}; (yyval.str) = conversion(temp1);}
 #line 1834 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 42:
-#line 163 "ansi.y" /* yacc.c:1646  */
+#line 163 "sym_tab.y" /* yacc.c:1646  */
     {(yyval.str) = (yyvsp[0].str);}
 #line 1840 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 43:
-#line 164 "ansi.y" /* yacc.c:1646  */
+#line 164 "sym_tab.y" /* yacc.c:1646  */
     {vector<string> temp1{(yyvsp[-2].str),(yyvsp[-1].str),(yyvsp[0].str)}; (yyval.str) = conversion(temp1);}
 #line 1846 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 44:
-#line 165 "ansi.y" /* yacc.c:1646  */
+#line 165 "sym_tab.y" /* yacc.c:1646  */
     {vector<string> temp1{(yyvsp[-2].str),(yyvsp[-1].str),(yyvsp[0].str)}; (yyval.str) = conversion(temp1);}
 #line 1852 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 45:
-#line 169 "ansi.y" /* yacc.c:1646  */
+#line 169 "sym_tab.y" /* yacc.c:1646  */
     {(yyval.str) = (yyvsp[0].str);}
 #line 1858 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 46:
-#line 170 "ansi.y" /* yacc.c:1646  */
+#line 170 "sym_tab.y" /* yacc.c:1646  */
     {vector<string> temp1{(yyvsp[-2].str),(yyvsp[-1].str),(yyvsp[0].str)}; (yyval.str) = conversion(temp1);}
 #line 1864 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 47:
-#line 174 "ansi.y" /* yacc.c:1646  */
+#line 174 "sym_tab.y" /* yacc.c:1646  */
     {(yyval.str) = (yyvsp[0].str);}
 #line 1870 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 48:
-#line 175 "ansi.y" /* yacc.c:1646  */
+#line 175 "sym_tab.y" /* yacc.c:1646  */
     {vector<string> temp1{(yyvsp[-2].str),(yyvsp[-1].str),(yyvsp[0].str)}; (yyval.str) = conversion(temp1);}
 #line 1876 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 49:
-#line 179 "ansi.y" /* yacc.c:1646  */
+#line 179 "sym_tab.y" /* yacc.c:1646  */
     {(yyval.str) = (yyvsp[0].str);}
 #line 1882 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 50:
-#line 180 "ansi.y" /* yacc.c:1646  */
+#line 180 "sym_tab.y" /* yacc.c:1646  */
     {vector<string> temp1{(yyvsp[-2].str),(yyvsp[-1].str),(yyvsp[0].str)}; (yyval.str) = conversion(temp1);}
 #line 1888 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 51:
-#line 184 "ansi.y" /* yacc.c:1646  */
+#line 184 "sym_tab.y" /* yacc.c:1646  */
     {(yyval.str) = (yyvsp[0].str);}
 #line 1894 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 52:
-#line 185 "ansi.y" /* yacc.c:1646  */
+#line 185 "sym_tab.y" /* yacc.c:1646  */
     {vector<string> temp1{(yyvsp[-2].str),(yyvsp[-1].str),(yyvsp[0].str)}; (yyval.str) = conversion(temp1);}
 #line 1900 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 53:
-#line 189 "ansi.y" /* yacc.c:1646  */
+#line 189 "sym_tab.y" /* yacc.c:1646  */
     {(yyval.str) = (yyvsp[0].str);}
 #line 1906 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 54:
-#line 190 "ansi.y" /* yacc.c:1646  */
+#line 190 "sym_tab.y" /* yacc.c:1646  */
     {vector<string> temp1{(yyvsp[-2].str),(yyvsp[-1].str),(yyvsp[0].str)}; (yyval.str) = conversion(temp1);}
 #line 1912 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 55:
-#line 194 "ansi.y" /* yacc.c:1646  */
+#line 194 "sym_tab.y" /* yacc.c:1646  */
     {(yyval.str) = (yyvsp[0].str);}
 #line 1918 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 57:
-#line 199 "ansi.y" /* yacc.c:1646  */
+#line 199 "sym_tab.y" /* yacc.c:1646  */
     {(yyval.str) = (yyvsp[0].str);}
 #line 1924 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 58:
-#line 201 "ansi.y" /* yacc.c:1646  */
+#line 201 "sym_tab.y" /* yacc.c:1646  */
     {
 		// cout<<"HERE!\n";
 		// cout<<$1<<"\n"<<$3<<"\n";
@@ -1937,19 +1937,19 @@ yyreduce:
     break;
 
   case 59:
-#line 212 "ansi.y" /* yacc.c:1646  */
+#line 212 "sym_tab.y" /* yacc.c:1646  */
     {(yyval.str) = (yyvsp[0].str);}
 #line 1943 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 72:
-#line 231 "ansi.y" /* yacc.c:1646  */
+#line 231 "sym_tab.y" /* yacc.c:1646  */
     {(yyval.str)=(yyvsp[0].str);}
 #line 1949 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 75:
-#line 240 "ansi.y" /* yacc.c:1646  */
+#line 240 "sym_tab.y" /* yacc.c:1646  */
     { 
 					   (yyvsp[0].node)->set_size(size_map[(yyvsp[0].node)->get_type()]); 
 					//    cout<<"\nOne\n";
@@ -1960,7 +1960,7 @@ yyreduce:
     break;
 
   case 79:
-#line 255 "ansi.y" /* yacc.c:1646  */
+#line 255 "sym_tab.y" /* yacc.c:1646  */
     {
 					string temp = (yyvsp[0].node)->get_identifier();
 					int temp_size = (yyvsp[0].node)->get_size();
@@ -1978,7 +1978,7 @@ yyreduce:
     break;
 
   case 80:
-#line 268 "ansi.y" /* yacc.c:1646  */
+#line 268 "sym_tab.y" /* yacc.c:1646  */
     {
 		string temp = (yyvsp[-2].node)->get_identifier();
 		(yyvsp[-2].node) = new node(*type);
@@ -1991,37 +1991,37 @@ yyreduce:
     break;
 
   case 82:
-#line 280 "ansi.y" /* yacc.c:1646  */
+#line 280 "sym_tab.y" /* yacc.c:1646  */
     {(yyval.node) = new node(yylineno,"",(yyvsp[0].str),"",0,scope_count);}
 #line 1997 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 84:
-#line 282 "ansi.y" /* yacc.c:1646  */
+#line 282 "sym_tab.y" /* yacc.c:1646  */
     {(yyval.node) = new node(yylineno,"",(yyvsp[0].str),"",0,scope_count);}
 #line 2003 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 86:
-#line 284 "ansi.y" /* yacc.c:1646  */
+#line 284 "sym_tab.y" /* yacc.c:1646  */
     {(yyval.node) = new node(yylineno,"",(yyvsp[0].str),"",0,scope_count);}
 #line 2009 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 87:
-#line 285 "ansi.y" /* yacc.c:1646  */
+#line 285 "sym_tab.y" /* yacc.c:1646  */
     {(yyval.node) = new node(yylineno,"",(yyvsp[0].str),"",0,scope_count);}
 #line 2015 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 93:
-#line 298 "ansi.y" /* yacc.c:1646  */
+#line 298 "sym_tab.y" /* yacc.c:1646  */
     {(yyval.node)=(yyvsp[0].node);}
 #line 2021 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 94:
-#line 303 "ansi.y" /* yacc.c:1646  */
+#line 303 "sym_tab.y" /* yacc.c:1646  */
     {
 		if(test.declaration_exists_scope((yyvsp[0].str),scope_count)){
 		flag=0;
@@ -2032,19 +2032,19 @@ yyreduce:
     break;
 
   case 96:
-#line 310 "ansi.y" /* yacc.c:1646  */
+#line 310 "sym_tab.y" /* yacc.c:1646  */
     {(yyval.node) = new node(yylineno,(yyvsp[-3].node)->get_identifier(),"","",atoi((yyvsp[-1].str)),scope_count);}
 #line 2038 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 100:
-#line 314 "ansi.y" /* yacc.c:1646  */
+#line 314 "sym_tab.y" /* yacc.c:1646  */
     {}
 #line 2044 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 120:
-#line 365 "ansi.y" /* yacc.c:1646  */
+#line 365 "sym_tab.y" /* yacc.c:1646  */
     {
 		// cout<<"OVER JERE\n";
 		test.create_map(++scope_count);
@@ -2056,49 +2056,49 @@ yyreduce:
     break;
 
   case 122:
-#line 377 "ansi.y" /* yacc.c:1646  */
+#line 377 "sym_tab.y" /* yacc.c:1646  */
     {scope_count--;}
 #line 2062 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 123:
-#line 379 "ansi.y" /* yacc.c:1646  */
+#line 379 "sym_tab.y" /* yacc.c:1646  */
     {scope_count--;}
 #line 2068 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 124:
-#line 381 "ansi.y" /* yacc.c:1646  */
+#line 381 "sym_tab.y" /* yacc.c:1646  */
     {scope_count--;}
 #line 2074 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 125:
-#line 383 "ansi.y" /* yacc.c:1646  */
+#line 383 "sym_tab.y" /* yacc.c:1646  */
     {scope_count--;}
 #line 2080 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 126:
-#line 385 "ansi.y" /* yacc.c:1646  */
+#line 385 "sym_tab.y" /* yacc.c:1646  */
     {scope_count--;}
 #line 2086 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 127:
-#line 387 "ansi.y" /* yacc.c:1646  */
+#line 387 "sym_tab.y" /* yacc.c:1646  */
     {scope_count--;}
 #line 2092 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 128:
-#line 389 "ansi.y" /* yacc.c:1646  */
+#line 389 "sym_tab.y" /* yacc.c:1646  */
     {scope_count--;}
 #line 2098 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 129:
-#line 391 "ansi.y" /* yacc.c:1646  */
+#line 391 "sym_tab.y" /* yacc.c:1646  */
     {scope_count--;}
 #line 2104 "y.tab.c" /* yacc.c:1646  */
     break;
@@ -2332,7 +2332,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 452 "ansi.y" /* yacc.c:1906  */
+#line 452 "sym_tab.y" /* yacc.c:1906  */
 
 
 void yyerror(const char *error_msg) {

@@ -1,7 +1,8 @@
 #include<iostream>
 
-
-    L0 : 
+a = 4
+b = 5
+L0 : 
 t0 = a < b
 t1 = not t0
 if t1 goto L1
