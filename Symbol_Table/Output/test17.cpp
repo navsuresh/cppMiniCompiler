@@ -41,13 +41,13 @@ Scope is 1
 
 
 BIG Scope is 2
+
+BIG Scope is 3
 line_no is 6
 identifier is j
 type is int
 value is 9
 Size is 4
-Scope is 2
+Scope is 3
 
-
-BIG Scope is 3
 

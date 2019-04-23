@@ -31,6 +31,7 @@ class test123{
 void yyerror(const char *error_msg);
 
 int counter = 0;
+int for_scope = 0;
 extern FILE *yyin;
 extern FILE *yyout;
 extern int yylineno;
@@ -248,7 +249,20 @@ declaration_specifiers
 
 init_declarator_list
 	: init_declarator 
+	{
+		// if(for_scope)
+		// {
+		// 	--for_scope;
+		// }
+	}
+
 	| init_declarator_list ',' init_declarator 
+	{
+		// if(for_scope)
+		// {
+		// 	--for_scope;
+		// }
+	}
 	;
 
 init_declarator
@@ -262,7 +276,6 @@ init_declarator
 					if(temp_size!=0){
 						$1->set_size($1->get_size()*temp_size);
 					}
-					// cout<<"New\n";$1->disp_node();
 					test.insert(*$1);
 				 }
 	| declarator '=' initializer {
@@ -270,7 +283,6 @@ init_declarator
 		$1 = new node(*type);
 		$1->set_identifier(temp); 
 		$1->set_value($3);
-		// $1->disp_node();
 		test.insert(*$1);
 		}
 	;
@@ -364,7 +376,14 @@ statement
 compound_statement
 	: '{' {
 		// cout<<"OVER JERE\n";
+		// cout<<"Value of for scope is "<<for_scope<<"\n";
+		if(for_scope){
+			for_scope--;
+			// cout<<"For scope value is "<<scope_count<<"\n";
+		}
+		else{
 		test.create_map(++scope_count);
+		}
 		// cout<<"DSIPLY IS \n";
 		// test.display();
 		// cout<<"SCope count is "<<scope_count<<"\n";
@@ -423,9 +442,18 @@ selection_statement
 iteration_statement
 	: WHILE '(' expression ')' statement
 	| DO statement WHILE '(' expression ')' ';'
-	| FOR '(' for_expression_statement expression_statement ')' statement
-	| FOR '(' for_expression_statement expression_statement expression ')' statement
+	| FOR {
+		++for_scope;
+		test.create_map(++scope_count);
+		// cout<<"For scope is "<<for_scope<<"\n";
+		} temp2
 	;
+
+temp2
+	: '(' for_expression_statement expression_statement ')' statement
+	| '(' for_expression_statement expression_statement expression ')' statement
+	;
+
 
 jump_statement
 	: RETURN ';'
