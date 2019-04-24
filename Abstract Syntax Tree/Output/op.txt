@@ -1,0 +1,594 @@
+ 
+Input/test.cpp
+#include
+void
+ID
+(
+)
+{
+int
+ID
+=
+DIGIT
+;
+10
+10
+int
+ID
+[
+DIGIT
+]
+;
+}
+
+
+
+Parsing is successful
+
+
+line_no is 4
+identifier is b
+type is int
+value is 
+Size is 20
+Scope is 1
+
+
+line_no is 3
+identifier is a
+type is int
+value is 10
+Size is 4
+Scope is 1
+
+
+Input/test1.cpp
+#include
+int
+ID
+=
+DIGIT
+;
+5
+5
+int
+ID
+;
+ID
+=
+DIGIT
+;
+9
+9
+
+
+
+Parsing is successful
+
+
+line_no is 4
+identifier is c
+type is float
+value is 9
+Size is 4
+Scope is 0
+
+
+line_no is 2
+identifier is a
+type is int
+value is 5
+Size is 4
+Scope is 0
+
+
+line_no is 3
+identifier is b
+type is int
+value is 
+Size is 4
+Scope is 0
+
+
+Input/test10.cpp
+#include
+int
+main function
+(
+)
+{
+for
+(
+;
+ID
+LT
+DIGIT
+;
+ID
+=
+DIGIT
+)
+5
+5
+{
+ID
+=
+DIGIT
+;
+5
+5
+}
+FOOOR LOOP
+}
+
+
+
+Parsing is successful
+
+
+Input/test11.cpp
+#include
+int
+main function
+(
+)
+{
+int
+ID
+=
+DIGIT
++
+5
+5
+DIGIT
+;
+5
+5
+}
+
+
+
+Parsing is successful
+
+
+line_no is 5
+identifier is a
+type is int
+value is 5
+Size is 4
+Scope is 1
+
+
+Input/test12.cpp
+#include
+int
+main function
+(
+)
+{
+int
+ID
+}
+error_msg: syntax error
+unsuccessful
+Input/test13.cpp
+int
+ID
+=
+ID
++
+ID
++
+ID
+;
+
+
+
+Parsing is successful
+
+
+line_no is 1
+identifier is a
+type is int
+value is 
+Size is 4
+Scope is 0
+
+
+Input/test2.cpp
+int
+ID
+=
+DIGIT
+;
+1
+1
+
+
+
+Parsing is successful
+
+
+line_no is 1
+identifier is a
+type is int
+value is 1
+Size is 4
+Scope is 0
+
+
+Input/test3.cpp
+int
+ID
+;
+int
+ID
+;
+int
+ID
+=
+DIGIT
+;
+5
+5
+
+
+
+Parsing is successful
+
+
+line_no is 3
+identifier is c
+type is int
+value is 5
+Size is 4
+Scope is 0
+
+
+line_no is 1
+identifier is a
+type is int
+value is 
+Size is 4
+Scope is 0
+
+
+line_no is 2
+identifier is b
+type is int
+value is 
+Size is 4
+Scope is 0
+
+
+Input/test4.cpp
+#include
+int
+main function
+(
+)
+{
+for
+(
+ID
+=
+DIGIT
+;
+0
+0
+ID
+LT
+ID
+;
+ID
+=
+DIGIT
+)
+5
+5
+{
+int
+ID
+;
+int
+ID
+=
+DIGIT
+;
+5
+5
+}
+FOOOR LOOP
+}
+
+
+
+Parsing is successful
+
+
+line_no is 6
+identifier is j
+type is int
+value is 5
+Size is 4
+Scope is 2
+
+
+line_no is 5
+identifier is i
+type is int
+value is 
+Size is 4
+Scope is 2
+
+
+Input/test5.cpp
+#include
+int
+main function
+(
+)
+{
+for
+(
+ID
+=
+DIGIT
+;
+0
+0
+ID
+LT
+ID
+;
+ID
+=
+DIGIT
+)
+5
+5
+{
+ID
+=
+DIGIT
+;
+9
+9
+}
+FOOOR LOOP
+}
+
+
+
+Parsing is successful
+
+
+Input/test6.cpp
+#include
+int
+main function
+(
+)
+{
+int
+ID
+;
+}
+
+
+
+Parsing is successful
+
+
+line_no is 4
+identifier is i
+type is int
+value is 
+Size is 4
+Scope is 1
+
+
+Input/test7.cpp
+#include
+int
+main function
+(
+)
+{
+while
+(
+DIGIT
+)
+{
+int
+ID
+=
+DIGIT
+;
+0
+0
+}
+}
+
+
+
+Parsing is successful
+
+
+line_no is 5
+identifier is i
+type is int
+value is 0
+Size is 4
+Scope is 2
+
+
+Input/test8.cpp
+#include
+int
+main function
+(
+)
+{
+int
+ID
+=
+DIGIT
+;
+7
+7
+while
+(
+ID
+GE
+DIGIT
+)
+{
+while
+(
+DIGIT
+)
+{
+int
+ID
+=
+DIGIT
+;
+0
+0
+int
+ID
+;
+int
+ID
+;
+}
+}
+}
+
+
+
+Parsing is successful
+
+
+line_no is 9
+identifier is k
+type is int
+value is 
+Size is 4
+Scope is 3
+
+
+line_no is 5
+identifier is i
+type is int
+value is 7
+Size is 4
+Scope is 1
+
+
+line_no is 10
+identifier is l
+type is int
+value is 
+Size is 4
+Scope is 3
+
+
+line_no is 8
+identifier is j
+type is int
+value is 0
+Size is 4
+Scope is 3
+
+
+Input/test9.cpp
+#include
+int
+main function
+(
+)
+{
+int
+ID
+=
+DIGIT
+;
+0
+0
+while
+(
+ID
+GE
+DIGIT
+)
+{
+if
+(
+ID
+DIGIT
+)
+{
+int
+ID
+;
+}
+else
+if
+(
+ID
+GT
+DIGIT
+)
+{
+int
+ID
+;
+}
+else
+{
+int
+ID
+;
+}
+}
+}
+
+
+
+Parsing is successful
+
+
+line_no is 10
+identifier is k
+type is int
+value is 
+Size is 4
+Scope is 3
+
+
+line_no is 4
+identifier is i
+type is int
+value is 0
+Size is 4
+Scope is 1
+
+
+line_no is 13
+identifier is l
+type is int
+value is 
+Size is 4
+Scope is 3
+
+
+line_no is 7
+identifier is j
+type is int
+value is 
+Size is 4
+Scope is 3
+
+
