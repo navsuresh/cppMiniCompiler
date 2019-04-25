@@ -62,6 +62,7 @@ void lab2_while()
 {
 	strcpy(temp,"t");
 	strcat(temp,i_);
+
 	printf("%s = not %s\n",temp,st[top]);
 	printf("if %s goto L%d\n",temp,lnum);
 	i_[0]++;
@@ -78,11 +79,12 @@ void lab1_for()
 	printf("L%d: \n",lnum++);
 }
 
-void lab2_for()
+void lab2_for(int s)
 {
 	strcpy(temp,"t");
 	strcat(temp,i_);
-	printf("%s = not %s\n",temp,st[top]);
+	if(s!=0)
+		printf("%s = not %s\n",temp,st[top]);
 	printf("if %s goto L%d\n",temp,lnum++);
 	i_[0]++;
 	printf("goto L%d\n", lnum++);
@@ -242,7 +244,7 @@ assignment_operator
 	;
 
 expression
-	: assignment_expression
+	: assignment_expression 
 	| expression ',' assignment_expression
 	;
 
@@ -365,8 +367,8 @@ statement_list
 	;
 
 expression_statement
-	: ';'
-	| expression ';'
+	: ';' {$$ = 0;}
+	| expression ';' {$$ = 1;}
 	;
 
 selection_statement
@@ -377,9 +379,9 @@ selection_statement
 iteration_statement
 	: WHILE{lab1_while();} '(' expression ')'{lab2_while();} statement {lab3_while();}
 	| DO statement WHILE '(' expression ')' ';'
-	| FOR  '(' expression_statement {lab1_for();}expression_statement {lab2_for();} for_without_last
+	| FOR  '(' expression_statement {lab1_for();}expression_statement {lab2_for($5);} for_2
 	;
-for_without_last
+for_2
 	:    ')'  {lab3_for();}statement  {lab4_for();}
 	|  expression ')' {lab3_for();} statement {lab4_for();}  ;
 translation_unit

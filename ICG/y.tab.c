@@ -62,7 +62,7 @@
 
 
 /* Copy the first part of user declarations.  */
-#line 1 "ansi.y" /* yacc.c:339  */
+#line 1 "icg.y" /* yacc.c:339  */
 
 #if YYBISON
 union YYSTYPE;
@@ -127,6 +127,7 @@ void lab2_while()
 {
 	strcpy(temp,"t");
 	strcat(temp,i_);
+
 	printf("%s = not %s\n",temp,st[top]);
 	printf("if %s goto L%d\n",temp,lnum);
 	i_[0]++;
@@ -143,11 +144,12 @@ void lab1_for()
 	printf("L%d: \n",lnum++);
 }
 
-void lab2_for()
+void lab2_for(int s)
 {
 	strcpy(temp,"t");
 	strcat(temp,i_);
-	printf("%s = not %s\n",temp,st[top]);
+	if(s!=0)
+		printf("%s = not %s\n",temp,st[top]);
 	printf("if %s goto L%d\n",temp,lnum++);
 	i_[0]++;
 	printf("goto L%d\n", lnum++);
@@ -164,7 +166,7 @@ void lab4_for()
 	printf("L%d: \n",lnum - 3);
 }
 
-#line 168 "y.tab.c" /* yacc.c:339  */
+#line 170 "y.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -279,7 +281,7 @@ int yyparse (void);
 
 /* Copy the second part of user declarations.  */
 
-#line 283 "y.tab.c" /* yacc.c:358  */
+#line 285 "y.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -582,23 +584,23 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint16 yyrline[] =
 {
-       0,   121,   121,   122,   123,   124,   128,   129,   130,   131,
-     132,   133,   134,   138,   139,   143,   144,   144,   145,   145,
-     146,   147,   148,   152,   153,   154,   155,   156,   157,   163,
-     164,   164,   165,   165,   166,   166,   170,   171,   171,   172,
-     172,   176,   177,   177,   178,   178,   182,   183,   183,   184,
-     184,   185,   185,   186,   186,   190,   191,   191,   192,   192,
-     196,   197,   201,   202,   206,   207,   211,   212,   216,   217,
-     221,   222,   226,   227,   231,   232,   233,   234,   235,   236,
-     237,   238,   239,   240,   241,   245,   246,   250,   254,   255,
-     259,   260,   264,   265,   269,   270,   270,   274,   275,   276,
-     277,   278,   279,   280,   281,   282,   283,   288,   289,   293,
-     297,   298,   299,   300,   301,   302,   303,   307,   308,   312,
-     313,   317,   318,   322,   323,   327,   332,   333,   334,   338,
-     339,   343,   344,   345,   346,   351,   352,   353,   354,   358,
-     359,   363,   364,   368,   369,   373,   374,   378,   378,   378,
-     379,   380,   380,   380,   383,   383,   384,   384,   386,   387,
-     391,   392,   396,   397,   398,   399
+       0,   123,   123,   124,   125,   126,   130,   131,   132,   133,
+     134,   135,   136,   140,   141,   145,   146,   146,   147,   147,
+     148,   149,   150,   154,   155,   156,   157,   158,   159,   165,
+     166,   166,   167,   167,   168,   168,   172,   173,   173,   174,
+     174,   178,   179,   179,   180,   180,   184,   185,   185,   186,
+     186,   187,   187,   188,   188,   192,   193,   193,   194,   194,
+     198,   199,   203,   204,   208,   209,   213,   214,   218,   219,
+     223,   224,   228,   229,   233,   234,   235,   236,   237,   238,
+     239,   240,   241,   242,   243,   247,   248,   252,   256,   257,
+     261,   262,   266,   267,   271,   272,   272,   276,   277,   278,
+     279,   280,   281,   282,   283,   284,   285,   290,   291,   295,
+     299,   300,   301,   302,   303,   304,   305,   309,   310,   314,
+     315,   319,   320,   324,   325,   329,   334,   335,   336,   340,
+     341,   345,   346,   347,   348,   353,   354,   355,   356,   360,
+     361,   365,   366,   370,   371,   375,   376,   380,   380,   380,
+     381,   382,   382,   382,   385,   385,   386,   386,   388,   389,
+     393,   394,   398,   399,   400,   401
 };
 #endif
 
@@ -636,7 +638,7 @@ static const char *const yytname[] =
   "initializer_list", "statement", "compound_statement",
   "declaration_list", "statement_list", "expression_statement",
   "selection_statement", "iteration_statement", "$@17", "$@18", "$@19",
-  "$@20", "for_without_last", "$@21", "$@22", "translation_unit",
+  "$@20", "for_2", "$@21", "$@22", "translation_unit",
   "external_declaration", "function_definition", YY_NULLPTR
 };
 #endif
@@ -1674,295 +1676,307 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 121 "ansi.y" /* yacc.c:1646  */
+#line 123 "icg.y" /* yacc.c:1646  */
     { push();}
-#line 1680 "y.tab.c" /* yacc.c:1646  */
+#line 1682 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 3:
-#line 122 "ansi.y" /* yacc.c:1646  */
+#line 124 "icg.y" /* yacc.c:1646  */
     {push();}
-#line 1686 "y.tab.c" /* yacc.c:1646  */
+#line 1688 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 11:
-#line 133 "ansi.y" /* yacc.c:1646  */
+#line 135 "icg.y" /* yacc.c:1646  */
     {push(); codegen_assign_unary();}
-#line 1692 "y.tab.c" /* yacc.c:1646  */
+#line 1694 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 12:
-#line 134 "ansi.y" /* yacc.c:1646  */
+#line 136 "icg.y" /* yacc.c:1646  */
     {push(); codegen_assign_unary();}
-#line 1698 "y.tab.c" /* yacc.c:1646  */
+#line 1700 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 16:
-#line 144 "ansi.y" /* yacc.c:1646  */
+#line 146 "icg.y" /* yacc.c:1646  */
     {push();}
-#line 1704 "y.tab.c" /* yacc.c:1646  */
+#line 1706 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 17:
-#line 144 "ansi.y" /* yacc.c:1646  */
+#line 146 "icg.y" /* yacc.c:1646  */
     {codegen_assign_unary();}
-#line 1710 "y.tab.c" /* yacc.c:1646  */
+#line 1712 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 18:
-#line 145 "ansi.y" /* yacc.c:1646  */
+#line 147 "icg.y" /* yacc.c:1646  */
     {push();}
-#line 1716 "y.tab.c" /* yacc.c:1646  */
+#line 1718 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 19:
-#line 145 "ansi.y" /* yacc.c:1646  */
+#line 147 "icg.y" /* yacc.c:1646  */
     {codegen_assign_unary();}
-#line 1722 "y.tab.c" /* yacc.c:1646  */
+#line 1724 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 30:
-#line 164 "ansi.y" /* yacc.c:1646  */
+#line 166 "icg.y" /* yacc.c:1646  */
     {push();}
-#line 1728 "y.tab.c" /* yacc.c:1646  */
+#line 1730 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 31:
-#line 164 "ansi.y" /* yacc.c:1646  */
+#line 166 "icg.y" /* yacc.c:1646  */
     {codegen();}
-#line 1734 "y.tab.c" /* yacc.c:1646  */
+#line 1736 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 32:
-#line 165 "ansi.y" /* yacc.c:1646  */
+#line 167 "icg.y" /* yacc.c:1646  */
     {push();}
-#line 1740 "y.tab.c" /* yacc.c:1646  */
+#line 1742 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 33:
-#line 165 "ansi.y" /* yacc.c:1646  */
+#line 167 "icg.y" /* yacc.c:1646  */
     {codegen();}
-#line 1746 "y.tab.c" /* yacc.c:1646  */
+#line 1748 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 34:
-#line 166 "ansi.y" /* yacc.c:1646  */
+#line 168 "icg.y" /* yacc.c:1646  */
     {push();}
-#line 1752 "y.tab.c" /* yacc.c:1646  */
+#line 1754 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 35:
-#line 166 "ansi.y" /* yacc.c:1646  */
+#line 168 "icg.y" /* yacc.c:1646  */
     {codegen();}
-#line 1758 "y.tab.c" /* yacc.c:1646  */
+#line 1760 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 37:
-#line 171 "ansi.y" /* yacc.c:1646  */
+#line 173 "icg.y" /* yacc.c:1646  */
     {push();}
-#line 1764 "y.tab.c" /* yacc.c:1646  */
+#line 1766 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 38:
-#line 171 "ansi.y" /* yacc.c:1646  */
+#line 173 "icg.y" /* yacc.c:1646  */
     {codegen();}
-#line 1770 "y.tab.c" /* yacc.c:1646  */
+#line 1772 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 39:
-#line 172 "ansi.y" /* yacc.c:1646  */
+#line 174 "icg.y" /* yacc.c:1646  */
     {push();}
-#line 1776 "y.tab.c" /* yacc.c:1646  */
+#line 1778 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 40:
-#line 172 "ansi.y" /* yacc.c:1646  */
+#line 174 "icg.y" /* yacc.c:1646  */
     {codegen();}
-#line 1782 "y.tab.c" /* yacc.c:1646  */
+#line 1784 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 42:
-#line 177 "ansi.y" /* yacc.c:1646  */
+#line 179 "icg.y" /* yacc.c:1646  */
     {push();}
-#line 1788 "y.tab.c" /* yacc.c:1646  */
+#line 1790 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 43:
-#line 177 "ansi.y" /* yacc.c:1646  */
+#line 179 "icg.y" /* yacc.c:1646  */
     {codegen();}
-#line 1794 "y.tab.c" /* yacc.c:1646  */
+#line 1796 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 44:
-#line 178 "ansi.y" /* yacc.c:1646  */
+#line 180 "icg.y" /* yacc.c:1646  */
     {push();}
-#line 1800 "y.tab.c" /* yacc.c:1646  */
+#line 1802 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 45:
-#line 178 "ansi.y" /* yacc.c:1646  */
+#line 180 "icg.y" /* yacc.c:1646  */
     {codegen();}
-#line 1806 "y.tab.c" /* yacc.c:1646  */
+#line 1808 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 47:
-#line 183 "ansi.y" /* yacc.c:1646  */
+#line 185 "icg.y" /* yacc.c:1646  */
     {push();}
-#line 1812 "y.tab.c" /* yacc.c:1646  */
+#line 1814 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 48:
-#line 183 "ansi.y" /* yacc.c:1646  */
+#line 185 "icg.y" /* yacc.c:1646  */
     {codegen();}
-#line 1818 "y.tab.c" /* yacc.c:1646  */
+#line 1820 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 49:
-#line 184 "ansi.y" /* yacc.c:1646  */
+#line 186 "icg.y" /* yacc.c:1646  */
     {push();}
-#line 1824 "y.tab.c" /* yacc.c:1646  */
+#line 1826 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 50:
-#line 184 "ansi.y" /* yacc.c:1646  */
+#line 186 "icg.y" /* yacc.c:1646  */
     {codegen();}
-#line 1830 "y.tab.c" /* yacc.c:1646  */
+#line 1832 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 51:
-#line 185 "ansi.y" /* yacc.c:1646  */
+#line 187 "icg.y" /* yacc.c:1646  */
     {push();}
-#line 1836 "y.tab.c" /* yacc.c:1646  */
+#line 1838 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 52:
-#line 185 "ansi.y" /* yacc.c:1646  */
+#line 187 "icg.y" /* yacc.c:1646  */
     {codegen();}
-#line 1842 "y.tab.c" /* yacc.c:1646  */
+#line 1844 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 53:
-#line 186 "ansi.y" /* yacc.c:1646  */
+#line 188 "icg.y" /* yacc.c:1646  */
     {push();}
-#line 1848 "y.tab.c" /* yacc.c:1646  */
+#line 1850 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 54:
-#line 186 "ansi.y" /* yacc.c:1646  */
+#line 188 "icg.y" /* yacc.c:1646  */
     {codegen();}
-#line 1854 "y.tab.c" /* yacc.c:1646  */
+#line 1856 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 56:
-#line 191 "ansi.y" /* yacc.c:1646  */
+#line 193 "icg.y" /* yacc.c:1646  */
     {push();}
-#line 1860 "y.tab.c" /* yacc.c:1646  */
+#line 1862 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 57:
-#line 191 "ansi.y" /* yacc.c:1646  */
+#line 193 "icg.y" /* yacc.c:1646  */
     {codegen();}
-#line 1866 "y.tab.c" /* yacc.c:1646  */
+#line 1868 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 58:
-#line 192 "ansi.y" /* yacc.c:1646  */
+#line 194 "icg.y" /* yacc.c:1646  */
     {push();}
-#line 1872 "y.tab.c" /* yacc.c:1646  */
+#line 1874 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 59:
-#line 192 "ansi.y" /* yacc.c:1646  */
+#line 194 "icg.y" /* yacc.c:1646  */
     {codegen();}
-#line 1878 "y.tab.c" /* yacc.c:1646  */
+#line 1880 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 73:
-#line 227 "ansi.y" /* yacc.c:1646  */
+#line 229 "icg.y" /* yacc.c:1646  */
     {codegen_assign();}
-#line 1884 "y.tab.c" /* yacc.c:1646  */
+#line 1886 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 74:
-#line 231 "ansi.y" /* yacc.c:1646  */
+#line 233 "icg.y" /* yacc.c:1646  */
     {push();}
-#line 1890 "y.tab.c" /* yacc.c:1646  */
+#line 1892 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 95:
-#line 270 "ansi.y" /* yacc.c:1646  */
+#line 272 "icg.y" /* yacc.c:1646  */
     {push();}
-#line 1896 "y.tab.c" /* yacc.c:1646  */
+#line 1898 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 96:
-#line 270 "ansi.y" /* yacc.c:1646  */
+#line 272 "icg.y" /* yacc.c:1646  */
     {codegen_assign();}
-#line 1902 "y.tab.c" /* yacc.c:1646  */
+#line 1904 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 110:
-#line 297 "ansi.y" /* yacc.c:1646  */
+#line 299 "icg.y" /* yacc.c:1646  */
     {push();}
-#line 1908 "y.tab.c" /* yacc.c:1646  */
+#line 1910 "y.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 143:
+#line 370 "icg.y" /* yacc.c:1646  */
+    {(yyval) = 0;}
+#line 1916 "y.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 144:
+#line 371 "icg.y" /* yacc.c:1646  */
+    {(yyval) = 1;}
+#line 1922 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 147:
-#line 378 "ansi.y" /* yacc.c:1646  */
+#line 380 "icg.y" /* yacc.c:1646  */
     {lab1_while();}
-#line 1914 "y.tab.c" /* yacc.c:1646  */
+#line 1928 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 148:
-#line 378 "ansi.y" /* yacc.c:1646  */
+#line 380 "icg.y" /* yacc.c:1646  */
     {lab2_while();}
-#line 1920 "y.tab.c" /* yacc.c:1646  */
+#line 1934 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 149:
-#line 378 "ansi.y" /* yacc.c:1646  */
+#line 380 "icg.y" /* yacc.c:1646  */
     {lab3_while();}
-#line 1926 "y.tab.c" /* yacc.c:1646  */
+#line 1940 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 151:
-#line 380 "ansi.y" /* yacc.c:1646  */
+#line 382 "icg.y" /* yacc.c:1646  */
     {lab1_for();}
-#line 1932 "y.tab.c" /* yacc.c:1646  */
+#line 1946 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 152:
-#line 380 "ansi.y" /* yacc.c:1646  */
-    {lab2_for();}
-#line 1938 "y.tab.c" /* yacc.c:1646  */
+#line 382 "icg.y" /* yacc.c:1646  */
+    {lab2_for((yyvsp[0]));}
+#line 1952 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 154:
-#line 383 "ansi.y" /* yacc.c:1646  */
+#line 385 "icg.y" /* yacc.c:1646  */
     {lab3_for();}
-#line 1944 "y.tab.c" /* yacc.c:1646  */
+#line 1958 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 155:
-#line 383 "ansi.y" /* yacc.c:1646  */
+#line 385 "icg.y" /* yacc.c:1646  */
     {lab4_for();}
-#line 1950 "y.tab.c" /* yacc.c:1646  */
+#line 1964 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 156:
-#line 384 "ansi.y" /* yacc.c:1646  */
+#line 386 "icg.y" /* yacc.c:1646  */
     {lab3_for();}
-#line 1956 "y.tab.c" /* yacc.c:1646  */
+#line 1970 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 157:
-#line 384 "ansi.y" /* yacc.c:1646  */
+#line 386 "icg.y" /* yacc.c:1646  */
     {lab4_for();}
-#line 1962 "y.tab.c" /* yacc.c:1646  */
+#line 1976 "y.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1966 "y.tab.c" /* yacc.c:1646  */
+#line 1980 "y.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -2190,7 +2204,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 402 "ansi.y" /* yacc.c:1906  */
+#line 404 "icg.y" /* yacc.c:1906  */
 
 #include <stdio.h>
 extern int column;
