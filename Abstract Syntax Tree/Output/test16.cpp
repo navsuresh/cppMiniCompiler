@@ -1,22 +1,14 @@
 #include<iostream>
 
 
-int main(){ for(;;){ int j; }
-}
+  L0 : 
+if t00 goto L1
+goto L2
+L3 :
+L2 :
+   goto L3 
+L1 : 
 
-Preorder traversal of the abstract syntax tree
-( main  int (   ( for       ) j ))
-
-
-
-Tree
-(main)
- \__(int)
- \__( )
-     \__(for)
-     |   \__( )
-     |   \__( )
-     \__(j)
 
 
 

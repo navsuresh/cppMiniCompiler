@@ -1,28 +1,17 @@
 #include<iostream>
 
 
-int main(){ int i=0; for(;i<5;){ int j; }
-}
+   i = 0
+ L0 : 
+t00 = i < 5
+t01 = not t00
+if t01 goto L1
+goto L2
+L3 :
+L2 :
+   goto L3 
+L1 : 
 
-Preorder traversal of the abstract syntax tree
-( main  int (   ( =  i  0 )( < ( for    ( <  i  5 )) j )))
-
-
-
-Tree
-(main)
- \__(int)
- \__( )
-     \__(=)
-     |   \__(i)
-     |   \__(0)
-     \__(<)
-         \__(for)
-         |   \__( )
-         |   \__(<)
-         |       \__(i)
-         |       \__(5)
-         \__(j)
 
 
 

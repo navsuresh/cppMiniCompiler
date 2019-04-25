@@ -34,6 +34,4 @@ int main(){
 		i++;
 	}
 	int a = i+j+k*l;
-
-
 }

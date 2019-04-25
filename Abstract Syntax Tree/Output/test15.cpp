@@ -1,20 +1,7 @@
-int a = b+c+d*e;
-
-Preorder traversal of the abstract syntax tree
-( =  a ( + ( +  b  c )( *  d  e )))
-
-
-
-Tree
-(=)
- \__(a)
- \__(+)
-     \__(+)
-     |   \__(b)
-     |   \__(c)
-     \__(*)
-         \__(d)
-         \__(e)
+   t00 = b + c
+t01 = d * e
+t02 = t00 + t01
+a = t02
 
 
 

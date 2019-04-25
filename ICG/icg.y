@@ -8,11 +8,12 @@ void yyerror();
 #include<stdio.h>
 char st[100][10];
 int top=0;
-char i_[2]="0";
+char i_[3]="00";
 char temp[2]="t";
 int lnum=0;
 int start=1;
 extern char* yytext;
+extern int yylineno;
 void push()
  {
 	 
@@ -26,7 +27,13 @@ void codegen()
 	printf("%s = %s %s %s\n",temp,st[top-2],st[top-1],st[top]);
 	top-=2;
 	strcpy(st[top],temp);
-	i_[0]++;
+	if(i_[1]!='9')
+		i_[1]++;
+	else
+	{
+		i_[1] = '0';
+		i_[0]++;
+	}
 }
 
 void codegen_umin()
@@ -36,7 +43,13 @@ void codegen_umin()
 	printf("%s = -%s\n",temp,st[top]);
 	top--;
 	strcpy(st[top],temp);
-	i_[0]++;
+	if(i_[1]!='9')
+		i_[1]++;
+	else
+	{
+		i_[1] = '0';
+		i_[0]++;
+	}
 }
 
 void codegen_assign()
@@ -55,7 +68,7 @@ void codegen_assign_unary()
 
 void lab1_while()
 {
-	printf("L%d: \n",lnum++);
+	printf("L%d : \n",lnum++);
 }
 
 void lab2_while()
@@ -65,18 +78,24 @@ void lab2_while()
 
 	printf("%s = not %s\n",temp,st[top]);
 	printf("if %s goto L%d\n",temp,lnum);
-	i_[0]++;
+	if(i_[1]!='9')
+		i_[1]++;
+	else
+	{
+		i_[1] = '0';
+		i_[0]++;
+	}
 
 }
 
 void lab3_while()
 {
 	printf("goto L%d \n",start);
-	printf("L%d: \n",lnum++);
+	printf("L%d : \n",lnum++);
 }
 void lab1_for()
 {
-	printf("L%d: \n",lnum++);
+	printf("L%d : \n",lnum++);
 }
 
 void lab2_for(int s)
@@ -86,19 +105,25 @@ void lab2_for(int s)
 	if(s!=0)
 		printf("%s = not %s\n",temp,st[top]);
 	printf("if %s goto L%d\n",temp,lnum++);
-	i_[0]++;
+	if(i_[1]!='9')
+		i_[1]++;
+	else
+	{
+		i_[1] = '0';
+		i_[0]++;
+	}
 	printf("goto L%d\n", lnum++);
-	printf("L%d:\n", lnum++);
+	printf("L%d :\n", lnum++);
 }
 
 void lab3_for()
 {
-	printf("L%d:\n", lnum - 2);
+	printf("L%d :\n", lnum - 2);
 }
 void lab4_for()
 {
 	printf("goto L%d \n",lnum - 1);
-	printf("L%d: \n",lnum - 3);
+	printf("L%d : \n",lnum - 3);
 }
 %}
 %token IDENTIFIER CONSTANT STRING_LITERAL SIZEOF
@@ -354,6 +379,9 @@ compound_statement
 	| '{' statement_list '}'
 	| '{' declaration_list '}'
 	| '{' declaration_list statement_list '}'
+	| '{' statement_list declaration_list  '}'
+	| '{' statement_list declaration_list statement_list  '}'
+	| '{' declaration_list statement_list declaration_list '}'
 	;
 
 declaration_list
@@ -417,7 +445,7 @@ int main(int argc, char *argv[]) {
 	if (!yyparse()) {
 		printf("\n\n\nParsing is successful\n\n\n");
 	} else {
-		printf("unsuccessful\n");
+		printf("unsuccessful %d\n", yylineno);
 	}
 	
 //	fclose(yyout);

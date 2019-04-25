@@ -1,22 +1,14 @@
 #include<iostream>
 
 
-int main(){ while(1){ int i=0; }
-}
+    L0 : 
+t00 = a < b
+t01 = not t00
+if t01 goto L1
+ i = 0
+ goto L1 
+L1 : 
 
-Preorder traversal of the abstract syntax tree
-( main  int ( while  1 ( =  i  0 )))
-
-
-
-Tree
-(main)
- \__(int)
- \__(while)
-     \__(1)
-     \__(=)
-         \__(i)
-         \__(0)
 
 
 

@@ -1,7 +1,8 @@
 #include<iostream>
 
 int main(){
-	while(1){
-		int i=0;
+	int i;
+	while(a<b){
+		i=0;
 	}
 }

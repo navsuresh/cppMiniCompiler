@@ -1,5 +1,5 @@
 #include<iostream>
 
 
-int main(){ int i=0; for(intParsing Unsuccessful!!
-unsuccessful
+   i = 0
+ unsuccessful 5

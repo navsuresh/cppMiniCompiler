@@ -1,42 +1,17 @@
 #include<iostream>
 
 
-int main(){ int i=0; while(i>=0){ if(i==0){ int j; int i = 10; } else if(i>0){ int k; } else{ int l; } }
-}
+   i = 0
+ L0 : 
+t00 = i >= 0
+t01 = not t00
+if t01 goto L1
+ t02 = i == 0
+      i = 10
+   t03 = i > 0
+        goto L1 
+L1 : 
 
-Preorder traversal of the abstract syntax tree
-( main  int (   ( =  i  0 )( while ( >=  i  0 )( else ( if ( ==  i  0 )(    j ( =  i  10 )))( else ( if ( >  i  0 ) k ) l )))))
-
-
-
-Tree
-(main)
- \__(int)
- \__( )
-     \__(=)
-     |   \__(i)
-     |   \__(0)
-     \__(while)
-         \__(>=)
-         |   \__(i)
-         |   \__(0)
-         \__(else)
-             \__(if)
-             |   \__(==)
-             |   |   \__(i)
-             |   |   \__(0)
-             |   \__( )
-             |       \__(j)
-             |       \__(=)
-             |           \__(i)
-             |           \__(10)
-             \__(else)
-                 \__(if)
-                 |   \__(>)
-                 |   |   \__(i)
-                 |   |   \__(0)
-                 |   \__(k)
-                 \__(l)
 
 
 

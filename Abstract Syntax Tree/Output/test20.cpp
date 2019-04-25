@@ -1,28 +1,16 @@
 #include<iostream>
 
 
-int main(){ int i=0; for(i=6;;){ int j; }
-}
+   i = 0
+ i = 6
+L0 : 
+if t00 goto L1
+goto L2
+L3 :
+L2 :
+   goto L3 
+L1 : 
 
-Preorder traversal of the abstract syntax tree
-( main  int (   ( =  i  0 )(   ( for ( =  i  6 )   ) j )))
-
-
-
-Tree
-(main)
- \__(int)
- \__( )
-     \__(=)
-     |   \__(i)
-     |   \__(0)
-     \__( )
-         \__(for)
-         |   \__(=)
-         |   |   \__(i)
-         |   |   \__(6)
-         |   \__( )
-         \__(j)
 
 
 

@@ -2,9 +2,9 @@
 
 int main()
 {
-
-    for (i = 0; i < 5; i++)
+    int i;
+    for (i = 0; i < 5;i++)
     {
-        int j;
+        int j = 5;
     }
 }

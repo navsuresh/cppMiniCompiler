@@ -2,15 +2,15 @@
 
 
    i = 0
- L0: 
-t0 = i >= 0
-t1 = not t0
-if t1 goto L1
- t2 = i == 0
+ L0 : 
+t00 = i >= 0
+t01 = not t00
+if t01 goto L1
+ t02 = i == 0
       i = 10
-   t3 = i > 0
-        goto L0 
-L1: 
+   t03 = i > 0
+        goto L1 
+L1 : 
 
 
 
